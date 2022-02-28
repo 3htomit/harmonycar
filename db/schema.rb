@@ -10,10 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_134128) do
+ActiveRecord::Schema.define(version: 2022_02_28_153433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alert_categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "alerts", force: :cascade do |t|
+    t.bigint "car_id", null: false
+    t.bigint "alert_category_id", null: false
+    t.date "due_date"
+    t.integer "due_km"
+    t.boolean "completed"
+    t.date "completed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alert_category_id"], name: "index_alerts_on_alert_category_id"
+    t.index ["car_id"], name: "index_alerts_on_car_id"
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "number_plate"
+    t.integer "mileage"
+    t.bigint "user_id", null: false
+    t.bigint "specification_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["specification_id"], name: "index_cars_on_specification_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_documents_on_car_id"
+  end
+
+  create_table "garages", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "telephone"
+    t.float "average_rating"
+    t.integer "review_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.bigint "garage_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["garage_id"], name: "index_services_on_garage_id"
+  end
+
+  create_table "specifications", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.string "fuel"
+    t.integer "critair"
+    t.integer "horsepower"
+    t.string "transmission"
+    t.date "start_year"
+    t.date "end_year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +94,16 @@ ActiveRecord::Schema.define(version: 2022_02_28_134128) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "alerts", "alert_categories"
+  add_foreign_key "alerts", "cars"
+  add_foreign_key "cars", "specifications"
+  add_foreign_key "cars", "users"
+  add_foreign_key "documents", "cars"
+  add_foreign_key "services", "garages"
 end
