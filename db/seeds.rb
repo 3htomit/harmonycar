@@ -207,7 +207,7 @@ alert_category3 = AlertCategory.create!(
 puts "Alert category 3 saved"
 
 alert_category4 = AlertCategory.create!(
-  name: "Vérfication des niveaus",
+  name: "Vérfication des niveaux",
   description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route."
 )
 
