@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_130100) do
     t.string "fuel"
     t.integer "critair"
     t.string "transmission"
-    t.date "start_year"
-    t.date "end_year"
+    t.string "start_year"
+    t.string "end_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "cylinder"
