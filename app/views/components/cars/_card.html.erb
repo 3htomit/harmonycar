@@ -1,17 +1,18 @@
 <div class="card">
   <%= link_to car_path(car) do %>
 
+      <!-- image de la voiture -->
       <% if car.specification.photo.attached? %>
         <%= cl_image_tag car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
       <% end %>
 
-
+      <!-- quelque spécification, model, engine, mileage -->
       <div class="d-flex flex-row justify-content-between">
         <div>
           <p><strong><%= car.specification.model%></strong></p>
           <p><%= car.specification.engine%></p>
         </div>
-        <div><%= car.mileage%></div>
+        <div><i><%= car.mileage%></i></div>
       </div>
   <%end%>
 </div>
