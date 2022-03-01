@@ -1,5 +1,5 @@
 <br>
 <br>
 <% @cars_user.each do |car| %>
-  <%= car.number_plate%>
+   <%= render 'components/cars/card', car: car %>
 <%end%>
