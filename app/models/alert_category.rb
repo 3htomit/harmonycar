@@ -1,3 +1,4 @@
 class AlertCategory < ApplicationRecord
-  has_many :alert
+  has_many :alerts
+
 end
