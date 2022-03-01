@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_01_115202) do
+ActiveRecord::Schema.define(version: 2022_03_01_115734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_115202) do
     t.string "fuel"
     t.integer "critair"
     t.string "transmission"
-    t.date "start_year"
-    t.date "end_year"
+    t.string "start_year"
+    t.string "end_year"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "cylinder"
