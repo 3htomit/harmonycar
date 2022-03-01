@@ -1,3 +1,43 @@
-<div>
+<!-- image de la voiture et les spécification principal -->
+<div class="card">
+  <% if @car.specification.photo.attached? %>
+    <%= cl_image_tag @car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
+  <% end %>
 
+  <p><%= @car.specification.make%> <strong><%= @car.specification.model%></strong></p>
+  <%= @car.specification.engine%>
+  <div class="d-flex flex-row justify-content-between"><p><%= @car.mileage%> Km</p>  <%= link_to "🖊️"%></div>
+  <!--afficher le bandeau des alerte sur la droite-->
 </div>
+
+<!-- la liste des spécification un peu plus détailler avec un lien pour ouvrir la page documents -->
+<div class="card">
+  <div class="row">
+    <div class="col-sm">
+      <strong>immatriculation</strong>
+    </div>
+    <div class="col-sm">
+      <%= @car.number_plate %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <strong>crit'air</strong>
+    </div>
+    <div class="col">
+      <%= @car.specification.critair %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <strong>fuel</strong>
+    </div>
+    <div class="col-sm">
+      <%= @car.specification.fuel %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "documents" do %>
+  <p class="link_document btn btn-primary mt-2">documents</p>
+<%end%>
