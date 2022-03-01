@@ -1,0 +1,19 @@
+<%= link_to car_path(car) do %>
+  <div class = "card w-50">
+    <%# <img id="img_car" src="https://cdn.menzzo.fr/media/catalog/product/l/i/t/lit-voiture-de-course-interactif-mnv1-bleu-panneau0_0-61ddac992dd18__mz_w700_h700.jpg" alt="test"> %>
+    <% if car.specification.photo.attached? %>
+      <%#= cl_image_tag car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "" %>
+    <% end %>
+
+
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <p>
+          <%= car.specification.model%>
+          <%= car.specification.engine%>
+        </p>
+      </div>
+      <div><%= car.mileage%></div>
+    </div>
+  </div>
+<%end%>
