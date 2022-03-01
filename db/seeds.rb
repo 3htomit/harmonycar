@@ -15,8 +15,6 @@ user1 = User.create!(
   password: "secret"
 )
 
-user1.save
-
 puts "User 1 saved"
 
 user2 = User.create!(
@@ -25,8 +23,6 @@ user2 = User.create!(
   email: "dominique@mail.com",
   password: "secret"
 )
-
-user2.save
 
 puts "User 2 saved"
 
@@ -37,14 +33,9 @@ user3 = User.create!(
   password: "secret"
 )
 
-user3.save
-
 puts "User 3 saved"
 
-
-
-
-spec1 = Specification.create!(
+spec1 = Specification.new(
   make: "Renault",
   model: "Espace",
   fuel: "Diesel",
@@ -55,10 +46,10 @@ spec1 = Specification.create!(
   end_year: "17/12/2019")
 file = URI.open('https://sf2.autojournal.fr/wp-content/uploads/autojournal/2020/11/Renault_Espace_2019_55c6e.jpg')
 spec1.photo.attach(io: file, filename: "spec1", content_type: 'image/png')
-
+spec1.save
 puts "spec 1 created"
 
-spec2 = Specification.create!(
+spec2 = Specification.new(
   make: "Renault",
   model: "Espace",
   fuel: "Essence",
@@ -69,10 +60,10 @@ spec2 = Specification.create!(
   end_year: "05/11/2018")
 file = URI.open('https://sf1.auto-moto.com/wp-content/uploads/sites/9/2018/11/93213_2017_-_essais_presse_renault_espace_initiale_paris_model_year_2017.jpg')
 spec2.photo.attach(io: file, filename: "spec2", content_type: 'image/png')
-
+spec2.save
 puts "spec 2 created"
 
-spec3 = Specification.create!(
+spec3 = Specification.new(
   make: "Audi",
   model: "A4 V",
   fuel: "Diesel",
@@ -83,10 +74,10 @@ spec3 = Specification.create!(
   end_year: "06/03/2013")
 file = URI.open('https://www.largus.fr/images/photos/rsi/_G_JPG/Voitures/AUDI/A4/V_B9/Ph2/Berline_4_portes/troisquartavant1.jpg')
 spec3.photo.attach(io: file, filename: "spec3", content_type: 'image/png')
-
+spec3.save
 puts "spec 3 created"
 
-spec4 = Specification.create!(
+spec4 = Specification.new(
   make: "Audi",
   model: "Audi A8 IV",
   fuel: "Diesel",
@@ -97,10 +88,10 @@ spec4 = Specification.create!(
   end_year: "")
 file = URI.open('https://www.larevueautomobile.com/images/fiche-technique/2019/Audi/A8-L/Audi_A8-L_MD_1.jpg')
 spec4.photo.attach(io: file, filename: "spec4", content_type: 'image/png')
-
+spec4.save
 puts "spec 4 created"
 
-spec5 = Specification.create!(
+spec5 = Specification.new(
   make: "Ford",
   model: "Ford Cougar",
   fuel: "Essence",
@@ -111,10 +102,10 @@ spec5 = Specification.create!(
   end_year: "01/11/2000")
 file = URI.open('https://images.caradisiac.com/logos-ref/modele/modele--ford-cougar/S5-modele--ford-cougar.jpg')
 spec5.photo.attach(io: file, filename: "spec5", content_type: 'image/png')
-
+spec5.save
 puts "spec 5 created"
 
-spec6 = Specification.create!(
+spec6 = Specification.new(
   make: "Ford",
   model: "Ford Fiesta V",
   fuel: "Essence",
@@ -125,10 +116,10 @@ spec6 = Specification.create!(
   end_year: "02/06/2020")
 file = URI.open('https://cdn.vroom.be/media/public/articles/None/gallery/17738/2017_ford_fiesta_titanium_01.jpg')
 spec6.photo.attach(io: file, filename: "spec6", content_type: 'image/png')
-
+spec6.save
 puts "spec 6 created"
 
-spec7 = Specification.create!(
+spec7 = Specification.new(
   make: "Seat",
   model: "Arona",
   fuel: "Essence",
@@ -139,10 +130,10 @@ spec7 = Specification.create!(
   end_year: "01/05/2021")
 file = URI.open('https://gcm.moniteurautomobile.be/imgcontrol/c680-d465/clients/moniteur/content/medias/images/test_drives/10000/600/40/2022-seat-arona-20.jpg')
 spec7.photo.attach(io: file, filename: "spec7", content_type: 'image/png')
-
+spec7.save
 puts "spec 7 created"
 
-spec8 = Specification.create!(
+spec8 = Specification.new(
   make: "Skoda",
   model: "Scala",
   fuel: "Manuelle",
@@ -153,10 +144,10 @@ spec8 = Specification.create!(
   end_year: "")
 file = URI.open('https://www.automobile-magazine.fr/asset/cms/840x394/156849/config/110245/cette-scala-reprend-la-plate-forme-des-petites-volkswagen-polo-ou-seat-ibiza-mais-soigne-davantage-le-confort.jpg')
 spec8.photo.attach(io: file, filename: "spec8", content_type: 'image/png')
-
+spec8.save
 puts "spec 8 created"
 
-spec9 = Specification.create!(
+spec9 = Specification.new(
   make: "Bentley",
   model: "Arnage",
   fuel: "Essence",
@@ -167,10 +158,10 @@ spec9 = Specification.create!(
   end_year: "01/12/2009")
 file = URI.open('https://images.caradisiac.com/logos-ref/modele/modele--bentley-arnage/S0-modele--bentley-arnage.jpg')
 spec9.photo.attach(io: file, filename: "spec9", content_type: 'image/png')
-
+spec9.save
 puts "spec 9 created"
 
-spec10 = Specification.create!(
+spec10 = Specification.new(
   make: "BMW",
   model: "M5 Touring",
   fuel: "Essence",
@@ -181,7 +172,7 @@ spec10 = Specification.create!(
   end_year: "01/09/2010")
 file = URI.open('https://s1.cdn.autoevolution.com/images/gallery/BMWM5Touring-1235_1.jpg')
 spec10.photo.attach(io: file, filename: "spec10", content_type: 'image/png')
-
+spec10.save
 puts "spec 10 created"
 
 car1 = Car.create!(number_plate: "GF-883-DA", mileage: 44_000, user: user1, specification: spec1 )
@@ -199,16 +190,12 @@ alert_category1 = AlertCategory.create!(
   description: "Le contrôle technique concerne les véhicules de tourisme et utilitaires légers, de 4 ans et plus, à renouveler tous les 2 ans."
 )
 
-
-
 puts "Alert category 1 saved"
 
 alert_category2 = AlertCategory.create!(
   name: "Entretien",
   description: "La révision consiste à examiner, à intervalles réguliers, les différents composants d’un véhicule, pour maximiser sa fiabilité, sa performance et sa longévité."
 )
-
-
 
 puts "Alert category 2 saved"
 
@@ -217,8 +204,6 @@ alert_category3 = AlertCategory.create!(
   description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite."
 )
 
-
-
 puts "Alert category 3 saved"
 
 alert_category4 = AlertCategory.create!(
@@ -226,10 +211,7 @@ alert_category4 = AlertCategory.create!(
   description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route."
 )
 
-
-
 puts "Alert category 4 saved"
-
 
 
 puts "Beginning to create alerts"
@@ -243,8 +225,6 @@ alert1 = Alert.create!(
   completed_at: nil
 )
 
-
-
 puts "Alert 1 saved"
 
 alert2 = Alert.create!(
@@ -255,8 +235,6 @@ alert2 = Alert.create!(
   completed: true,
   completed_at: Date.today-220.days
 )
-
-
 
 puts "Alert 2 saved"
 
@@ -279,6 +257,5 @@ alert4 = Alert.create!(
   completed: false,
   completed_at: nil
 )
-
 
 puts "Alert 4 saved"
