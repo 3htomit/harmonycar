@@ -1,0 +1,31 @@
+<div class="card">
+  <h2><%= alert_category.name %></h2>
+  <p><%= alert_category.description %></p>
+
+  <div>
+    <%= link_to "Prendre RDV", garages_path  %>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Réalisé
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= alert_category.name %> réalisé</h5> <!-- NAME DOESNT WORK -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          SIMPLE FORM HERE
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
