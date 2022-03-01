@@ -1,5 +1,6 @@
-<br>
-<br>
-<% @cars_user.each do |car| %>
-   <%= render 'components/cars/card', car: car %>
-<%end%>
+
+<div class = "cards">
+  <% @cars_user.each do |car| %>
+    <%= render 'components/cars/card', car: car %>
+  <%end%>
+</div>
