@@ -1,0 +1,16 @@
+<div class="vehicule-card">
+  <% if specification.photo.attached? %>
+    <%= cl_image_tag specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
+  <% end %>
+
+  <div>
+    <h3><%= specification.make %></h3>
+    <h4><%= specification.model %></h4>
+  </div>
+
+  <div>
+    <p><%= specification.engine %></p>
+    <p><%= specification.fuel%> | <%=specification.transmission %></p>
+  </div>
+
+</div>

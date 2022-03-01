@@ -1,0 +1,15 @@
+<h1>Add a new vehicule</h1>
+
+<div data-controller="search-car">
+  <%= form_with url: new_car_path, method: :get, html: { class:
+    'mb-4', data: { search_car_target: 'form' } } do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: 'Votre Vehicule',
+                     value: params[:query],
+                     data: { search_car_target: 'input',
+                             action:'keyup->search-car#update' } %>
+  <% end %>
+  <%= render "components/cars/list", specifications: @specifications %>
+
+</div>

@@ -1,6 +1,8 @@
 
-<div class = "cards">
+<div class = "my-vehiccule-card">
   <% @cars_user.each do |car| %>
-    <%= render 'components/cars/card', car: car %>
+    <%= render 'components/cars/my_vehicule_card', car: car %>
   <%end%>
 </div>
+
+<%= link_to "add a new vehicule", new_car_path %>

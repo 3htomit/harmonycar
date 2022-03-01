@@ -1,0 +1,7 @@
+<div class="d-grid" data-search-car-target="list">
+  <div class="row">
+    <% @specifications.each do |specification| %>
+      <%= render "components/cars/vehicule_card", specification: specification%>
+    <% end %>
+  </div>
+</div>
