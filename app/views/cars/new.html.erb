@@ -10,6 +10,6 @@
                      data: { search_car_target: 'input',
                              action:'keyup->search-car#update' } %>
   <% end %>
-  <%= render "components/cars/list", specifications: @specifications %>
+  <%= render "components/cars/list", local: { specifications: @specifications, car: @car, alert1: @alert1, alert2: @alert2 } %>
 
 </div>

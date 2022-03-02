@@ -1,0 +1,27 @@
+<div class="modal fade" id="<%= dom_id(specification) %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= specification.model %></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@car) do |f| %>
+          <%= f.label :name, "Numéro d'immatriculation" %>
+          <%= f.text_field :number_plate %>
+          <%= f.label :name, "kilométrage" %>
+          <%= f.number_field :mileage %>
+          <%= date_field_tag :date_ct %>
+          <%= date_field_tag :date_et %>
+          <%= text_field_tag :spec_id, specification.id %>
+          <button type="button" class="btn"><%= f.submit %></button>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+      </div>
+    </div>
+  </div>
+</div>
