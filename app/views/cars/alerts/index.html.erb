@@ -1,5 +1,6 @@
 <div>
-  <% @alert_categories.each do |alert_category| %>
-    <%= render 'components/alert_category/card', alert_category: alert_category %>
+  <% @alerts.each do |alert| %>
+  <!-- show all alerts -->
+    <%= render 'components/alert_category/card', alert: alert %>
   <% end %>
 </div>

@@ -187,34 +187,38 @@ puts "Beginning to create alert category"
 
 alert_category1 = AlertCategory.create!(
   name: "Contrôle technique",
-  description: "Le contrôle technique concerne les véhicules de tourisme et utilitaires légers, de 4 ans et plus, à renouveler tous les 2 ans."
+  description: "Le contrôle technique concerne les véhicules de tourisme et utilitaires légers, de 4 ans et plus, à renouveler tous les 2 ans.",
+  max_weeks: 12
 )
 
 puts "Alert category 1 saved"
 
 alert_category2 = AlertCategory.create!(
   name: "Entretien",
-  description: "La révision consiste à examiner, à intervalles réguliers, les différents composants d’un véhicule, pour maximiser sa fiabilité, sa performance et sa longévité."
+  description: "La révision consiste à examiner, à intervalles réguliers, les différents composants d’un véhicule, pour maximiser sa fiabilité, sa performance et sa longévité.",
+  max_weeks: 4
 )
 
 puts "Alert category 2 saved"
 
 alert_category3 = AlertCategory.create!(
   name: "Vérfication des pneus",
-  description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite."
+  description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite.",
+  max_weeks: 2
 )
 
 puts "Alert category 3 saved"
 
 alert_category4 = AlertCategory.create!(
   name: "Vérfication des niveaux",
-  description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route."
+  description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route.",
+  max_weeks: 4
 )
 
 puts "Alert category 4 saved"
 
 
-puts "Beginning to create alerts"
+puts "Beginning to create car alerts"
 
 alert1 = Alert.create!(
   car: Car.first,
@@ -225,37 +229,107 @@ alert1 = Alert.create!(
   completed_at: nil
 )
 
-puts "Alert 1 saved"
-
 alert2 = Alert.create!(
-  car: Car.second,
+  car: Car.first,
   alert_category: AlertCategory.second,
-  due_date: Date.today+145.days,
-  due_km: 75_000,
-  completed: true,
-  completed_at: Date.today-220.days
-)
-
-puts "Alert 2 saved"
-
-alert3 = Alert.create!(
-  car: Car.third,
-  alert_category: AlertCategory.third,
-  due_date: Date.today+15.days,
-  due_km: 101_000,
-  completed: true,
-  completed_at: Date.today-90.days
-)
-
-puts "Alert 3 saved"
-
-alert4 = Alert.create!(
-  car: Car.third,
-  alert_category: AlertCategory.fourth,
-  due_date: Date.today-5.days,
-  due_km: 56_000,
+  due_date: Date.today+112.days,
+  due_km: 125_000,
   completed: false,
   completed_at: nil
 )
 
-puts "Alert 4 saved"
+alert3 = Alert.create!(
+  car: Car.first,
+  alert_category: AlertCategory.third,
+  due_date: Date.today-32.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert4 = Alert.create!(
+  car: Car.first,
+  alert_category: AlertCategory.fourth,
+  due_date: Date.today+292.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+puts "Alert car 1 saved"
+
+alert5 = Alert.create!(
+  car: Car.second,
+  alert_category: AlertCategory.first,
+  due_date: Date.today+462.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert6 = Alert.create!(
+  car: Car.second,
+  alert_category: AlertCategory.second,
+  due_date: Date.today+362.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert7 = Alert.create!(
+  car: Car.second,
+  alert_category: AlertCategory.third,
+  due_date: Date.today-12.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert8 = Alert.create!(
+  car: Car.second,
+  alert_category: AlertCategory.fourth,
+  due_date: Date.today-32.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+puts "Alert car 2 saved"
+
+alert9 = Alert.create!(
+  car: Car.third,
+  alert_category: AlertCategory.first,
+  due_date: Date.today+362.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert10 = Alert.create!(
+  car: Car.third,
+  alert_category: AlertCategory.second,
+  due_date: Date.today+15.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert11 = Alert.create!(
+  car: Car.third,
+  alert_category: AlertCategory.third,
+  due_date: Date.today-132.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+alert12 = Alert.create!(
+  car: Car.third,
+  alert_category: AlertCategory.fourth,
+  due_date: Date.today,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+
+puts "Alert car 3 saved"
