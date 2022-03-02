@@ -1,0 +1,7 @@
+<% @garages.each do |garage| %>
+  <div>
+    <%= garage[:name] %>
+    <i><%=garage[:address]%></i>
+    <%= link_to "address", "https://www.allogarage.fr/#{garage[:mail]}"%>
+  </div>
+<%end%>

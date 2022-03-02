@@ -9,25 +9,25 @@ export default class extends Controller {
   // }
 
 
-  update(event) {
-    console.log(this.newMileageTarget.value);
-    console.log(this.newMileageTarget.action);
+  // update(event) {
+  //   console.log(this.newMileageTarget.value);
+  //   console.log(this.newMileageTarget.action);
 
-    event.preventDefault()
-    // const url = this.newMileageTarget.action
-    // const url = car_mileages_path
+  //   event.preventDefault()
+  //   // const url = this.newMileageTarget.action
+  //   // const url = car_mileages_path
 
-    fetch(url, {
-      method: "PATCH",
-      headers: { "Accept": "text/plain" },
-      body: new FormData(this.newMileageTarget.value)
-    })
-      .then(response => response.text())
-      .then((data) => {
-        console.log(data)
-      })
+  //   fetch(url, {
+  //     method: "PATCH",
+  //     headers: { "Accept": "text/plain" },
+  //     body: new FormData(this.newMileageTarget.value)
+  //   })
+  //     .then(response => response.text())
+  //     .then((data) => {
+  //       console.log(data)
+  //     })
 
 
-  }
+  // }
 
 }
