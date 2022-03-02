@@ -1,12 +1,16 @@
 <!-- image de la voiture et les spécification principal -->
-<div class="card">
+<div class="card" data-controller="modal-car-km">
   <% if @car.specification.photo.attached? %>
     <%= cl_image_tag @car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
   <% end %>
 
   <p><%= @car.specification.make%> <strong><%= @car.specification.model%></strong></p>
   <%= @car.specification.engine%>
-  <div class="d-flex flex-row justify-content-between"><p><%= @car.mileage%> Km</p>  <%= link_to "🖊️"%></div>
+  <div class="d-flex flex-row justify-content-between" >
+    <!--le popup (modal) pour changer le Km de la voiture-->
+    <%= render 'components/cars/modal_car_km', car: @car %>
+
+  </div>
   <!--afficher le bandeau des alerte sur la droite-->
 </div>
 

@@ -1,19 +1,19 @@
 class CarsController < ApplicationController
 
 
-
   def index
-    @cars_user = []
-
-    Car.all.each do |car|
-      @cars_user << car if car.user_id == current_user.id
-    end
   end
 
   def show
     @car = Car.find(params[:id])
   end
 
+  def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+
+    redirect_to car_path(@car)
+  end
 
   def new
     @specifications = Specification.all
@@ -31,5 +31,11 @@ class CarsController < ApplicationController
 
   def create
 
+  end
+
+  private
+
+  def car_params
+    params.require(:car).permit(:mileage)
   end
 end

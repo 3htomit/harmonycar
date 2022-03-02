@@ -1,6 +1,6 @@
 
 <div class = "my-vehiccule-card">
-  <% @cars_user.each do |car| %>
+  <% current_user.cars.each do |car| %>
     <%= render 'components/cars/my_vehicule_card', car: car %>
   <%end%>
 </div>
