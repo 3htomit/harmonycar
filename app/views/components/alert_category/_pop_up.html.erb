@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%= dom_id(alert)%>">
+  Réalisé
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="<%= dom_id(alert)%>" tabindex="-1" aria-labelledby="<%= dom_id(alert)%>Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="<%= dom_id(alert)%>Label"><%= alert.alert_category.name %> réalisé</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for(alert) do |f| %>
+            <%= f.input :completed_at %>
+            <%= f.input :completed, as: :hidden, input_html: { value: true }  %>
+            <%= f.submit "Valider", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
