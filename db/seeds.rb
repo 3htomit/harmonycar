@@ -1,10 +1,12 @@
 require "open-uri"
+require "csv"
 
 User.destroy_all
 AlertCategory.destroy_all
 Alert.destroy_all
 Specification.destroy_all
 Car.destroy_all
+Garage.destroy_all
 
 puts "Beginning to create users"
 
@@ -333,3 +335,14 @@ alert12 = Alert.create!(
 )
 
 puts "Alert car 3 saved"
+
+filepath = "storage/garages.csv"
+i = 0
+puts "create garage nantes!"
+CSV.foreach(filepath, headers: :first_row) do |row|
+  puts "#{i} garage(s)"
+  garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
+  garage.save
+  i+=1
+end
+puts "garage save !"
