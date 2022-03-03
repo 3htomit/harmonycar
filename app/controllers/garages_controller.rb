@@ -22,4 +22,5 @@ class GaragesController < ApplicationController
     end
   end
 
+
 end
