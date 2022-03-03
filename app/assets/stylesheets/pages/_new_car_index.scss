@@ -1,11 +1,37 @@
+.new_vehicule_title {
+  color: $primary;
+  font-family: $headers-font;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 8px;
+  background-color: $white;
+}
+
 .vehicule-card {
   width: 172px;
-  border: 1px solid black;
+  // border: 1px solid black;
   background-color: $white;
   .new_car_img {
     width: 100%;
     height: 113px;
   }
+}
+
+.listed_new_cars {
+  background-color: $background;
+  padding-top: 10px;
+}
+
+.form-control {
+  border: 0;
+  background-color: $secondary-li
+}
+
+.new_car_input {
+  width: 95%;
+  margin-left: 10px;
+
 }
 
 .new_car_grid {
@@ -28,17 +54,19 @@
 
 .new_car_engine {
   margin-bottom: 0;
-  border-top: solid black 1px;
+  border-top: solid $secondary 1px;
   background-color: $secondary;
 }
 
 .enginespec {
   margin-bottom: 0;
   text-align: center;
+  color: $white;
 }
 
 .fuelspec {
   margin-bottom: 0;
   font-size: small;
   text-align: center;
+  color: $white;
 }
