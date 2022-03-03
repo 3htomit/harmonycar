@@ -70,10 +70,4 @@ class CarsController < ApplicationController
   def all_specs
     @specifications = Specification.all
   end
-
-  private
-
-  def car_params
-    params.require(:car).permit(:mileage)
-  end
 end
