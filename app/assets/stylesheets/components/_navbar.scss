@@ -1,12 +1,86 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  text-align: center;
+  background-color: $white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    .active {
+      p {
+        color: $primary;
+      }
+    }
+    &:hover {
+      .active {
+        color: $primary-rg;
+      }
+      .inactive {
+        color: $grey-li;
+      }
+    }
+
+  }
+
+  .active {
+    .icon-circle {
+      background-color: $primary;
+      &:hover {
+        background-color: $primary-rg;
+      }
+    }
+  }
+
+  .inactive {
+    .icon-circle {
+      background-color: $grey;
+    }
+  }
+
+  .fas {
+    color: $white;
+    padding: 7px;
+  }
+  .fa-car {
+    font-size: 25px;
+  }
+  .fa-tools {
+    font-size: 21px;
+  }
+  .fa-user-cog {
+    font-size: 21px;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+// }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
+// }
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
+// }

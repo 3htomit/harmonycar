@@ -2,7 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/text";
-// @import "config/body";
+@import "config/others";
 @import "config/bootstrap_variables";
 
 // External libraries
@@ -19,12 +19,11 @@
 @import "pages/my_car";
 @import "pages/garages";
 
-
+// Global
 * {
   margin: 0;
   padding: 0;
 }
-
 a {
   text-decoration: none;
 }

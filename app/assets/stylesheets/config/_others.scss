@@ -12,3 +12,14 @@ body {
 .circle {
   border-radius: 100%;
 }
+
+// Shadows:
+.tile-shadow {
+  box-shadow: 0 4px 5px hsla(0, 0, 0, 15%);
+}
+.tile-shadow-top {
+  box-shadow: 0 -4px 5px hsla(0, 0, 0, 0.15)
+}
+.card-shadow {
+  box-shadow: 3px 4px 5px hsla(0, 0, 0, 15%);
+}
