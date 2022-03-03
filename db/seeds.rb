@@ -1,10 +1,12 @@
 require "open-uri"
+require "csv"
 
 User.destroy_all
 AlertCategory.destroy_all
 Alert.destroy_all
 Specification.destroy_all
 Car.destroy_all
+Garage.destroy_all
 
 puts "Beginning to create users"
 
@@ -202,7 +204,7 @@ alert_category2 = AlertCategory.create!(
 puts "Alert category 2 saved"
 
 alert_category3 = AlertCategory.create!(
-  name: "Vérfication des pneus",
+  name: "Vérification des pneus",
   description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite.",
   max_weeks: 2
 )
@@ -210,7 +212,7 @@ alert_category3 = AlertCategory.create!(
 puts "Alert category 3 saved"
 
 alert_category4 = AlertCategory.create!(
-  name: "Vérfication des niveaux",
+  name: "Vérification des niveaux",
   description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route.",
   max_weeks: 4
 )
@@ -333,3 +335,14 @@ alert12 = Alert.create!(
 )
 
 puts "Alert car 3 saved"
+
+filepath = "storage/garages.csv"
+i = 0
+puts "create garage nantes!"
+CSV.foreach(filepath, headers: :first_row) do |row|
+  puts "#{i} garage(s)"
+  garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
+  garage.save
+  i+=1
+end
+puts "garage save !"

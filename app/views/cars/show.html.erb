@@ -40,6 +40,8 @@
       <%= @car.specification.fuel %>
     </div>
   </div>
+  <%= link_to "Alert", car_alerts_path(params[:id]) %>
+
 </div>
 
 <%= link_to "documents" do %>
