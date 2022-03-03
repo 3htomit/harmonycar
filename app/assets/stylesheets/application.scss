@@ -2,8 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/text";
-@import "config/body";
-@import "config/body";
+// @import "config/body";
 @import "config/bootstrap_variables";
 
 // External libraries
@@ -18,6 +17,7 @@
 @import "pages/my_cars_index";
 @import "pages/new_car_index";
 @import "pages/my_car";
+@import "pages/garages";
 
 
 * {
@@ -28,4 +28,3 @@
 a {
   text-decoration: none;
 }
-

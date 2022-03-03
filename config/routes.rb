@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   resources :alerts, only: %i[update], controller: 'cars/alerts'
   resources :documents, only: %i[destroy]
-  resources :garages, only: %i[index show]
+  resources :garages, only: %i[index]
 end
