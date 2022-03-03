@@ -6,13 +6,13 @@
 
   <div class="new_car_info">
     <div class="new_car_model">
-      <h3><%= specification.make %></h3>
-      <h4><%= specification.model %></h4>
+      <p class="mb-0"><%= specification.make %></p>
+      <strong class="strong mb-1"><%= specification.model %></strong>
     </div>
 
     <div class="new_car_engine">
-      <p class="info enginespec"><%= specification.engine %></p>
-      <p class="info fuelspec "><%= specification.fuel%> | <%=specification.transmission %></p>
+      <p class="txt-info enginespec"><%= specification.engine %></p>
+      <p class="txt-info fuelspec "><%= specification.fuel%> | <%=specification.transmission %></p>
     </div>
   </div>
 

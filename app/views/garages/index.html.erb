@@ -1,16 +1,22 @@
-<% @garages.each do |garage| %>
+<div data-controller="display-map">
+  <div class="btn btn-primary" data-action="click->display-map#disable">icone map</div>
+  <div data-display-map-target="content">
+    <% @garages.each do |garage| %>
 
-  <div>
-    <%=garage.name%>
-     <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
-    <strong><%=garage.telephone%></strong>
-    <%= link_to "address", "https://www.allogarage.fr/#{garage.web_address}"%>
+      <div >
+        <%=garage.name%>
+        <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
+        <strong><%=garage.telephone%></strong>
+        <%= link_to "address", "https://www.allogarage.fr/#{garage.web_address}"%>
+      </div>
+
+    <%end%>
   </div>
 
-<%end%>
 
-<div class="mapboxgl-map"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="mapboxgl-map display-none" data-display-map-target="map"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
