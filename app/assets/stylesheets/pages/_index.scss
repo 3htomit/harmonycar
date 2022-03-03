@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "alerts";
+
+.mapboxgl-map {
+  height: 500px;
+  width: 350px;
+}
+
