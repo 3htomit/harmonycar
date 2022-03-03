@@ -1,10 +1,42 @@
-// Define variables for your color scheme
+// GLOBAL VARIABLES
+
+// Primary:
+$primary-dk: #1E3748;
+$primary: #294C65;
+$primary-rg: #41789F;
+$primary-li: #E2ECF3;
+
+
+// Secondary:
+$secondary-dk: #8C642C;
+$secondary: #BB853A;
+$secondary-rg: #D4AB73;
+$secondary-li: #F5ECE0;
+
+// Alerts:
+$red: #D53F34;
+$red-li: #EEAFAA;
+$yellow: #FDC500;
+$yellow-li: #FFE485;
+$green: #6A994E;
+$green-li: #B2CEA1;
+
+// Background:
+$background: #54626D;
+$popup-bg: hsla(206, 41, 20, 0.6);
+
+// Gray shades:
+$black: #000000;
+$grey: #8C8C8C;
+$grey-li: #C4C4C4;
+$white: #FFFFFF;
+
 
 // For example:
-$red: #FD1015;
+// $red: #FD1015;
 $blue: #0D6EFD;
-$yellow: #FFC65A;
+// $yellow: #FFC65A;
 $orange: #E67E22;
-$green: #1EDD88;
+// $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
