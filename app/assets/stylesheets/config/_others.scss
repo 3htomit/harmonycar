@@ -1,0 +1,14 @@
+// Body:
+body {
+  background-color: $background !important;
+  margin: 0;
+  padding: 0;
+}
+
+// Border radius:
+.rounded-card {
+  border-radius: 10px;
+}
+.circle {
+  border-radius: 100%;
+}
