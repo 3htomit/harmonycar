@@ -11,9 +11,20 @@ class Cars::AlertsController < ApplicationController
   end
 
   def update
+    # byebug
     @alert = Alert.find(params[:id])
     @alert.update(alert_params)
+    if @alert.alert_category.name == "Vérification des pneus"
+      @alert.due_date = @alert.completed_at + 2.weeks
+    elsif @alert.alert_category.name == "Vérification des niveaux"
+      @alert.due_date = @alert.completed_at + 4.weeks
+    elsif @alert.alert_category.name == "Entretien"
+      @alert.due_date = @alert.completed_at + 1.year
+    elsif @alert.alert_category.name == "Contrôle technique"
+      @alert.due_date = @alert.completed_at + 2.years
+    end
 
+    @alert.save
     redirect_to car_alerts_path(@alert.car)
   end
 

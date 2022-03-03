@@ -202,7 +202,7 @@ alert_category2 = AlertCategory.create!(
 puts "Alert category 2 saved"
 
 alert_category3 = AlertCategory.create!(
-  name: "Vérfication des pneus",
+  name: "Vérification des pneus",
   description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite.",
   max_weeks: 2
 )
@@ -210,7 +210,7 @@ alert_category3 = AlertCategory.create!(
 puts "Alert category 3 saved"
 
 alert_category4 = AlertCategory.create!(
-  name: "Vérfication des niveaux",
+  name: "Vérification des niveaux",
   description: "Vérifiez les niveaux des fluides d’une voiture régulièrement ou avant un long trajet, afin de conserver une voiture en bon état et garantir la sécurité de tous sur la route.",
   max_weeks: 4
 )
