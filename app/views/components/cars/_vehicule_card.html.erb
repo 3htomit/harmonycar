@@ -1,19 +1,20 @@
 
-<div class="vehicule-card mt-5" data-bs-toggle="modal" data-bs-target="#<%= dom_id(specification) %>">
+<div class="vehicule-card" data-bs-toggle="modal" data-bs-target="#<%= dom_id(specification) %>">
   <% if specification.photo.attached? %>
-    <%= cl_image_tag specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
+    <%= cl_image_tag specification.photo.key, crop: :fill, class:"new_car_img" %>
   <% end %>
 
-  <div>
-    <h3><%= specification.make %></h3>
-    <h4><%= specification.model %></h4>
-  </div>
+  <div class="new_car_info">
+    <div class="new_car_model">
+      <h3><%= specification.make %></h3>
+      <h4><%= specification.model %></h4>
+    </div>
 
-  <div>
-    <p><%= specification.engine %></p>
-    <p><%= specification.fuel%> | <%=specification.transmission %></p>
+    <div class="new_car_engine">
+      <p class="info enginespec"><%= specification.engine %></p>
+      <p class="info fuelspec "><%= specification.fuel%> | <%=specification.transmission %></p>
+    </div>
   </div>
-
 
 </div>
 
