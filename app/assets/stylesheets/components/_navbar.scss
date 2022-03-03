@@ -25,35 +25,27 @@
     justify-content: center;
   }
 
-  a {
-    .active {
-      p {
-        color: $primary;
-      }
-    }
-    &:hover {
-      .active {
-        color: $primary-rg;
-      }
-      .inactive {
-        color: $grey-li;
-      }
-    }
-
-  }
-
   .active {
+    p {
+      color: $primary;
+    }
     .icon-circle {
       background-color: $primary;
-      &:hover {
-        background-color: $primary-rg;
-      }
     }
   }
 
   .inactive {
     .icon-circle {
       background-color: $grey;
+    }
+  }
+
+  a:active {
+    .icon-circle {
+      background-color: $primary-rg;
+    }
+    p {
+      color: $primary-rg;
     }
   }
 
