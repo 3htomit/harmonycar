@@ -53,6 +53,15 @@ class GaragesController < ApplicationController
     #   end
     # end
     # self.transfer_to_db
+
+    @markers = @garages.geocoded.map do |garage|
+      {
+        lat: garage.latitude,
+        lng: garage.longitude
+        # info_window: render_to_string(partial: "info_window", locals: { garage: garage }),
+        # image_url: helpers.asset_url("https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/06_1-512.png")
+      }
+    end
   end
 
   def transfer_to_db
