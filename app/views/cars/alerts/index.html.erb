@@ -1,6 +1,13 @@
 <div>
-  <% @alerts.each do |alert| %>
-  <!-- show all alerts -->
-    <%= render 'components/alert_category/card', alert: alert %>
-  <% end %>
+  <div>
+    <i class="fas fa-angle-left"></i>
+    <%= link_to "Retour au véhicule", car_path(@car)  %>
+  </div>
+
+  <div>
+    <% @alerts.each do |alert| %>
+    <!-- show all alerts -->
+      <%= render 'components/alert_category/card', alert: alert %>
+    <% end %>
+  </div>
 </div>

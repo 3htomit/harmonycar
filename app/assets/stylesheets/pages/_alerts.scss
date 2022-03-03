@@ -1,0 +1,51 @@
+.alert-card {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 20px;
+}
+
+.alert-icon {
+  text-align: left;
+}
+
+.alert-icon-title {
+  padding: 11px 10px 11px 10px;
+}
+
+.red-icon {
+  background-color: $red;
+  color: $white;
+  margin-left: 0px;
+  padding: 16px;
+  font-size: 30px;
+}
+
+.yellow-icon {
+  background-color: $yellow;
+  color: $white;
+  margin-left: 0px;
+  padding: 16px;
+  font-size: 30px;
+}
+
+.green-icon {
+  background-color: $green;
+  color: $white;
+  margin-left: 0px;
+  padding: 16px;
+  font-size: 30px;
+}
+
+.red-clock {
+  color: $red-li;
+}
+
+.yellow-clock {
+  color: $yellow-li;
+}
+
+.green-clock {
+  color: $green-li;
+}
