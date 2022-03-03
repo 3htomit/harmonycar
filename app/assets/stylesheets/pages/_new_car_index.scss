@@ -1,0 +1,44 @@
+.vehicule-card {
+  width: 172px;
+  border: 1px solid black;
+  background-color: $white;
+  .new_car_img {
+    width: 100%;
+    height: 113px;
+  }
+}
+
+.new_car_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 10px;
+  padding: 10px 10px;
+  // background-color: $background;
+}
+
+.new_car_info {
+
+
+}
+
+.new_car_model {
+  margin-bottom: 0;
+  padding: 5px 0px 0px 5px;
+}
+
+.new_car_engine {
+  margin-bottom: 0;
+  border-top: solid black 1px;
+  background-color: $secondary;
+}
+
+.enginespec {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.fuelspec {
+  margin-bottom: 0;
+  font-size: small;
+  text-align: center;
+}
