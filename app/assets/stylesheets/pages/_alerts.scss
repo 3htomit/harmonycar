@@ -1,15 +1,32 @@
 .alert-page {
-  margin-top: 78px;
-  margin-bottom: 88px;
+  margin-bottom: 220px;
 }
 
+.alert-return-link {
+height: 40px;
+}
+
+.return-icon-alert {
+background-color: $secondary;
+font-size: 23px;
+width: 8%;
+color: $white;
+padding: 8px;
+}
+
+.return-text {
+background-color: $secondary-li;
+width: 92%;
+color: $secondary;
+padding: 8px;
+}
 
 .alert-card {
   background-color: $white;
   display: flex;
   flex-direction: column;
   padding: 0px;
-  margin: 12px auto;
+  margin: 26px auto;
   width: 342px;
 }
 
@@ -30,7 +47,7 @@ h2 {
 
 .clock-date {
   flex-direction: column;
-  padding: 20px 15px;
+  padding: 12px 15px;
 }
 
 
@@ -38,67 +55,85 @@ h2 {
   background-color: $red;
   color: $white;
   margin-left: 0px;
-  padding: 16px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
 }
 
 .yellow-icon {
   background-color: $yellow;
   color: $white;
   margin-left: 0px;
-  padding: 16px;
-  font-size: 30px;
+  padding: 12px;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
 }
 
 .green-icon {
   background-color: $green;
   color: $white;
   margin-left: 0px;
-  padding: 16px;
-  font-size: 30px;
+  padding: 12px;
+  font-size: 24px;
+  height: 50px;
+  width: 50px;
 }
 
 .red-clock {
   color: $red-li;
-  font-size: 24px;
+  font-size: 18px;
   padding-top: 10px;
 }
 
 .yellow-clock {
   color: $yellow-li;
-  font-size: 24px;
+  font-size: 18px;
   padding-top: 10px;
 }
 
 .green-clock {
   color: $green-li;
-  font-size: 24px;
+  font-size: 18px;
   padding-top: 10px;
 }
 
 .red-date {
   font-size: 16px;
   color: $red-li;
-  margin-top: 21px;
+  margin-top: 14px;
 }
 
 .yellow-date {
   font-size: 16px;
   color: $yellow-li;
-  margin-top: 21px;
+  margin-top: 14px;
 }
 
 .green-date {
   font-size: 16px;
   color: $green-li;
-  margin-top: 21px;
+  margin-top: 14px;
 }
 
 .alert-info {
   background-color: $white;
 }
 
-.alert-links {
-  justify-content: space-between;
+.button-alert-rdv {
+  padding: 9px 16px;
+  background-color: $secondary ;
+  border: 2px solid $secondary;
+  color: $white;
+  border-radius: 10px;
+}
 
+.button-alert-date {
+  padding: 9px 16px;
+  margin-left: 20px;
+  background-color: $white;
+  color: $secondary;
+  border: 2px solid $secondary;
+  border-radius: 10px;
 }

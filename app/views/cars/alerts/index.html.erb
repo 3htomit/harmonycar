@@ -1,9 +1,10 @@
 <div class="alert-page">
   <div>
-    <i class="fas fa-angle-left"></i>
-    <%= link_to "Retour au véhicule", car_path(@car)  %>
+    <div class="d-flex alert-return-link">
+      <i class="fas fa-angle-left return-icon-alert"></i>
+      <%= link_to "Retour au véhicule", car_path(@car), class: "return-text"  %>
+    </div>
   </div>
-
   <div>
     <% @alerts.each do |alert| %>
     <!-- show all alerts -->
