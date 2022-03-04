@@ -29,8 +29,12 @@ export default class extends Controller {
   }
 
   #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
+    // const bounds = new mapboxgl.LngLatBounds()
+    const bounds = new mapboxgl.LngLatBounds([
+      [-1.5589640269987237, 47.21059198203169],  // Coin Sud-Ouest
+      [-1.5535566936247003, 47.21763770553449]    // Coin Nord-Est
+    ]);
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 200, duration: 0 })
+    this.map.fitBounds(bounds, {duration: 0} )
   }
 }
