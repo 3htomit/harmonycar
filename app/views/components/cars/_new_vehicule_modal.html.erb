@@ -8,15 +8,19 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= form_for(@car) do |f| %>
-          <%= f.label :name, "Numéro d'immatriculation" %>
-          <%= f.text_field :number_plate %>
-          <%= f.label :name, "kilométrage" %>
-          <%= f.number_field :mileage %>
+        <%= simple_form_for(@car) do |f| %>
+          <%# <%= f.label :name, "Numéro d'immatriculation" %>
+          <%# <%= f.text_field :number_plate %>
+          <%= f.input :number_plate %>
+          <%# <%= f.label :name, "kilométrage" %>
+          <%# <%= f.number_field :mileage %>
+          <%= f.input :mileage %>
+          <%= f.label :name, "Dernier contrôle technique" %>
           <%= date_field_tag :date_ct %>
+          <%= f.label :name, "Dernier entretien"%>
           <%= date_field_tag :date_et %>
-          <%= text_field_tag :spec_id, specification.id %>
-          <button type="button" class="btn"><%= f.submit %></button>
+          <%= text_field_tag :spec_id, specification.id, class: "d-none" %>
+          <button type="button" class="btn"><%= f.submit "Enregistrer" %></button>
         <% end %>
       </div>
       <div class="modal-footer">

@@ -1,10 +1,14 @@
-
-
-<div class = "my-vehicule-card">
+<div class="my_vehicules_title">
+  <h2 class="h2title" >Vos véhicules</h2>
+</div>
+<div class = "my_vehicule_list mt-4">
   <% current_user.cars.each do |car| %>
 
     <%= render 'components/cars/my_vehicule_card', car: car %>
   <%end%>
 </div>
 
-<%= link_to "add a new vehicule", new_car_path %>
+<div class="new_car_button">
+<%= link_to "", new_car_path, class: "fas fa-plus button-circle" %>
+</div>
+<div class="footer-provisoire"></div>

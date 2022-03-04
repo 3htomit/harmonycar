@@ -1,22 +1,39 @@
-<div data-controller="display-map">
-  <div class="btn btn-primary" data-action="click->display-map#disable">icone map</div>
-  <div data-display-map-target="content">
+<div data-controller="display-map" class="garage_list">
+  <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable"><i class="fas fa-map-marked-alt"></i></div>
+  <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable"><i class="fas fa-clipboard-list"></i></div>
+
+
+  <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
 
-      <div >
-        <%=garage.name%>
-        <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
-        <strong><%=garage.telephone%></strong>
-        <%= link_to "address", "https://www.allogarage.fr/#{garage.web_address}"%>
+      <div class="garage_card rounded-card">
+
+        <div class ="garage_name rounded-card-top">
+         <strong><%=garage.name%></strong>
+        </div>
+
+        <div class="garage_info rounded-card-bottom">
+          <div class="garage_address">
+           <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
+          </div>
+          <div class="garage_contact">
+            <div><%=garage.telephone%></div>
+            <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
+          </div>
+        </div>
+
       </div>
 
     <%end%>
   </div>
 
 
-  <div class="mapboxgl-map display-none" data-display-map-target="map"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div
+        class="mapboxgl-map hidden"
+        style="height: 100vh; width: 120%;"
+        data-display-map-target="map"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>

@@ -1,18 +1,29 @@
-<div class="card">
+<div class="my_vehicule_card card-shadow rounded-card card-shadow">
   <%= link_to car_path(car) do %>
 
       <!-- image de la voiture -->
-      <% if car.specification.photo.attached? %>
-        <%= cl_image_tag car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
-      <% end %>
-
-      <!-- quelque spécification, model, engine, mileage -->
-      <div class="d-flex flex-row justify-content-between">
-        <div>
-          <p><strong><%= car.specification.model%></strong></p>
-          <p><%= car.specification.engine%></p>
+      <div>
+        <% if car.specification.photo.attached? %>
+          <div><%= cl_image_tag car.specification.photo.key, class: "my_vehicule_img" %>
+            <% car.alerts.each do |alert| %>
+              <% if alert.due_date %>
+                <% if alert.due_date <= Date.today %>
+                  <i class="my_vehicule_alert fas fa-exclamation-triangle red-icon"></i>
+                <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+                  <i class="my_vehicule_alert fas fa-info-circle yellow-icon"></i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
         </div>
-        <div><i><%= car.mileage%></i></div>
+      <!-- quelque spécification, model, engine, mileage -->
+      <div class="d-flex justify-content-between my_vehicule_details">
+        <div>
+          <strong><%= car.specification.model%></strong>
+          <p class="my_car_engine"><%= car.specification.engine%></p>
+        </div>
+        <div><i><%= car.mileage%></i> km</div>
       </div>
   <%end%>
 </div>
