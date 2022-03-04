@@ -13,9 +13,11 @@
           <%= f.text_field :number_plate %>
           <%= f.label :name, "kilométrage" %>
           <%= f.number_field :mileage %>
+          <%= f.label :name, "Dernier contrôle technique" %>
           <%= date_field_tag :date_ct %>
+          <%= f.label :name, "Dernier entretien"%>
           <%= date_field_tag :date_et %>
-          <%= text_field_tag :spec_id, specification.id %>
+          <%= text_field_tag :spec_id, specification.id, class: "d-none" %>
           <button type="button" class="btn"><%= f.submit %></button>
         <% end %>
       </div>
