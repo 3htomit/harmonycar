@@ -1,13 +1,25 @@
 <div data-controller="display-map">
-  <div class="btn btn-primary" data-action="click->display-map#disable">icone map</div>
-  <div data-display-map-target="content">
+  <div class="btn-map" data-action="click->display-map#disable"></div>
+
+  <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
 
-      <div >
-        <%=garage.name%>
-        <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
-        <strong><%=garage.telephone%></strong>
-        <%= link_to "address", "https://www.allogarage.fr/#{garage.web_address}"%>
+      <div class="garage_card rounded-card">
+
+        <div class ="garage_name rounded-card-top">
+         <%=garage.name%>
+        </div>
+
+        <div class="garage_info rounded-card-bottom">
+          <div>
+           <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
+          </div>
+          <div>
+            <strong><%=garage.telephone%></strong>
+            <%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}"%>
+          </div>
+        </div>
+
       </div>
 
     <%end%>
