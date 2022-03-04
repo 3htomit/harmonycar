@@ -46,8 +46,8 @@ class CarsController < ApplicationController
     @car.specification = Specification.find(params[:spec_id])
     @alert_categories = AlertCategory.all
     # Alerts creation
-    @due_date_ct = Date.strptime(params[:date_ct], '%Y-%m-%d')
-    @due_date_et = Date.strptime(params[:date_et], '%Y-%m-%d')
+    @due_date_ct = Date.strptime(params[:date_ct] , '%Y-%m-%d')+2.years
+    @due_date_et = Date.strptime(params[:date_et], '%Y-%m-%d')+1.year
 
     Alert.create(alert_category_id: @alert_categories.first[:id], car: @car, due_date: @due_date_ct, completed: false, completed_at: params[:date_ct] )
     Alert.create(alert_category_id: @alert_categories.second[:id], car: @car, due_date: @due_date_et, completed: false, completed_at: params[:date_et] )
