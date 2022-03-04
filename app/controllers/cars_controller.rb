@@ -4,6 +4,8 @@ class CarsController < ApplicationController
   before_action :all_specs, only: [:new, :create]
 
   def index
+    @alerts = Alert.all
+    # raise
   end
 
   def show

@@ -16,3 +16,26 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+.my_vehicule_list{
+  padding: 0 20px;
+}
+
+.my_vehicules_title {
+  width: 100vw;
+  background-color: white;
+  text-align: center;
+  height: 45px;
+  display: table-cell;
+  vertical-align: bottom;
+  .h2title{
+    // vertical-align:bottom;
+  }
+}
+
+.new_car_button {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}

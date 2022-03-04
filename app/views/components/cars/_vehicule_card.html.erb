@@ -1,5 +1,5 @@
 
-<div class="vehicule-card" data-bs-toggle="modal" data-bs-target="#<%= dom_id(specification) %>">
+<div class="vehicule-card card-shadow rounded-card" data-bs-toggle="modal" data-bs-target="#<%= dom_id(specification) %>">
   <% if specification.photo.attached? %>
     <%= cl_image_tag specification.photo.key, crop: :fill, class:"new_car_img" %>
   <% end %>
