@@ -1,5 +1,7 @@
 <div data-controller="display-map">
-  <div class="button-circle btn-hidden" data-action="click->display-map#disable"></div>
+  <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable"><i class="fas fa-map-marked-alt"></i></div>
+  <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable"><i class="fas fa-clipboard-list"></i></div>
+
 
   <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
@@ -7,16 +9,16 @@
       <div class="garage_card rounded-card">
 
         <div class ="garage_name rounded-card-top">
-         <%=garage.name%>
+         <strong><%=garage.name%></strong>
         </div>
 
         <div class="garage_info rounded-card-bottom">
-          <div>
-           <i class="fas fa-map-marker-alt"></i><i><%=garage.address%></i>
+          <div class="garage_address">
+           <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
           </div>
-          <div>
-            <strong><%=garage.telephone%></strong>
-            <%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}"%>
+          <div class="garage_contact">
+            <div><%=garage.telephone%></div>
+            <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
           </div>
         </div>
 
