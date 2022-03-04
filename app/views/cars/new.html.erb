@@ -1,16 +1,17 @@
 <h2 class="new_vehicule_title">Ajoutez votre nouveau véhicule</h2>
-
-<div data-controller="search-car" class="listed_new_cars mt-3">
-  <div class="new_car_input">
-    <%= form_with url: new_car_path, method: :get, html: {
-      data: { search_car_target: 'form' } } do |f| %>
-      <%= f.text_field :query,
-                      class: "form-control",
-                      placeholder: 'Marque, modèle, année, moteur...',
-                      value: params[:query],
-                      data: { search_car_target: 'input',
-                              action:'keyup->search-car#update' } %>
-    <% end %>
-  </div>
-  <%= render "components/cars/list", local: { specifications: @specifications, car: @car, alert1: @alert1, alert2: @alert2 } %>
+<div class="d-flex justify-content-center">
+  <div data-controller="search-car" class="listed_new_cars mt-3">
+    <div class="new_car_input">
+      <%= form_with url: new_car_path, method: :get, html: {
+        data: { search_car_target: 'form' } } do |f| %>
+        <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: 'Marque, modèle, année, moteur...',
+                        value: params[:query],
+                        data: { search_car_target: 'input',
+                                action:'keyup->search-car#update' } %>
+      <% end %>
+    </div>
+    <%= render "components/cars/list", local: { specifications: @specifications, car: @car, alert1: @alert1, alert2: @alert2 } %>
+</div>
 </div>
