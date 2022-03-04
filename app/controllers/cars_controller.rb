@@ -29,7 +29,7 @@ class CarsController < ApplicationController
     @user = current_user
 
     if params[:query].present?
-      @specifications = @specifications.where('make ILIKE ?', "%#{params[:query]}%")
+      @specifications = @specifications.where('make ILIKE ?', "%#{params[:query]}%").or(@specifications.where('model ILIKE ?', "%#{params[:query]}%")).or(@specifications.where('engine ILIKE ?', "%#{params[:query]}%"))
     end
 
     respond_to do |format|
