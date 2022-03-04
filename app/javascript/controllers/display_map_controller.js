@@ -5,6 +5,6 @@ export default class extends Controller {
 
   disable() {
     this.contentTarget.classList.toggle("display-none")
-    this.mapTarget.classList.toggle("display-none")
+    this.mapTarget.classList.toggle("hidden")
   }
 }
