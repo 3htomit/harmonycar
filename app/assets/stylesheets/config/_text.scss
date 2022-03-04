@@ -10,6 +10,7 @@ h1 {
 h2 {
   color: $primary;
   font-family: $headers-font;
+  font-weight: 400;
   font-size: 20px;
   strong {
     font-weight: 600;
@@ -20,6 +21,7 @@ h2 {
 p {
   color: $primary-dk;
   font-family: $body-font;
+  font-weight: 400;
   font-size: 16px;
 }
 strong {

@@ -23,6 +23,15 @@
 * {
   margin: 0;
   padding: 0;
+  h1, h2 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+  .body-yield {
+    margin-bottom: 100px;
+  }
 }
 a {
   text-decoration: none;
