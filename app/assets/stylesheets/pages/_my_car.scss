@@ -1,4 +1,15 @@
+.car-tile {
+  img {
+    width: 100vw;
+    height: 2/3vw;
+    object-fit: cover;
+  }
+}
 
+.car-tile-info {
+  background-color: $white;
+  padding: 20px 30px;
+}
 
 .my_vehicule_card {
   margin-bottom: 15px;
@@ -20,4 +31,63 @@
 .my_vehicule_alert {
   font-size: 8px;
 
+.car-tile-mileage {
+  height: 40px;
+  padding-left: 30px;
+  background-color: $primary-rg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .mileage-tile {
+    color: $white;
+  }
 }
+
+.car-tile-buttons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+  .center-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  i {
+    margin-right: 10px;
+  }
+  a {
+    height: 40px;
+    width: 49.9vw;
+    background-color: $secondary;
+    display: grid;
+    place-content: center;
+    color: $white;
+    &:active {
+      background-color: $secondary-rg;
+    }
+  }
+}
+
+.info-tile {
+  margin: 20px 0;
+  background-color: $white;
+  padding: 40px 20px;
+  h2 {
+    margin-bottom: 30px;
+  }
+  .key-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  hr {
+    color: $grey-li;
+  }
+}
+
+// .link_document {
+//   margin-left: 60px;
+//   &.link_to{
+//     color: white;
+//   }
+// }

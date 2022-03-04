@@ -1,12 +1,13 @@
 <!-- image de la voiture et les spécification principal -->
-<div class="card" data-controller="modal-car-km">
+<div class="car-tile" data-controller="modal-car-km">
   <% if @car.specification.photo.attached? %>
-    <%= cl_image_tag @car.specification.photo.key, height: 270, width: 249, crop: :fill, class: "img_card" %>
+    <%= cl_image_tag @car.specification.photo.key%>
   <% end %>
-
-  <p><%= @car.specification.make%> <strong><%= @car.specification.model%></strong></p>
-  <%= @car.specification.engine%>
-  <div class="d-flex flex-row justify-content-between" >
+  <div class="car-tile-info tile-shadow">
+    <h2><%= @car.specification.make%> <strong><%= @car.specification.model%></strong></h2>
+    <p><%= @car.specification.engine%></p>
+  </div>
+  <div class="car-tile-mileage tile-shadow" >
     <!--le popup (modal) pour changer le Km de la voiture-->
     <%= render 'components/cars/modal_car_km', car: @car %>
 
@@ -14,8 +15,42 @@
   <!--afficher le bandeau des alerte sur la droite-->
 </div>
 
+<div class="car-tile-buttons">
+  <%= link_to car_alerts_path(params[:id]), class: "center-text" do %>
+    <i class="fas fa-bell"></i>
+    <p class="txt-white">Rappels</p>
+  <% end %>
+  <%= link_to car_documents_path(params[:id]), class: "center-text" do %>
+    <i class="fas fa-file-alt"></i>
+    <p class="txt-white">Documents</p>
+  <% end %>
+</div>
+
+<div class="info-tile">
+  <h2>Informations clés</h2>
+  <div class="key-info">
+    <p>Immatriculation</p>
+    <p class="txt-gold"><%= @car.number_plate %></p>
+  </div>
+  <hr>
+  <div class="key-info">
+    <p>Carburant</p>
+    <p class="txt-gold"><%= @car.specification.fuel %></p>
+  </div>
+  <hr>
+  <div class="key-info">
+    <p>Boîte</p>
+    <p class="txt-gold"><%= @car.specification.transmission %></p>
+  </div>
+  <hr>
+  <div class="key-info">
+    <p>Crit'Air</p>
+    <p class="txt-gold"><%= @car.specification.critair %></p>
+  </div>
+</div>
+
 <!-- la liste des spécification un peu plus détailler avec un lien pour ouvrir la page documents -->
-<div class="card">
+<!-- <div class="card">
   <div class="row">
     <div class="col-sm">
       <strong>immatriculation</strong>
@@ -42,8 +77,4 @@
   </div>
   <%= link_to "Alert", car_alerts_path(params[:id]) %>
 
-</div>
-
-<%= link_to "documents" do %>
-  <p class="link_document btn btn-primary mt-2">documents</p>
-<%end%>
+</div> -->
