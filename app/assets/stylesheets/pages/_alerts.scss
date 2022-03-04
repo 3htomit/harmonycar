@@ -1,17 +1,22 @@
-h2 {
-  color: $primary;
-  font-family: $headers-font;
-  font-size: 20px;
+.alert-page {
+  margin-top: 78px;
+  margin-bottom: 88px;
 }
+
 
 .alert-card {
   background-color: $white;
   display: flex;
   flex-direction: column;
   padding: 0px;
-  margin: 20px;
-  width: 350px;
-  height: 235px;
+  margin: 12px auto;
+  width: 342px;
+}
+
+h2 {
+  color: $primary;
+  font-family: $headers-font;
+  font-size: 20px;
 }
 
 .alert-icon {
@@ -19,13 +24,15 @@ h2 {
   align-items: center;
 }
 
-.clock-date {
-  flex-direction: column;
+.alert-icon-border-radius {
+  border-radius: 10px 0px;
 }
 
-.alert-icon-title {
-  padding: 20px 10px 11px 10px;
+.clock-date {
+  flex-direction: column;
+  padding: 20px 15px;
 }
+
 
 .red-icon {
   background-color: $red;
@@ -53,18 +60,45 @@ h2 {
 
 .red-clock {
   color: $red-li;
-  font-size: 20px;
-  // padding: 10px 8px 8px 20px;
+  font-size: 24px;
+  padding-top: 10px;
 }
 
 .yellow-clock {
   color: $yellow-li;
-  font-size: 20px;
-  // padding: 10px 8px 8px 20px;
+  font-size: 24px;
+  padding-top: 10px;
 }
 
 .green-clock {
   color: $green-li;
-  font-size: 20px;
-  // padding: 10px 8px 8px 20px;
+  font-size: 24px;
+  padding-top: 10px;
+}
+
+.red-date {
+  font-size: 16px;
+  color: $red-li;
+  margin-top: 21px;
+}
+
+.yellow-date {
+  font-size: 16px;
+  color: $yellow-li;
+  margin-top: 21px;
+}
+
+.green-date {
+  font-size: 16px;
+  color: $green-li;
+  margin-top: 21px;
+}
+
+.alert-info {
+  background-color: $white;
+}
+
+.alert-links {
+  justify-content: space-between;
+
 }
