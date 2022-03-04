@@ -1,25 +1,29 @@
 <div class="alert-card">
   <div class="d-flex">
     <div class="d-flex alert-icon">
-      <% if alert.due_date <= Date.today %>
-        <i class="fas fa-exclamation-triangle red-icon"></i>
-        <i class="fas fa-clock red-clock"></i>
-      <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-        <i class="fas fa-info-circle yellow-icon"></i>
-        <i class="fas fa-clock yellow-clock"></i>
-      <% else %>
-        <i class="fas fa-info-circle green-icon"></i>
-        <i class="fas fa-clock green-clock"></i>
+      <% if alert.due_date %>
+        <% if alert.due_date <= Date.today %>
+          <i class="fas fa-exclamation-triangle red-icon"></i>
+          <i class="fas fa-clock red-clock"></i>
+        <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+          <i class="fas fa-info-circle yellow-icon"></i>
+          <i class="fas fa-clock yellow-clock"></i>
+        <% else %>
+          <i class="fas fa-info-circle green-icon"></i>
+          <i class="fas fa-clock green-clock"></i>
+        <% end %>
       <% end %>
     </div>
     <div class="d-flex clock-date">
       <h2 class="alert-icon-title"><%= alert.alert_category.name %></h2>
-      <% if alert.due_date <= Date.today %>
-        <p class="red-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
-      <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-        <p class="yellow-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
-      <% else %>
-        <p class="green-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
+      <% if alert.due_date %>
+        <% if alert.due_date <= Date.today %>
+          <p class="red-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
+        <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+          <p class="yellow-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
+        <% else %>
+          <p class="green-clock"><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
