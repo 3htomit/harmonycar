@@ -1,7 +1,23 @@
-.link_document {
-  margin-left: 60px;
-  &.link_to{
-    color: white;
+
+
+.my_vehicule_card {
+  margin-bottom: 15px;
+  overflow: hidden;
+  background-color: $white;
+  .my_vehicule_img {
+    width: 100%;
   }
+}
+
+.my_car_engine {
+  margin: 0;
+}
+
+.my_vehicule_details {
+  padding: 10px;
+}
+
+.my_vehicule_alert {
+  font-size: 8px;
 
 }
