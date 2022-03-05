@@ -1,9 +1,8 @@
 // Import page-specific CSS files here.
-@import "home";
+@import "account";
 @import "alerts";
-
-.mapboxgl-map {
-  height: 500px;
-  width: 350px;
-}
-
+@import "garages";
+@import "home";
+@import "my_car";
+@import "my_cars";
+@import "new_car";
