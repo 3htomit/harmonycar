@@ -1,0 +1,13 @@
+<h2><%=garage.name%></h2>
+<div>
+  <% if garage.photo.attached? %>
+    <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
+  <% end %>
+</div>
+
+<p>
+  <% if garage.services.first != nil%>
+    <%=garage.services.first.price%>
+    <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
+  <%end%>
+</p>

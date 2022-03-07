@@ -6,8 +6,31 @@
   visibility: hidden !important;
 }
 
+.garage-header {
+  top: 60px;
+  position: sticky;
+  height: 120px;
+  width: 100%;
+}
+
+.search {
+  top: 0px;
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+  .select{
+    position: absolute;
+    top: 25px;
+    left: 0px;
+  }
+}
+
 .btn-hidden {
-  margin: 20px auto;
+  position: absolute;
+  margin: 0px auto;
+  left: 160px;
+  bottom: 0;
 }
 
 .rounded-card-bottom {
@@ -21,13 +44,14 @@
 }
 
 
+
 .garage_cards {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 350px;
   height: 680px;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -53,12 +77,43 @@
   text-align: center;
 }
 
-.garage_name {
+
+.garage_title {
   color: $primary;
+  height: 80px;
   background-color: $white;
   text-align: center;
 }
 
+.garage_logo_name {
+  width: 80%;
+  color: $primary;
+  height: 80px;
+}
+
+.garage_name {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.garage_rating {
+  flex-grow: 4;
+  margin-right: 10px;
+}
+
+.euros {
+  padding-left: 5px;
+  margin-left: 5px;
+}
+
+.icone {
+  display: inline;
+}
+
+.garage-logo {
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
 
 .garage_address {
