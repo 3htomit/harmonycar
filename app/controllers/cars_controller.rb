@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:show, :update, :destroy]
 
   def index
-    @alerts = Alert.all
+    @cars = Car.all
   end
 
   def show
