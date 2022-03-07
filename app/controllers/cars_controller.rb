@@ -11,8 +11,12 @@ class CarsController < ApplicationController
 
   def update
     @car.update(car_params)
+    respond_to do |format|
+      format.html
+      format.text { render partial: "components/cars/car_mileage", locals: { car: @car }, formats: [:html] }
+    end
 
-    redirect_to car_path(@car)
+    # redirect_to
   end
 
   def new
