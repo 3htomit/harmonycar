@@ -1,6 +1,6 @@
 <div class="account-bg">
   <div class="account-card rounded-card card-shadow">
-    <h2>Timothée Boiteau</h2>
+    <h2><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h2>
     <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "button" %>
   </div>
 </div>

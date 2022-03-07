@@ -1,0 +1,4 @@
+    <div data-mileage-update-target="info" class="<%= 'd-none' if car.errors.any? %>" >
+    <%# data-mileage-update-target="data"> %>
+      <p class="mileage-tile"><%=  number_with_precision(car.mileage, precision: 0, delimiter: ' ')%> Km</p>
+    </div>

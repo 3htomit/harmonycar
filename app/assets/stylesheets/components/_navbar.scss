@@ -1,10 +1,12 @@
-.navbar {
+.nav {
   text-align: center;
   background-color: $white;
   position: fixed;
   bottom: 0;
   width: 100vw;
+  height: 70px;
   margin: 0;
+  justify-content: flex-start;
 
   p {
     margin: 0;
@@ -14,38 +16,57 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px 0;
   }
 
   .icon-circle {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  .main-icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 7px solid $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -40px;
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
+  }
+
   .active {
     p {
-      color: $primary;
+      color: $secondary;
     }
-    .icon-circle {
-      background-color: $primary;
+    .icon-circle, .main-icon-circle {
+      background-color: $secondary;
     }
   }
 
   .inactive {
-    .icon-circle {
-      background-color: $grey;
+    .icon-circle, .main-icon-circle {
+      background-color: $primary;
+    }
+    p {
+      color: $primary;
     }
   }
 
   a:active {
-    .icon-circle {
-      background-color: $primary-rg;
-    }
-    p {
-      color: $primary-rg;
+    .inactive {
+      .icon-circle, .main-icon-circle {
+        background-color: $secondary-rg;
+      }
+      p {
+        color: $secondary-rg;
+      }
     }
   }
 
@@ -54,13 +75,13 @@
     padding: 7px;
   }
   .fa-car {
-    font-size: 25px;
+    font-size: 40px;
   }
   .fa-tools {
-    font-size: 21px;
+    font-size: 20px;
   }
   .fa-user-cog {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
 

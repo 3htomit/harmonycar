@@ -102,23 +102,28 @@ h2 {
 .red-date {
   font-size: 16px;
   color: $red-li;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .yellow-date {
   font-size: 16px;
   color: $yellow-li;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .green-date {
   font-size: 16px;
   color: $green-li;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .alert-info {
   background-color: $white;
+  margin: 14px 0px;
+}
+
+.alert-links {
+  margin: 10px 0;
 }
 
 .button-alert-rdv {

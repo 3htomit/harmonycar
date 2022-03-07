@@ -15,11 +15,23 @@
   margin-bottom: 15px;
   overflow: hidden;
   background-color: $white;
+  height: 270px;
   .my_vehicule_img {
-    width: 100%;
+    width: 350px;
+    height: 200px;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background-size:     115% 100%;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
   }
 }
 
+.my_vehicule_alert {
+  position: absolute;
+  right: 20px;
+  border-radius: 0px 10px 0px 10px;
+}
 .my_car_engine {
   margin: 0;
 }
@@ -28,8 +40,14 @@
   padding: 10px;
 }
 
-.my_vehicule_alert {
-  font-size: 8px;
+.red-icon .yellow-icon {
+  // font-size:8px;
+  .fa-exclamation-triangle {
+    font-size: 6px;
+  }
+  .fa-info-circle {
+    font-size: 6px;
+  }
 }
 
 .car-tile-mileage {
@@ -41,6 +59,37 @@
   align-items: center;
   .mileage-tile {
     color: $white;
+  }
+}
+
+.car-tile-mileage-update {
+  height: 40px;
+  padding-left: 30px;
+  background-color: $secondary-li;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .mileage-form {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  .mileage-input {
+    background-color: transparent;
+    border: none;
+    color: $primary-dk;
+  }
+  .mileage-tile {
+    color: $primary-dk;
+  }
+  .mileage-input {
+    background-color: none;
+    border-radius: none;
+  }
+  .mileage-group {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -71,7 +120,7 @@
 }
 
 .info-tile {
-  margin-top: 20px;
+  margin: 20px 0;
   background-color: $white;
   padding: 40px 20px;
   h2 {
@@ -84,6 +133,13 @@
   hr {
     color: $grey-li;
   }
+}
+
+.delete-car {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  display: grid;
+  place-content: center;
 }
 
 // .link_document {

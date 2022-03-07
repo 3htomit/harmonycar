@@ -1,80 +1,96 @@
 <!-- image de la voiture et les spécification principal -->
 <div class="car-tile">
+
   <% if @car.specification.photo.attached? %>
     <%= cl_image_tag @car.specification.photo.key%>
   <% end %>
+
   <div class="car-tile-info tile-shadow">
     <h2><%= @car.specification.make%> <strong><%= @car.specification.model%></strong></h2>
     <p><%= @car.specification.engine%></p>
   </div>
-  <div class="car-tile-mileage tile-shadow" >
-    <!--le popup (modal) pour changer le Km de la voiture-->
-    <%= render 'components/cars/modal_car_km', car: @car %>
+
+  <!-- kilométrage du véhicule + update -->
+  <div data-controller="mileage-update">
+
+    <div  class="car-tile-mileage tile-shadow" data-mileage-update-target="tile">
+      <%= render 'components/cars/car_mileage', car: @car %>
+      <div  type="button" class="button-mileage"
+            data-action="click->mileage-update#displayForm">
+        <i class="fas fa-pen"></i>
+      </div>
+    </div>
+
+    <div  class="car-tile-mileage-update tile-shadow d-none" data-mileage-update-target="formContainer">
+      <%= form_for @car, html: {class: 'mileage-form', 'data-mileage-update-target': 'form', 'data-action': 'submit->mileage-update#submit'} do |f| %>
+        <div class="mileage-group">
+          <%= f.text_field :mileage, class: "mileage-input" %>
+          <p>Km</p>
+        </div>
+        <div class="mileage-group">
+          <button type="button" class="button-mileage-cancel" data-action="click->mileage-update#hideForm">
+            <i class="fas fa-times"></i>
+          </button>
+          <%= button_tag type: 'submit', class:"button-mileage" do %>
+            <i class="fas fa-check" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
   </div>
-  <!--afficher le bandeau des alerte sur la droite-->
+
 </div>
 
+<!--afficher le bandeau des alerte sur la droite-->
+
 <div class="car-tile-buttons">
+
   <%= link_to car_alerts_path(params[:id]), class: "center-text" do %>
     <i class="fas fa-bell"></i>
     <p class="txt-white">Rappels</p>
   <% end %>
+
   <%= link_to car_documents_path(params[:id]), class: "center-text" do %>
     <i class="fas fa-file-alt"></i>
     <p class="txt-white">Documents</p>
   <% end %>
+
 </div>
 
+
 <div class="info-tile">
+
   <h2>Informations clés</h2>
+
   <div class="key-info">
     <p>Immatriculation</p>
     <p class="txt-gold"><%= @car.number_plate %></p>
   </div>
   <hr>
+
   <div class="key-info">
     <p>Carburant</p>
     <p class="txt-gold"><%= @car.specification.fuel %></p>
   </div>
   <hr>
+
   <div class="key-info">
     <p>Boîte</p>
     <p class="txt-gold"><%= @car.specification.transmission %></p>
   </div>
   <hr>
+
   <div class="key-info">
     <p>Crit'Air</p>
     <p class="txt-gold"><%= @car.specification.critair %></p>
   </div>
+
 </div>
 
-<!-- la liste des spécification un peu plus détailler avec un lien pour ouvrir la page documents -->
-<!-- <div class="card">
-  <div class="row">
-    <div class="col-sm">
-      <strong>immatriculation</strong>
-    </div>
-    <div class="col-sm">
-      <%= @car.number_plate %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <strong>crit'air</strong>
-    </div>
-    <div class="col">
-      <%= @car.specification.critair %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <strong>fuel</strong>
-    </div>
-    <div class="col-sm">
-      <%= @car.specification.fuel %>
-    </div>
-  </div>
-  <%= link_to "Alert", car_alerts_path(params[:id]) %>
 
-</div> -->
+<!-- suppression du véhicule -->
+
+<div class="delete-car">
+  <%= render 'components/cars/modal_car_delete', car: @car %>
+</div>
