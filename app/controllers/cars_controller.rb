@@ -1,26 +1,21 @@
 class CarsController < ApplicationController
-
-
   before_action :all_specs, only: [:new, :create]
+  before_action :find_car, only: [:show, :update, :destroy]
 
   def index
     @alerts = Alert.all
-    # raise
   end
 
   def show
-    @car = Car.find(params[:id])
   end
 
   def update
-    @car = Car.find(params[:id])
     @car.update(car_params)
 
     redirect_to car_path(@car)
   end
 
   def new
-
     # @specifications = Specification.all
     @car = Car.new(car_params)
     @alert1 = @car.alerts.build
@@ -36,8 +31,6 @@ class CarsController < ApplicationController
       format.html
       format.text { render partial: 'components/cars/list', local: { specifications: @specifications, car: @car, alert1: @alert1, alert2: @alert2 }, formats: [:html] }
     end
-
-    # raise
   end
 
   def create
@@ -61,7 +54,16 @@ class CarsController < ApplicationController
     end
   end
 
+  def destroy
+    @car.destroy
+    redirect_to cars_path
+  end
+
   private
+
+  def find_car
+    @car = Car.find(params[:id])
+  end
 
   def car_params
     return {} unless params.has_key?(:car)

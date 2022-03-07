@@ -71,7 +71,7 @@
 }
 
 .info-tile {
-  margin-top: 20px;
+  margin: 20px 0;
   background-color: $white;
   padding: 40px 20px;
   h2 {
@@ -84,6 +84,13 @@
   hr {
     color: $grey-li;
   }
+}
+
+.delete-car {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  display: grid;
+  place-content: center;
 }
 
 // .link_document {

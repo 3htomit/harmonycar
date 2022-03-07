@@ -1,0 +1,28 @@
+<div type="button" data-bs-toggle="modal" data-bs-target="#carDelete" class="button-outline-red">
+  <p class="txt-red">Supprimer votre véhicule</p>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="carDelete" tabindex="-1" aria-labelledby="carDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="carDeleteLabel">Supprimer votre véhicule</h2>
+      </div>
+      <div class="modal-body">
+        <p> 
+          Voulez-vous vraiment supprimer votre <strong><%= car.specification.make %> <%= car.specification.model %></strong> ?
+        </p>
+      </div>
+      <div class="modal-footer">
+          <%= link_to "Supprimer",
+            car_path(params[:id]),
+            method: :delete,
+            class: "button-outline-red"
+          %>
+          <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close">Annuler</button>
+      <%# <% end %>
+      </div>
+    </div>
+  </div>
+</div>

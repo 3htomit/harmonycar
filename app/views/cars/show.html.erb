@@ -49,32 +49,6 @@
   </div>
 </div>
 
-<!-- la liste des spécification un peu plus détailler avec un lien pour ouvrir la page documents -->
-<!-- <div class="card">
-  <div class="row">
-    <div class="col-sm">
-      <strong>immatriculation</strong>
-    </div>
-    <div class="col-sm">
-      <%= @car.number_plate %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <strong>crit'air</strong>
-    </div>
-    <div class="col">
-      <%= @car.specification.critair %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <strong>fuel</strong>
-    </div>
-    <div class="col-sm">
-      <%= @car.specification.fuel %>
-    </div>
-  </div>
-  <%= link_to "Alert", car_alerts_path(params[:id]) %>
-
-</div> -->
+<div class="delete-car">
+  <%= render 'components/cars/modal_car_delete', car: @car %>
+</div>
