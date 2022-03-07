@@ -1,5 +1,5 @@
 <!-- image de la voiture et les spécification principal -->
-<div class="car-tile" data-controller="modal-car-km">
+<div class="car-tile">
   <% if @car.specification.photo.attached? %>
     <%= cl_image_tag @car.specification.photo.key%>
   <% end %>

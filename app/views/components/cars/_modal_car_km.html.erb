@@ -1,4 +1,4 @@
-<p class="mileage-tile" data-modal-car-km-target="mileage"><%= car.mileage%> Km</p>
+<p class="mileage-tile"><%= car.mileage%> Km</p>
 
 <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="button-mileage">
   <i class="fas fa-pen"></i>
@@ -18,8 +18,8 @@
           <%= f.input :mileage %>
 
       </div>
-        <div class="modal-footer">
-        <%= f.submit "Valider",  method: :patch, class:"btn btn-primary" %>
+      <div class="modal-footer">
+          <%= f.submit "Valider",  method: :patch, class:"btn btn-primary" %>
       <% end %>
       </div>
     </div>

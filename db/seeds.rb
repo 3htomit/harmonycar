@@ -7,6 +7,7 @@ Alert.destroy_all
 Specification.destroy_all
 Car.destroy_all
 Garage.destroy_all
+Service.destroy_all
 
 puts "Beginning to create users"
 
@@ -336,13 +337,315 @@ alert12 = Alert.create!(
 
 puts "Alert car 3 saved"
 
-filepath = "storage/garages.csv"
-i = 0
-puts "create garage nantes!"
-CSV.foreach(filepath, headers: :first_row) do |row|
-  puts "#{i} garage(s)"
-  garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
-  garage.save
-  i+=1
-end
-puts "garage save !"
+
+
+i = 1
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "Garage des Hauts Pavés",
+  address: "68, Rue des Hauts Pavés, 44000 Nantes",
+  telephone: "02 40 74 84 23",
+  average_rating: 3,
+  review_count: 150,
+  web_address: "https://www.garage-des-hauts-paves.fr/"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
+garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "Versailles 44 / Garage L. THIBAUD",
+  address: "33 Quai de Versailles, 44000 Nantes",
+  telephone: "02 40 20 33 29",
+  average_rating: 4,
+  review_count: 120,
+  web_address: "https://www.allogarage.fr/garages/details-garage-Versailles-44-Garage-L-THIBAUD-22710.html"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_precisium_x2.png')
+garage.photo.attach(io: file, filename: "precision", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "GARAGE DE LA BEAUJOIRE",
+  address: "56, Route de Carquefou, 44300 Nantes",
+  telephone: "02 40 30 04 04",
+  average_rating: 2,
+  review_count: 30,
+  web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-DE-LA-BEAUJOIRE-10586.html"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
+garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "FEU VERT NANTES PARIDIS",
+  address: "Rue Perray, 44300 Nantes",
+  telephone: "08 21 04 50 36",
+  average_rating: 4.5,
+  review_count: 236,
+  web_address: "https://www.feuvert.fr/?gclid=CjwKCAiA1JGRBhBSEiwAxXblwUjzNSwuT8fjUiYXaVlLpxMt4KA5uQ3SIbMRPD6ETGhUS2tvmF8aKRoCRIsQAvD_BwE"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_feuvert_2021_x2.png')
+garage.photo.attach(io: file, filename: "feu_vert", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "MAHE",
+  address: "31, Quai de Versailles, 44000 Nantes",
+  telephone: "02 40 20 40 47",
+  average_rating: 4.2,
+  review_count: 431,
+  web_address: "https://www.allogarage.fr/garages/details-garage-MAHE-18686.html"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_ad_x2.png')
+garage.photo.attach(io: file, filename: "ad", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "GARAGE DE L'ABBAYE",
+  address: "4, Rue Chaptal, 44100 Nantes",
+  telephone: "02 40 73 75 75",
+  average_rating: 3.9,
+  review_count: 327,
+  web_address: "https://pros.lacentrale.fr/C032507/"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_dacia_x2.png')
+garage.photo.attach(io: file, filename: "dacia", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "GARAGE LAENNEC",
+  address: "14, Rue Laennec, 44000 Nantes",
+  telephone: "02 51 72 24 05",
+  average_rating: 3.4,
+  review_count: 178,
+  web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-LAENNEC-10577.html"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_renault_2015_x2.png')
+garage.photo.attach(io: file, filename: "renaud", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "SPEEDY Nantes la Durantière",
+  address: "99, Rue de la Durantière, 44100 Nantes",
+  telephone: "02 40 95 19 95",
+  average_rating: 4.8,
+  review_count: 562,
+  web_address: "https://centres-auto.speedy.fr/garage/nantes-44000/136"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_speedy_x2.png')
+garage.photo.attach(io: file, filename: "speedy", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "GARAGE SAINT FELIX",
+  address: "13, Rue de l'Ouche de Versailles, 44000 Nantes",
+  telephone: "02 40 74 04 22",
+  average_rating: 4.3,
+  review_count: 164,
+  web_address: "https://reseau.citroen.fr/reparateur-nantes-14"
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_citroen_2020_x2.png')
+garage.photo.attach(io: file, filename: "citroen", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+i+=1
+
+puts "garage #{i} create"
+
+garage = Garage.new(
+  name: "GARAGE DE LA CONVENTION",
+  address: "46 Bis, Rue de la Convention, 44100 Nantes",
+  telephone: "02 40 58 55 15",
+  average_rating: 3.8,
+  review_count: 85,
+  web_address: "https://www.eurorepar.fr/garage-de-martel-de-la-convention-nantes-8453.html" 
+)
+
+file = URI.open('https://www.allogarage.fr/images/logo_euro_repar_car_service_x2.png')
+garage.photo.attach(io: file, filename: "euro_repar", content_type: 'image/png')
+garage.save!
+
+puts "garage #{i} save ! "
+
+
+puts "service contrôle technique"
+service = Service.new(
+  name: "controle technique",
+  price: 250, 
+  garage: Garage.first
+)
+service.save!
+
+service = Service.new(
+  name: "controle technique",
+  price: 250, 
+  garage: Garage.second
+)
+service.save!
+
+
+service = Service.new(
+  name: "controle technique",
+  price: 250, 
+  garage: Garage.third
+)
+service.save!
+
+puts "contrôle technique done !"
+
+puts "entretien"
+service = Service.new(
+  name: "entretien",
+  price: 120, 
+  garage: Garage.first
+)
+service.save!
+
+service = Service.new(
+  name: "entretien",
+  price: 80, 
+  garage: Garage.second
+)
+service.save!
+
+service = Service.new(
+  name: "entretien",
+  price: 110, 
+  garage: Garage.third
+)
+service.save!
+
+service = Service.new(
+  name: "entretien",
+  price: 120, 
+  garage: Garage.fourth
+)
+service.save!
+
+service = Service.new(
+  name: "entretien",
+  price: 115, 
+  garage: Garage.fifth
+)
+service.save!
+
+puts "entretien done!"
+
+puts "entretien vérif pneus"
+service = Service.new(
+  name: "vérification des pneus",
+  price: 49.99, 
+  garage: Garage.fifth
+)
+service.save!
+
+service = Service.new(
+  name: "vérification des pneus",
+  price: 49.99, 
+  garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
+)
+service.save!
+
+service = Service.new(
+  name: "vérification des pneus",
+  price: 49.99, 
+  garage: Garage.last
+)
+service.save!
+
+puts "verif pneu done"
+puts "verif des niveaux"
+service = Service.new(
+  name: "vérification des niveaux",
+  price: 49.99, 
+  garage: Garage.fourth
+)
+service.save!
+
+service = Service.new(
+  name: "vérification des niveaux",
+  price: 49.99, 
+  garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
+)
+service.save!
+
+service = Service.new(
+  name: "vérification des niveaux",
+  price: 49.99, 
+  garage: Garage.find_by(name: "GARAGE SAINT FELIX")
+)
+service.save!
+
+puts "done !!!"
+# filepath = "storage/garages.csv"
+# i = 0
+# puts "create garage nantes!"
+# CSV.foreach(filepath, headers: :first_row) do |row|
+#   puts "#{i} garage(s)"
+#   garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
+#   garage.save
+#   i+=1
+# end
+# puts "garage save !"
