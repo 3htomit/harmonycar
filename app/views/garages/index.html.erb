@@ -1,29 +1,41 @@
-<div data-controller="display-map" class="garage_list">
-  <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable"><i class="fas fa-map-marked-alt"></i></div>
-  <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable"><i class="fas fa-clipboard-list"></i></div>
+<div   data-controller="display-map"  class="garage_list">
+<%= form_tag garages_path, method: :get do %>
+    <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a garage"
+    %>
+    <%#= select("","", @garages.services.collect {|c| [c.name, c.id]})%>
+  <% end %>
+  
+
+  <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable" >
+    <i class="fas fa-map-marked-alt"></i></div>
+  <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable">
+    <i class="fas fa-clipboard-list"></i></div>
 
 
   <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
+      
+        <div class="garage_card rounded-card" data-display-map-target="garage">
 
-      <div class="garage_card rounded-card">
-
-        <div class ="garage_name rounded-card-top">
-         <strong><%=garage.name%></strong>
-        </div>
-
-        <div class="garage_info rounded-card-bottom">
-          <div class="garage_address">
-           <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
+          <div class ="garage_name rounded-card-top">
+           <strong><%=garage.name%></strong>
           </div>
-          <div class="garage_contact">
-            <div><%=garage.telephone%></div>
-            <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
+
+          <div class="garage_info rounded-card-bottom">
+            <div class="garage_address">
+             <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
+            </div>
+            <div class="garage_contact">
+              <div><%=garage.telephone%></div>
+              <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
+            </div>
           </div>
+
         </div>
-
-      </div>
-
+      
     <%end%>
   </div>
 

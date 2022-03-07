@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "content", "map", "btnlist", "btnmap" ]
+  static targets = [ "content", "map", "btnlist", "btnmap", "garage" ]
 
   disable() {
     this.contentTarget.classList.toggle("display-none")
