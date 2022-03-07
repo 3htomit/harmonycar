@@ -11,10 +11,10 @@
         <%= simple_form_for(@car) do |f| %>
           <%# <%= f.label :name, "Numéro d'immatriculation" %>
           <%# <%= f.text_field :number_plate %>
-          <%= f.input :number_plate %>
+          <%= f.input :number_plate, label: "Immatriculation" %>
           <%# <%= f.label :name, "kilométrage" %>
           <%# <%= f.number_field :mileage %>
-          <%= f.input :mileage %>
+          <%= f.input :mileage, label: "Kilométrage" %>
           <%= f.label :name, "Dernier contrôle technique" %>
           <%= date_field_tag :date_ct %>
           <%= f.label :name, "Dernier entretien"%>
