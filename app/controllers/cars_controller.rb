@@ -34,6 +34,7 @@ class CarsController < ApplicationController
   end
 
   def create
+
     @car = Car.new(car_params)
     @car.user = current_user
     @car.specification = Specification.find(params[:spec_id])
@@ -41,6 +42,8 @@ class CarsController < ApplicationController
     # Alerts creation
     @due_date_ct = Date.strptime(params[:date_ct] , '%Y-%m-%d')+2.years
     @due_date_et = Date.strptime(params[:date_et], '%Y-%m-%d')+1.year
+    # @redalerts = car.alerts.map { |alert| alert.due_date <= Date.today }
+    # @yellowalerts = car.alerts.map { |alert| alert.due_date <= Date.today+alert.alert_category.max_weeks.week}
 
     Alert.create(alert_category_id: @alert_categories.first[:id], car: @car, due_date: @due_date_ct, completed: false, completed_at: params[:date_ct] )
     Alert.create(alert_category_id: @alert_categories.second[:id], car: @car, due_date: @due_date_et, completed: false, completed_at: params[:date_et] )
