@@ -62,6 +62,37 @@
   }
 }
 
+.car-tile-mileage-update {
+  height: 40px;
+  padding-left: 30px;
+  background-color: $secondary-li;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .mileage-form {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  .mileage-input {
+    background-color: transparent;
+    border: none;
+    color: $primary-dk;
+  }
+  .mileage-tile {
+    color: $primary-dk;
+  }
+  .mileage-input {
+    background-color: none;
+    border-radius: none;
+  }
+  .mileage-group {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .car-tile-buttons {
   margin: 20px 0;
   display: flex;
