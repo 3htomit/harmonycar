@@ -58,6 +58,14 @@
   position: absolute;
   right: 20px;
   border-radius: 0px 10px 0px 10px;
+  height: 40px;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .fa-exclamation-triangle, .fa-info-circle {
+    font-size: 20px;
+  }
 }
 .my_car_engine {
   margin: 0;
@@ -65,14 +73,4 @@
 
 .my_vehicule_details {
   padding: 10px;
-}
-
-.red-icon .yellow-icon {
-  // font-size:8px;
-  .fa-exclamation-triangle {
-    font-size: 6px;
-  }
-  .fa-info-circle {
-    font-size: 6px;
-  }
 }

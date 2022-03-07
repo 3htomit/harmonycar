@@ -16,8 +16,8 @@
               <% end %>
             <% end %>
                 <% if @alertscount.count >= 1 %>
-                   <div class="my_vehicule_alert d-flex red-icon my_car_alert_color ">
-                    <%= @alertscount.count %>
+                   <div class="my_vehicule_alert red-icon">
+                    <p class="txt-white"><%= @alertscount.count %></p>
                     <i class="fas fa-exclamation-triangle"></i>
                    </div>
                 <% end %>
