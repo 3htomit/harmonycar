@@ -24,6 +24,19 @@
   }
 }
 
+.button-outline-red {
+  padding: 9px 20px;
+  margin: 20px;
+  background-color: $white;
+  color: $red;
+  border: 2px solid $red;
+  border-radius: 10px;
+  text-align: center;
+  &:active {
+    background-color: $red-li;
+  }
+}
+
 .button-circle {
   // margin: 20px;
   width: 40px;
