@@ -14,10 +14,6 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/my_cars_index";
-@import "pages/new_car_index";
-@import "pages/my_car";
-@import "pages/garages";
 
 // Global
 * {
@@ -30,13 +26,13 @@
     margin: 0;
   }
   .body-yield {
-    margin-bottom: 100px;
+    margin-bottom: 94px;
   }
 }
 a {
   text-decoration: none;
   color: inherit;
 }
-body {
-  margin-bottom: 80px;
-}
+// body {
+//   min-height: 100vh;
+// }

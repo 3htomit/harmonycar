@@ -12,12 +12,12 @@ class GaragesController < ApplicationController
       #   @garages << garage.services.where("name ILIKE ?", "%#{params[:query]}%")
       # end
       # service = Service.where("name ILIKE ?", "%#{params[:query]}%")
-      # @garages = 
+      # @garages =
       @garages = Garage.where("name ILIKE ?", "%#{params[:query]}%")
     else
       @garages = Garage.all
     end
-    
+
     # @garages = []
 
     # # instancie la recherche utilisateur
@@ -70,10 +70,10 @@ class GaragesController < ApplicationController
         lat: garage.latitude,
         lng: garage.longitude
         # info_window: render_to_string(partial: "info_window", locals: { garage: garage })
-        # image_url: helpers.asset_url("https://cdn1.iconfinder.com/data/icons/basic-ui-elements-coloricon/21/06_1-512.png")
+        # image_url: helpers.asset_url("address.png")
       }
     end
-    raise
+
   end
 
   def transfer_to_db

@@ -10,7 +10,7 @@ h1 {
 h2 {
   color: $primary;
   font-family: $headers-font;
-  font-weight: 400;
+  font-weight: 400 !important;
   font-size: 20px;
   strong {
     font-weight: 600;

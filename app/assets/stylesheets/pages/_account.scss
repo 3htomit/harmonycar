@@ -1,0 +1,22 @@
+.account-bg {
+  background-image: linear-gradient($popup-bg,$popup-bg), url(account_bg.jpg);
+  background-size: cover;
+  position: fixed;
+  height: calc(100vh - 134px);
+  width: 100vw;
+  display: grid;
+  place-content: center;
+}
+
+.account-card {
+  background-color: $white;
+  width: calc(100vw - 40px);
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .button {
+    margin: 30px 0 0 0;
+  }
+}
