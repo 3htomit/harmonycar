@@ -9,18 +9,19 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">nouveau Km</h5> <!-- NAME DOESNT WORK -->
+        <h5 class="modal-title" id="exampleModalLabel">Nouveau kilométrage</h5> <!-- NAME DOESNT WORK -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
         <%= simple_form_for car do |f| %>
-          <%= f.input :mileage %>
-
+          <div class="input-group">
+            <span class="input-group-text pop-up-icon-bg"><i class="fas fa-tachometer-alt pop-up-icon"></i></span>
+            <%= f.input :mileage, label: "Kilométrage", label: false, wrapper_class: { class: "form-control no-padding" } %>
+          </div>
       </div>
-        <div class="modal-footer">
+      <div class="modal-footer">
         <%= f.submit "Valider",  method: :patch, class:"btn btn-primary" %>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
