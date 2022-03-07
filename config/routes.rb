@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :cars, only: %i[index show new create update destroy] do
     scope module: :cars do
       resources :alerts, only: %i[index]
-      resources :documents, only: %i[index new create]
+      resources :documents, only: %i[index new create destroy]
     end
   end
 

@@ -16,12 +16,14 @@
   overflow: hidden;
   background-color: $white;
   height: 270px;
+
+
   .my_vehicule_img {
     width: 350px;
     height: 200px;
     // background-size: cover;
     // background-repeat: no-repeat;
-    background-size:     115% 100%;                      /* <------ */
+    background-size:     115% 100%;
     background-repeat:   no-repeat;
     background-position: center center;
   }
@@ -31,9 +33,20 @@
   position: absolute;
   right: 20px;
   border-radius: 0px 10px 0px 10px;
+  font-size: 20px;
+  // text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  justify-content:space-between;
+
 }
 .my_car_engine {
   margin: 0;
+}
+
+.my_car_alert_color {
+  width: 65px;
+  padding: 0 10px;
 }
 
 .my_vehicule_details {
