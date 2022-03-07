@@ -4,16 +4,23 @@
       <!-- image de la voiture -->
       <div>
         <% if car.specification.photo.attached? %>
-          <div><%= cl_image_tag car.specification.photo.key, class: "my_vehicule_img" %>
+          <div style="background-image: url('<%= cl_image_path car.specification.photo.key %>')", class="my_vehicule_img" >
+          <% @alertscount = Array.new %>
             <% car.alerts.each do |alert| %>
               <% if alert.due_date %>
                 <% if alert.due_date <= Date.today %>
-                  <i class="my_vehicule_alert fas fa-exclamation-triangle red-icon"></i>
+                <% @alertscount << alert %>
                 <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-                  <i class="my_vehicule_alert fas fa-info-circle yellow-icon"></i>
+                <% @alertscount << alert %>
                 <% end %>
               <% end %>
             <% end %>
+                <% if @alertscount.count >= 1 %>
+                    <i class="my_vehicule_alert fas fa-exclamation-triangle red-icon"></i>
+                <% end %>
+                <%# <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+                <%# <% elsif @yellowalerts.count >= 1 %>
+                  <%# <i class="my_vehicule_alert fas fa-info-circle yellow-icon"></i> %>
           </div>
         <% end %>
         </div>

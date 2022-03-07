@@ -24,6 +24,19 @@
   }
 }
 
+.button-outline-red {
+  padding: 9px 20px;
+  margin: 20px;
+  background-color: $white;
+  color: $red;
+  border: 2px solid $red;
+  border-radius: 10px;
+  text-align: center;
+  &:active {
+    background-color: $red-li;
+  }
+}
+
 .button-circle {
   // margin: 20px;
   width: 40px;
@@ -44,8 +57,23 @@
   display: grid;
   place-content: center;
   background-color: $secondary;
+  border: 2px solid $secondary;
   color: $white;
   &:active {
     background-color: $secondary-rg;
+  }
+}
+
+.button-mileage-cancel {
+  width: 40px;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background-color: $white;
+  border: 2px solid $secondary;
+  color: $secondary;
+  &:active {
+    border: 2px solid $secondary-rg;
+    color: $secondary-rg;
   }
 }
