@@ -1,29 +1,55 @@
-<div   data-controller="display-map"  class="garage_list">
-<%= form_tag garages_path, method: :get do %>
-    <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a garage"
-    %>
-    <%#= select("","", @garages.services.collect {|c| [c.name, c.id]})%>
-  <% end %>
-  
 
-  <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable" >
-    <i class="fas fa-map-marked-alt"></i></div>
-  <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable">
-    <i class="fas fa-clipboard-list"></i></div>
+<div   data-controller="display-map"  >
 
+  <div class="garage-header">
+    <%= form_tag garages_path, class: "search",method: :get, data:{ controller:"form-submit"}   do %>
+      <div class="p-5 search">
+        <%= select_tag "query",
+          options_from_collection_for_select(@services, "id", "name"),
+          data: {"action": "change->form-submit#garageChoice"},
+          class: "form-select select"
+        %>
+      </div>
+    <%end%>
+
+
+
+    <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable" >
+      <i class="fas fa-map-marked-alt"></i></div>
+    <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable">
+      <i class="fas fa-clipboard-list"></i></div>
+  </div>
 
   <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
-      
-        <div class="garage_card rounded-card" data-display-map-target="garage">
+        <!-- card d'un garage -->
+        <div class="garage_card rounded-card">
 
-          <div class ="garage_name rounded-card-top">
-           <strong><%=garage.name%></strong>
+          <!-- j'englobe les differentes sections photo, name/note et prix -->
+          <div class ="garage_title rounded-card-top d-flex flex-row justify-content-around align-items-center">
+            <div class = "d-flex flex-row garage_logo_name">
+              <div>
+                <% if garage.photo.attached? %>
+                  <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
+                <% end %>
+              </div>
+
+
+                <div class="garage_name d-flex flex-column align-items-start ">
+                  <div><strong ><%=garage.name%></strong></div>
+                  <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
+                </div>
+            </div>
+              <div class="align-self-end garage_rating d-flex flex-row">
+                <% if garage.services.first != nil%>
+                  <%=garage.services.first.price%>
+                  <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
+                <%end%>
+              </div>
+
           </div>
 
+          <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
             <div class="garage_address">
              <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
@@ -35,7 +61,7 @@
           </div>
 
         </div>
-      
+
     <%end%>
   </div>
 
