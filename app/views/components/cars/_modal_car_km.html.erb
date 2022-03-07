@@ -1,0 +1,30 @@
+<div class="car-tile-mileage tile-shadow" >
+  <p class="mileage-tile"><%= car.mileage%> Km</p>
+  <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="button-mileage">
+    <i class="fas fa-pen"></i>
+  </div>
+</div>
+
+<div class="car-tile-mileage-update tile-shadow" >
+  <%= form_for car, html: {class: 'mileage-form'} do |f| %>
+  <%# <%= simple_form_for car, html: { class: "d-flex justify-content-between"} do |f| %>
+    <div class="mileage-group">
+      <%= f.text_field :mileage, class: "mileage-input" %>
+      <p>Km</p>
+    </div>
+    <div class="mileage-group">
+      <button type="button" class="button-mileage-cancel">
+        <i class="fas fa-times"></i>
+      </button>
+      <%= button_tag type: 'submit', method: :patch, class:"button-mileage" do %>
+        <i class="fas fa-check" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
