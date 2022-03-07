@@ -13,8 +13,11 @@
         </div>
         <div class="modal-body">
           <%= simple_form_for(alert) do |f| %>
-            <%= f.input :completed_at %>
-            <%= f.input :completed, as: :hidden, input_html: { value: true }  %>
+            <div class="input-group">
+              <span class="input-group-text pop-up-icon-bg"><i class="fas fa-calendar-alt pop-up-icon"></i></span>
+              <%= date_field_tag :completed_at, :date, { class: "form-control" } %>
+              <%= f.input :completed, as: :hidden, input_html: { value: true } %>
+            </div>
             <%= f.submit "Valider", class: "btn btn-primary" %>
           <% end %>
         </div>
