@@ -3,32 +3,17 @@
 
       <!-- image de la voiture -->
     <div style="background-image: url('<%= cl_image_path car.specification.photo.key %>')", class="my_vehicule_img">
-      <!-- <% if car.specification.photo.attached? %>
-        <%= cl_image_tag car.specification.photo.key%>
-      <% end %> -->
-
-      <% @alertscount = Array.new %>
-
-      <% car.alerts.each do |alert| %>
-        <% if alert.due_date %>
-          <% if alert.due_date <= Date.today %>
-          <% @alertscount << alert %>
-          <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-          <% @alertscount << alert %>
-          <% end %>
-        <% end %>
-      <% end %>
-
-      <% if @alertscount.count >= 1 %>
-          <div class="my_vehicule_alert red-icon">
-          <p class="txt-white"><%= @alertscount.count %></p>
+      <% if car.redcount.count >= 1 %>
+        <div class="my_vehicule_alert red-icon">
+          <p class="txt-white"> <%= car.redcount.count + car.yellowcount.count %> </p>
           <i class="fas fa-exclamation-triangle"></i>
-          </div>
+        </div>
+      <% elsif car.yellowcount.count >= 1 %>
+        <div class="my_vehicule_alert yellow-icon">
+          <p class="txt-white"> <%= car.yellowcount.count %> </p>
+          <i class="fas fa-info-circle"></i>
+        </div>
       <% end %>
-
-      <%# <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-      <%# <% elsif @yellowalerts.count >= 1 %>
-      <%# <i class="my_vehicule_alert fas fa-info-circle yellow-icon"></i> %>
     </div>
 
       <!-- quelque spécification, model, engine, mileage -->
