@@ -18,7 +18,7 @@
 }
 
 .my_vehicule_list{
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -30,7 +30,7 @@
   display: grid;
   place-content: center;
   height: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .new_car_button {
@@ -42,7 +42,7 @@
 
 .my_vehicule_card {
   width: calc(100vw - 40px);
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   overflow: hidden;
   background-color: $white;
   // height: 270px;
@@ -50,7 +50,7 @@
 
   .my_vehicule_img {
     width: 350px;
-    height: 164px;
+    height: 180px;
     background-size: cover;
     background-repeat:   no-repeat;
     background-position: center;
