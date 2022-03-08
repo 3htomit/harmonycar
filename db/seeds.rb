@@ -1,6 +1,6 @@
 require "open-uri"
 require "csv"
-  
+
 
 User.destroy_all
 AlertCategory.destroy_all
@@ -421,7 +421,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE L. THIBAUD",
+  name: "Garrage L. Thibaud",
   address: "33 Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 33 29",
   average_rating: 4,
@@ -440,7 +440,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE DE LA BEAUJOIRE",
+  name: "Garage de la Beaujoire",
   address: "56, Route de Carquefou, 44300 Nantes",
   telephone: "02 40 30 04 04",
   average_rating: 2,
@@ -459,7 +459,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "FEU VERT NANTES PARIDIS",
+  name: "Feu Vert Nantes Paridis",
   address: "Rue Perray, 44300 Nantes",
   telephone: "08 21 04 50 36",
   average_rating: 4.5,
@@ -478,7 +478,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "MAHE",
+  name: "Mahe",
   address: "31, Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 40 47",
   average_rating: 4.2,
@@ -497,7 +497,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE DE L'ABBAYE",
+  name: "garage de L'Abbaye",
   address: "4, Rue Chaptal, 44100 Nantes",
   telephone: "02 40 73 75 75",
   average_rating: 3.9,
@@ -516,7 +516,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE LAENNEC",
+  name: "Garage Laennec",
   address: "14, Rue Laennec, 44000 Nantes",
   telephone: "02 51 72 24 05",
   average_rating: 3.4,
@@ -535,7 +535,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "SPEEDY Nantes la Durantière",
+  name: "Speedy Nantes la Durantière",
   address: "99, Rue de la Durantière, 44100 Nantes",
   telephone: "02 40 95 19 95",
   average_rating: 4.8,
@@ -554,7 +554,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE SAINT FELIX",
+  name: "Garage Saint Felix",
   address: "13, Rue de l'Ouche de Versailles, 44000 Nantes",
   telephone: "02 40 74 04 22",
   average_rating: 4.3,
@@ -573,7 +573,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "GARAGE DE LA CONVENTION",
+  name: "Garage de la Convention",
   address: "46 Bis, Rue de la Convention, 44100 Nantes",
   telephone: "02 40 58 55 15",
   average_rating: 3.8,
@@ -655,14 +655,14 @@ puts "entretien vérif pneus"
 service = Service.new(
   name: "vérification des pneus",
   price: 49.99,
-  garage: Garage.find_by(name: "GARAGE DE L'ABBAYE")
+  garage: Garage.find_by(name: "garage de L'Abbaye")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des pneus",
   price: 49.99,
-  garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
+  garage: Garage.find_by(name: "Speedy Nantes la Durantière")
 )
 service.save!
 
@@ -678,21 +678,21 @@ puts "verif des niveaux"
 service = Service.new(
   name: "vérification des niveaux",
   price: 49.99,
-  garage: Garage.find_by(name: "GARAGE LAENNEC")
+  garage: Garage.find_by(name: "Garage Laennec")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des niveaux",
   price: 49.99,
-  garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
+  garage: Garage.find_by(name: "Speedy Nantes la Durantière")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des niveaux",
   price: 49.99,
-  garage: Garage.find_by(name: "GARAGE SAINT FELIX")
+  garage: Garage.find_by(name: "Garage Saint Felix")
 )
 service.save!
 

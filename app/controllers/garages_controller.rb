@@ -29,11 +29,10 @@ class GaragesController < ApplicationController
         OR services.name ILIKE :query \
       "
       @garages = Garage.joins(:services).where(sql_query, query: "%#{service}%")
-      # @garages = Garage.where("name ILIKE ?", "%#{params[:query]}%")
+      # @garages = Garage.where("name ILIKE ?", "%#{service}%")
     else
       @garages = Garage.all
     end
-
 
     @markers = @garages.geocoded.map do |garage|
       {

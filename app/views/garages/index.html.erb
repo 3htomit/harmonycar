@@ -45,7 +45,9 @@
 
             <div class=" align-self-end d-flex flex-row ml-auto garage_rating p-2">
               <% if garage.services.first != nil%>
-                <%=garage.services.first.price%>
+                <!-- je récup le nom du service demander pour afficher son prix -->
+                <%name = Service.find(params[:query]).name %>
+                <%=garage.services.where(name: name).first.price%>
                 <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
               <%end%>
             </div>
