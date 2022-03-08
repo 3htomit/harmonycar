@@ -1,27 +1,43 @@
 .mapboxgl-popup {
-  background-color:rgba(0,0,0,0.6) ;
+  background-color:rgba(0,0,0,0.0) ;
+  min-width: 180px;
   max-width: 200px;
   border-radius: 10px;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
+
   font-family: Montserrat;
-  font-style: normal;
+  // font-weight: bold;
   font-size: 12px;
   line-height: 15px;
   // background-color:rgba(255,255,255,0.8) ;
-  border-radius: 10px;
+  border-radius: 15px;
 
 }
 
 .map_price {
+  // margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
-  padding: auto;
-  margin:auto;
+
 }
 
 .logo_map {
-  box-shadow: 1px 1px 1px grey;
+  // box-shadow: 1px 1px 1px grey;
+}
+
+.map_popup_title {
+  margin: auto;
+  text-align: left;
+  font-weight: bold;
+}
+
+.map_popup_rtg_price {
+  text-align: right;
+  // margin: 5px;
+  font-weight: bold;
+  padding-bottom: 8px;
+  margin: auto auto 0 auto;
+
 }
