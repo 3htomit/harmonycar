@@ -7,33 +7,35 @@
       </div>
 
       <%# MODAL %>
-      <div class="modal-body">
-        <%= simple_form_for(@car) do |f| %>
-          <%# PLATE NB %>
-          <div class="input-group">
-            <span class="input-group-text pop-up-icon-bg"><i class="fas fa-car-alt pop-up-icon"></i></span>
-            <%= f.input :number_plate, label: "Immatriculation", label: false, wrapper_class: { class: "form-control no-padding" } %>
-          </div>
-          <%# MILAGE %>
-          <div class="input-group">
-            <span class="input-group-text pop-up-icon-bg"><i class="fas fa-tachometer-alt pop-up-icon"></i></span>
-            <%= f.input :mileage, label: "Kilométrage", label: false, wrapper_class: { class: "form-control no-padding" } %>
-          </div>
-          <%# CT DATE %>
-          <%= f.label :name, "Dernier contrôle technique" %>
-          <div class="input-group">
-            <span class="input-group-text pop-up-icon-bg"><i class="fas fa-calendar-alt pop-up-icon"></i></span>
-            <%= date_field_tag :date_ct, :date, { class: "form-control" } %>
-          </div>
-          <%# ENT DATE %>
-          <%= f.label :name, "Dernier entretien" %>
-          <div class="input-group">
-            <span class="input-group-text pop-up-icon-bg"><i class="fas fa-tools pop-up-icon"></i></span>
-            <%= date_field_tag :date_et, :date, { class: "form-control" } %>
-            <%= text_field_tag :spec_id, specification.id, class: "d-none" %>
-          </div>
-          <%= f.submit "Valider", class: "btn btn-primary" %>
-        <% end %>
+      <div class="pop-up-div">
+        <div class="modal-body">
+          <%= simple_form_for(@car) do |f| %>
+            <%# PLATE NB %>
+            <div class="input-group">
+              <span class="input-group-text pop-up-icon-bg"><i class="fas fa-car-alt pop-up-icon"></i></span>
+              <%= f.input :number_plate, label: "Immatriculation", label: false, wrapper_class: { class: "form-control no-padding" } %>
+            </div>
+            <%# MILAGE %>
+            <div class="input-group">
+              <span class="input-group-text pop-up-icon-bg"><i class="fas fa-tachometer-alt pop-up-icon"></i></span>
+              <%= f.input :mileage, label: "Kilométrage", label: false, wrapper_class: { class: "form-control no-padding" } %>
+            </div>
+            <%# CT DATE %>
+            <%= f.label :name, "Dernier contrôle technique" %>
+            <div class="input-group">
+              <span class="input-group-text pop-up-icon-bg"><i class="fas fa-calendar-alt pop-up-icon"></i></span>
+              <%= date_field_tag :date_ct, :date, { class: "form-control" } %>
+            </div>
+            <%# ENT DATE %>
+            <%= f.label :name, "Dernier entretien" %>
+            <div class="input-group">
+              <span class="input-group-text pop-up-icon-bg"><i class="fas fa-tools pop-up-icon"></i></span>
+              <%= date_field_tag :date_et, :date, { class: "form-control" } %>
+              <%= text_field_tag :spec_id, specification.id, class: "d-none" %>
+            </div>
+            <%= f.submit "Valider", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -136,6 +136,9 @@
   margin-bottom: 120px;
   display: grid;
   place-content: center;
+  p {
+    color: $secondary;
+  }
 }
 
 // .link_document {
