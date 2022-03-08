@@ -9,54 +9,66 @@
 }
 
 .vehicule-card {
-  width: 172px;
-  // border: 1px solid black;
   background-color: $white;
   overflow: hidden;
   .new_car_img {
     width: 100%;
-    height: 113px;
+    height: 110px;
   }
 }
 
 .listed_new_cars {
   background-color: $background;
-  padding-top: 10px;
-}
-
-.form-control {
-  border: 0;
-  background-color: $secondary-li
 }
 
 .new_car_input {
-  width: 95%;
-  margin-left: 10px;
-
+  width: 100vw;
+  height: 125px;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    margin-bottom: 15px;
+  }
+  .form-control {
+    border: none;
+    width: calc(100vw - 40px);
+    background-color: $secondary-li
+  }
 }
+
 
 .new_car_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px 10px;
-  padding: 10px 10px;
+  gap: 20px;
+  padding: 20px;
   // background-color: $background;
 }
 
 .new_car_info {
 
-
 }
 
 .new_car_model {
   margin-bottom: 0;
-  padding: 5px 0px 0px 5px;
+  padding: 0px 10px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .new_car_engine {
   margin-bottom: 0;
-  border-top: solid $secondary 1px;
+  // border-top: solid $secondary 1px;
   background-color: $secondary;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .enginespec {
