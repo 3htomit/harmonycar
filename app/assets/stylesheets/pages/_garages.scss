@@ -86,7 +86,7 @@
 
 .garage_title {
   color: $primary;
-  height: 80px;
+  height: 90px;
   width: 100%;
   background-color: $white;
   text-align: center;
@@ -106,6 +106,14 @@
 .garage_rating {
   // flex-grow: 4;
   // margin-right: 10px;
+  margin-left: 5px;
+}
+
+.fa-euro-sign {
+  padding-left: 6px;
+}
+
+.rating-star {
   margin-left: 5px;
 }
 
@@ -139,8 +147,7 @@
 }
 
 .garage-logo {
-  margin-top: 10px;
-  margin-left: 10px;
+  border-radius: 10px;
 }
 
 .garage_contact{
