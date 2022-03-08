@@ -1,3 +1,26 @@
+<div class="sticker">
+  <% @alertscount = Array.new %>
+
+  <% @car.alerts.each do |alert| %>
+    <% if alert.due_date %>
+      <% if alert.due_date <= Date.today %>
+        <% @alertscount << alert %>
+      <% elsif alert.due_date <= (Date.today + alert.alert_category.max_weeks.week) %>
+        <% @alertscount << alert %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if @alertscount.count >= 1 %>
+    <%= link_to car_alerts_path(params[:id]), class: "center-text" do %>
+      <div class="red-alert card-shadow">
+        <i class="fas fa-exclamation-triangle"></i>
+        <p class="txt-white"> <%= @alertscount.count %> </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <!-- image de la voiture et les spécification principal -->
 <div class="car-tile">
 
