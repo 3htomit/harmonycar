@@ -1,21 +1,16 @@
 <div class="sticker">
-  <% @alertscount = Array.new %>
-
-  <% @car.alerts.each do |alert| %>
-    <% if alert.due_date %>
-      <% if alert.due_date <= Date.today %>
-        <% @alertscount << alert %>
-      <% elsif alert.due_date <= (Date.today + alert.alert_category.max_weeks.week) %>
-        <% @alertscount << alert %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if @alertscount.count >= 1 %>
+  <% if @car.redcount.count >= 1 %>
     <%= link_to car_alerts_path(params[:id]), class: "center-text" do %>
       <div class="red-alert card-shadow">
+        <p class="txt-white"> <%= @car.redcount.count + @car.yellowcount.count %> </p>
         <i class="fas fa-exclamation-triangle"></i>
-        <p class="txt-white"> <%= @alertscount.count %> </p>
+      </div>
+    <% end %>
+  <% elsif @car.yellowcount.count >= 1 %>
+    <%= link_to car_alerts_path(params[:id]), class: "center-text" do %>
+      <div class="yellow-alert card-shadow">
+        <p class="txt-white"> <%= @car.yellowcount.count %> </p>
+        <i class="fas fa-info-circle"></i>
       </div>
     <% end %>
   <% end %>

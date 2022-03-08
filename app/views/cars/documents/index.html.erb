@@ -1,16 +1,53 @@
-<h1>upload documents</h1>
 
-<%# <% @pdfdocs.each do |pdfdoc| %>
-  <%# <%=cl_image_tag document.document.key, class:"document_image" %>
-<%# <% end %>
+<div class="alert-return-link tile-shadow">
+    <div class="d-flex">
+      <%= link_to "", car_path(@car), class: "fas fa-angle-left return-icon-alert" %>
+      <%= link_to "Retour au véhicule", car_path(@car), class: "return-text"  %>
+    </div>
+  </div>
 
-<% @imgdocs.each do |imgdoc| %>
-  <%=cl_image_tag document.document.key, class:"document_image"%>
+<div class="documents_list">
+  <% @documents.each do |document| %>
+    <div class="document_card d-flex rounded-card">
+      <div>
+        <strong class="document_name"><%= document.name%></strong>
+        <p class="txt-info"><%= document.created_at.strftime("ajouté le %m/%Y") %></p>
+      </div>
+      <div class="document_actions d-flex">
+        <a href="<%=download_link(cl_image_path(document.document.key))%>"><i class="fas fa-download button-circle-doc document_icon"></i></a>
+        <%# <%= render 'delete_document_modal', document: document %>
+        <%= link_to document_path(document),
+            method: :delete,
+              "data-confirm": "Êtes-vous sûr.e ?" do
+        %>
+          <i class="fas fa-trash-alt button-circle-doc"></i>
+        <% end %>
+
+      </div>
+    </div>
 <% end %>
+</div>
 
-<p>ajouter un document</p>
+
+<i class="fas fa-plus button-circle new_doc_button" data-bs-toggle="modal" data-bs-target="#documentModal"></i>
+
+<!-- Modal -->
+<div class="modal fade" id="documentModal" tabindex="-1" aria-labelledby="documentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="documentModalLabel">Ajouter un document</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 <%= simple_form_for([@car, @document]) do |f| %>
   <%= f.input :name, as: :string, label: "Nom du document" %>
   <%= f.input :document, as: :file %>
-  <%= f.submit %>
+  <%= f.submit "Ajouter votre document", class: "btn btn-primary"%>
 <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>

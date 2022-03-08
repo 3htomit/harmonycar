@@ -5,7 +5,7 @@
         <% if alert.due_date <= Date.today %>
           <i class="fas fa-exclamation-triangle red-icon alert-icon-border-radius"></i>
           <i class="fas fa-clock red-clock"></i>
-        <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+        <% elsif alert.due_date <= Date.today + alert.alert_category.max_weeks.week %>
           <i class="fas fa-info-circle yellow-icon alert-icon-border-radius"></i>
           <i class="fas fa-clock yellow-clock"></i>
         <% else %>

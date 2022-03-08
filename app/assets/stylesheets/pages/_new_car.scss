@@ -19,6 +19,7 @@
 
 .listed_new_cars {
   background-color: $background;
+  margin-bottom: 100px;
 }
 
 .new_car_input {
@@ -38,7 +39,6 @@
     background-color: $secondary-li
   }
 }
-
 
 .new_car_grid {
   display: grid;
