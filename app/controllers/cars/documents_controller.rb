@@ -23,6 +23,13 @@ class Cars::DocumentsController < ApplicationController
     end
   end
 
+  def destroy
+    @document = Document.find(params[:id])
+    @document.destroy
+    redirect_to car_documents_path(@document.car)
+
+  end
+
   private
 
   def document_params
