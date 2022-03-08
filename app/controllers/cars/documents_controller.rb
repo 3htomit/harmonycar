@@ -3,8 +3,9 @@ class Cars::DocumentsController < ApplicationController
     @car = Car.find(params[:car_id])
     @documents = @car.documents
     @document = Document.new
-    @pdfdocs = @documents.select { |document| File.extname("#{document}") == ".pdf"}
-    @imgdocs = @documents.select { |document| File.extname("#{document}") == ".png" || ".jpeg"}
+    # @pdfdocs = @documents.select { |document| File.extname("#{document}") == ".pdf"}
+    # @imgdocs = @documents.select { |document| File.extname("#{document}") == ".png" || ".jpeg"}
+
   end
 
   def new

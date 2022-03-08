@@ -1,4 +1,45 @@
-.document_image {
-  width: 100px;
-  height: 100px;
+
+.documents_list {
+  // margin: 0 auto;
+}
+
+.document_card {
+  width: 90vw;
+  height: 60px;
+  justify-content: space-between;
+  background-color: $white ;
+  align-items: center;
+  padding: 0px 0px 0px 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.document_actions {
+  padding: 20px;
+  width: 130px;
+  justify-content: space-between;
+}
+
+.document_icon {
+
+}
+
+.button-circle-doc {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  background-color: $white;
+  color: $secondary;
+  border-radius: 100%;
+  border: solid 2px $secondary ;
+  font-size: 20px;
+  &:active {
+    background-color: $secondary-rg;
+  }
+}
+
+.new_doc_button {
+  margin: 0 auto;
+  margin-top: 30px;
 }
