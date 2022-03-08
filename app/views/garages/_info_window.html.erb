@@ -4,13 +4,18 @@
       <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: " logo_map" %>
     <% end %>
 
-    <div class="map_price d-flex flex-row">
+    <div class="map_price d-flex flex-column justify-content-end">
       <% if garage.services.first != nil%>
-        <%=garage.services.first.price%>
-        <div class="auros"><i class="fas fa-euro-sign"></i></div>
+        <p class="map_popup_rtg_price">
+          <%=garage.services.first.price%>
+          <i class="fas fa-euro-sign"></i>
+        </p>
       <%end%>
+      <div>
+        <p class="map_popup_rtg_price"><%= garage.average_rating%><i class="fas fa-star"></i></p>
+      </div>
     </div>
   </div>
 
-  <h2><%=garage.name%></h2>
+  <h2 class="map_popup_title"><%=garage.name%></h2>
 </div>
