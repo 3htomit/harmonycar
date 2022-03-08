@@ -265,7 +265,7 @@ puts "Alert category 2 saved"
 alert_category3 = AlertCategory.create!(
   name: "Vérification des pneus",
   description: "Si vous conduisez avec des pneus sur ou sous gonflés vous mettez en danger votre sécurité. La bonne pression est un facteur de sécurité, de longévité de vos pneus et de consommation de carburant réduite.",
-  max_weeks: 3/7
+  max_weeks: 1
 )
 
 puts "Alert category 3 saved"
