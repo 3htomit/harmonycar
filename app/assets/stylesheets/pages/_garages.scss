@@ -79,12 +79,9 @@
   text-align: left;
 }
 
-.garage_address {
-  // font-size: 12px; ne fonctionne pas a cause du link_to de base
-  margin-left: 15px;
-  width: 175px;
-  border-right: 1px solid white;
-  // padding: 10px;
+.garage-info-contact {
+  margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .garage_title {
@@ -113,12 +110,24 @@
 }
 
 .service_price {
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+.full_garage_address {
+  margin-left: 15px;
+  width: 175px;
+  border-right: 1px solid white;
 }
 
 .garage_address {
-  font-size: 12px;
+  a {
+    border: inherit;
+    font-size: inherit;
+  }
+  font-size: 12px !important;
   color: white;
+  // width: 150px;
+  // border-right: 1px solid white;
 }
 .euros {
   padding-left: 5px;
