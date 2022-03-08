@@ -23,7 +23,6 @@ class GaragesController < ApplicationController
 
     if params[:query].present?
       service = Service.find(params[:query]).name
-
       sql_query = " \
         garages.name ILIKE :query \
         OR services.name ILIKE :query \

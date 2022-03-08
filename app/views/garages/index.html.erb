@@ -6,7 +6,7 @@
       <div class="p-5 search">
         <%= select_tag "query",
           options_from_collection_for_select(@services, "id", "name"),
-          prompt: params[:query].nil? ? "veuillez sélectionner un service" : Service.find(params[:query]).name,
+          prompt: params[:query].nil? ? "Veuillez sélectionner un service" : Service.find(params[:query]).name,
           data: {"action": "change->form-submit#garageChoice"},
           class: "form-select select tile-shadow"
         %>
