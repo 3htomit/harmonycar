@@ -1,8 +1,27 @@
 .mapboxgl-popup {
+  background-color:rgba(0,0,0,0.6) ;
   max-width: 200px;
+  border-radius: 10px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: Montserrat;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15px;
+  // background-color:rgba(255,255,255,0.8) ;
+  border-radius: 10px;
+
+}
+
+.map_price {
+  font-size: 20px;
+  font-weight: bold;
+  padding: auto;
+  margin:auto;
+}
+
+.logo_map {
+  box-shadow: 1px 1px 1px grey;
 }
