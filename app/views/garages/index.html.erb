@@ -38,7 +38,7 @@
 
             <div class="p-2 garage_name">
               <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
-              <div><strong ><%=garage.name%></strong></div>
+              <div><strong ><%= link_to garage.name, garage.web_address%></strong></div>
               <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
             </div>
 
@@ -55,11 +55,11 @@
           <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
             <div class="garage_address">
-             <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
+             <i class="fas fa-map-marker-alt"></i>
+             <i><%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}"%></i>
             </div>
             <div class="garage_contact">
               <div><%=garage.telephone%></div>
-              <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
             </div>
           </div>
 

@@ -6,8 +6,9 @@ AlertCategory.destroy_all
 Alert.destroy_all
 Specification.destroy_all
 Car.destroy_all
-Garage.destroy_all
 Service.destroy_all
+Garage.destroy_all
+
 
 puts "Beginning to create users"
 

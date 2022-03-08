@@ -21,8 +21,10 @@
   position: relative;
   .select{
     position: absolute;
+    width: 90%;
     top: 25px;
-    left: 0px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -34,6 +36,8 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
+  border: 3px solid $white;
+  // box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.15);
 }
 
 .rounded-card-bottom {
@@ -129,11 +133,10 @@
 
 
 .garage_contact{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 14px;
-  margin-left: 47px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-end;
+  margin: auto;
 }
 
 .garage_phone_number {
