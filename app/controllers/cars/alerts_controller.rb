@@ -14,6 +14,8 @@ class Cars::AlertsController < ApplicationController
     # byebug
     @alert = Alert.find(params[:id])
     @alert.update(alert_params)
+    @alert.completed_at = Time.zone.parse(params[:completed_at])
+    @alert.save
     if @alert.alert_category.name == "Vérification des pneus"
       @alert.due_date = @alert.completed_at + 2.weeks
     elsif @alert.alert_category.name == "Vérification des niveaux"
