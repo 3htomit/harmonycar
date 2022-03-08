@@ -7,7 +7,12 @@
     <div class="align-self-start map_price d-flex flex-column justify-content-end">
       <% if garage.services.first != nil%>
         <p class="map_popup_rtg_price">
-          <%=garage.services.first.price%>
+          <%if params[:query] != nil%>
+            <%name = Service.find(params[:query]).name %>
+            <%=garage.services.where(name: name).first.price%>
+          <%else%>
+            <%=garage.services.first.price%>
+          <%end%>
           <i class="fas fa-euro-sign"></i>
         </p>
       <%end%>
