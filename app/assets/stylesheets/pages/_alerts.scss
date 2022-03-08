@@ -30,6 +30,7 @@ padding: 8px;
   padding: 0px;
   margin: 26px auto;
   width: 342px;
+  overflow: hidden;
 }
 
 h2 {
@@ -52,6 +53,11 @@ h2 {
   padding: 12px 15px;
 }
 
+.empty-alert {
+  height: 100%;
+  width: 50px;
+  background-color: $white;
+}
 
 .red-icon {
   background-color: $red;
@@ -104,6 +110,12 @@ h2 {
 .red-date {
   font-size: 16px;
   color: $red-li;
+  margin-top: 22px;
+}
+
+.nil-date {
+  font-size: 16px;
+  color: $primary;
   margin-top: 22px;
 }
 
