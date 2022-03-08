@@ -16,7 +16,10 @@
               <% end %>
             <% end %>
                 <% if @alertscount.count >= 1 %>
-                    <i class="my_vehicule_alert fas fa-exclamation-triangle red-icon"></i>
+                   <div class="my_vehicule_alert red-icon">
+                    <p class="txt-white"><%= @alertscount.count %></p>
+                    <i class="fas fa-exclamation-triangle"></i>
+                   </div>
                 <% end %>
                 <%# <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
                 <%# <% elsif @yellowalerts.count >= 1 %>

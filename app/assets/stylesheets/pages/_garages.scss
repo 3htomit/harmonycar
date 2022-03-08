@@ -28,8 +28,11 @@
 
 .btn-hidden {
   position: absolute;
-  margin: 0px auto;
-  left: 160px;
+  margin: 0 auto;
+  // left: 160px;
+  vertical-align: middle;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
 }
 
