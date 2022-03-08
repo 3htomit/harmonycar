@@ -13,4 +13,51 @@
 
 .container-login {
   background-color: $white;
+  padding: 58px 28px;
+  text-align: center;
+  margin: 50px 24px 0px 24px;
+}
+
+.container-login {
+  h1 {
+    color: $primary;
+    font-family: $headers-font;
+    font-weight: 200;
+    font-size: 40px;
+  }
+}
+
+.container-login .form-label {
+  margin-top: 44px;
+}
+
+.login-form {
+    color: $primary;
+    font-family: $headers-font;
+    font-weight: 400 !important;
+    font-size: 20px;
+}
+
+.login-form .form-check {
+  display: flex;
+  justify-content: center;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0.25em;
+  margin-right: 1rem;
+}
+
+.form-check .form-check-input {
+  float: left;
+  margin-left: -2.5em;
+}
+
+.form-check {
+  margin-bottom: 2.125rem;
+}
+
+.no-account-login {
+  color: $secondary;
+  font-size: 12px;
 }
