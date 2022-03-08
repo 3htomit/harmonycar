@@ -1,5 +1,6 @@
 require "open-uri"
 require "csv"
+  
 
 User.destroy_all
 AlertCategory.destroy_all

@@ -1,7 +1,7 @@
 <div class="my_vehicules_title">
   <h2 class="h2title" >Vos véhicules</h2>
 </div>
-<div class = "my_vehicule_list mt-4">
+<div class = "my_vehicule_list">
   <% current_user.cars.each do |car| %>
 
     <%= render 'components/cars/my_vehicule_card', car: car %>

@@ -1,12 +1,11 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
+  layout "devise"
+
   def home
   end
 
   def components
-  end
-
-  def account
   end
 end

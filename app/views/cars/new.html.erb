@@ -1,7 +1,7 @@
-<h2 class="new_vehicule_title">Ajoutez votre nouveau véhicule</h2>
 <div class="d-flex justify-content-center">
-  <div data-controller="search-car" class="listed_new_cars mt-3">
-    <div class="new_car_input">
+  <div data-controller="search-car" class="listed_new_cars">
+    <div class="new_car_input card-shadow">
+      <h2>Recherchez votre véhicule</h2>
       <%= form_with url: new_car_path, method: :get, html: {
         data: { search_car_target: 'form' } } do |f| %>
         <%= f.text_field :query,

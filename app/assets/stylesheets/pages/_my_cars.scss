@@ -18,7 +18,10 @@
 }
 
 .my_vehicule_list{
-  padding: 0 20px;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .my_vehicules_title {
@@ -27,11 +30,59 @@
   display: grid;
   place-content: center;
   height: 50px;
+  margin-bottom: 40px;
 }
 
 .new_car_button {
-  margin: 0;
+  margin-bottom: 120px;
   display: flex;
   justify-content: center;
   height: 50px;
+}
+
+.my_vehicule_card {
+  width: calc(100vw - 40px);
+  margin-bottom: 40px;
+  overflow: hidden;
+  background-color: $white;
+  // height: 270px;
+  background-color: $white;
+
+  .my_vehicule_img {
+    width: 350px;
+    height: 164px;
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center;
+  }
+}
+
+.my_vehicule_alert {
+  position: absolute;
+  right: 20px;
+  border-radius: 0px 10px 0px 10px;
+  height: 40px;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .fa-exclamation-triangle, .fa-info-circle {
+    font-size: 20px;
+  }
+}
+.my_car_engine {
+  margin: 0;
+}
+
+.my_vehicule_details {
+  padding: 20px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
