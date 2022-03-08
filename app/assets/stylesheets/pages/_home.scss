@@ -20,8 +20,16 @@
   height: 350px;
 }
 
-.font-awesome-icon {
+.font-awesome-icon-left {
   font-size: 40px;
   color: $secondary;
   margin-bottom: 100px;
+  margin-right: 40px;
+}
+
+.font-awesome-icon-right {
+  font-size: 40px;
+  color: $secondary;
+  margin-bottom: 100px;
+  margin-left: 40px;
 }
