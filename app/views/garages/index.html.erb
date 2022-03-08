@@ -6,6 +6,7 @@
       <div class="p-5 search">
         <%= select_tag "query",
           options_from_collection_for_select(@services, "id", "name"),
+          prompt: params[:query].nil? ? "select a service" : Service.find(params[:query]).name,
           data: {"action": "change->form-submit#garageChoice"},
           class: "form-select select"
         %>
@@ -23,10 +24,10 @@
   <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
         <!-- card d'un garage -->
-        <div class="garage_card rounded-card">
+        <div class="garage_card rounded-card ">
 
           <!-- j'englobe les differentes sections photo, name/note et prix -->
-          <div class ="garage_title rounded-card-top d-flex flex-row justify-content-around align-items-center">
+          <div class ="garage_title align-items-center rounded-card-top d-flex flex-row justify-content-around ">
             <div class = "d-flex flex-row garage_logo_name">
               <div>
                 <% if garage.photo.attached? %>
@@ -35,7 +36,7 @@
               </div>
 
 
-                <div class="garage_name d-flex flex-column align-items-start ">
+                <div class="garage_name d-flex flex-column ">
                   <div><strong ><%=garage.name%></strong></div>
                   <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
                 </div>

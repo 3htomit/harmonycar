@@ -1,0 +1,16 @@
+<h1>upload documents</h1>
+
+<%# <% @pdfdocs.each do |pdfdoc| %>
+  <%# <%=cl_image_tag document.document.key, class:"document_image" %>
+<%# <% end %>
+
+<% @imgdocs.each do |imgdoc| %>
+  <%=cl_image_tag document.document.key, class:"document_image"%>
+<% end %>
+
+<p>ajouter un document</p>
+<%= simple_form_for([@car, @document]) do |f| %>
+  <%= f.input :name, as: :string, label: "Nom du document" %>
+  <%= f.input :document, as: :file %>
+  <%= f.submit %>
+<% end %>
