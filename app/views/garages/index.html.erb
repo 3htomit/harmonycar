@@ -1,23 +1,21 @@
 
-<div   data-controller="display-map"  >
+<div data-controller="display-map">
 
   <div class="garage-header">
     <%= form_tag garages_path, class: "search",method: :get, data:{ controller:"form-submit"}   do %>
       <div class="p-5 search">
         <%= select_tag "query",
           options_from_collection_for_select(@services, "id", "name"),
-          prompt: params[:query].nil? ? "select a service" : Service.find(params[:query]).name,
+          prompt: params[:query].nil? ? "veuillez sélectionner un service" : Service.find(params[:query]).name,
           data: {"action": "change->form-submit#garageChoice"},
-          class: "form-select select"
+          class: "form-select select tile-shadow"
         %>
       </div>
     <%end%>
 
-
-
-    <div class="button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable" >
+    <div class="tile-shadow button-circle btn-hidden" data-display-map-target="btnlist" data-action="click->display-map#disable" >
       <i class="fas fa-map-marked-alt"></i></div>
-    <div class="button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable">
+    <div class=" tile-shadow button-circle btn-hidden  display-none" data-display-map-target="btnmap" data-action="click->display-map#disable">
       <i class="fas fa-clipboard-list"></i></div>
   </div>
 
@@ -35,34 +33,37 @@
               <% end %>
             </div>
 
+            <div class="w-100 d-flex flex-column">
+              <div class="p-2 garage_name">
+                <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
+                <strong ><%= link_to garage.name, garage.web_address%></strong>
+              </div>
+              <div class ="d-flex flex-row justify-content-between">
+                <div class="garage_rating align-self-start"><i class=" fas fa-star"></i><%= garage.average_rating%></div>
 
-            <div class="p-2 garage_name">
-              <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
-              <div><strong ><%= link_to garage.name, garage.web_address%></strong></div>
-              <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
+                <div class="service_price align-self-end d-flex flex-row">
+                  <% if garage.services.first != nil%>
+                    <!-- je récup le nom du service demander pour afficher son prix -->
+                    <%if params[:query] != nil%>
+                      <%name = Service.find(params[:query]).name %>
+                      <%=garage.services.where(name: name).first.price%>
+                    <%else%>
+                      <%=garage.services.first.price%>
+                    <%end%>
+                      <div><i class=" icone fas fa-euro-sign"></i></div>
+                  <%end%>
+                </div>
+              </div>
             </div>
-
-
-            <div class=" align-self-end d-flex flex-row ml-auto garage_rating p-2">
-              <% if garage.services.first != nil%>
-                <!-- je récup le nom du service demander pour afficher son prix -->
-                <%if params[:query] != nil%>
-                  <%name = Service.find(params[:query]).name %>
-                  <%=garage.services.where(name: name).first.price%>
-                <%else%>
-                  <%=garage.services.first.price%>
-                <%end%>
-                  <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
-              <%end%>
-            </div>
-
           </div>
 
           <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
             <div class="garage_address">
              <i class="fas fa-map-marker-alt"></i>
-             <i><%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}"%></i>
+             <i>
+             <%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}"%>
+             </i>
             </div>
             <div class="garage_contact">
               <div><%=garage.telephone%></div>
@@ -72,7 +73,7 @@
         </div>
 
     <%end%>
-    <div class="fantom" > <br><br><br><br></div>
+    <div class="fantom" ><br><br><br><br></div>
   </div>
 
 

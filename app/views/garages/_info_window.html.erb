@@ -4,7 +4,7 @@
       <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: " logo_map" %>
     <% end %>
 
-    <div class="map_price d-flex flex-column justify-content-end">
+    <div class="align-self-start map_price d-flex flex-column justify-content-end">
       <% if garage.services.first != nil%>
         <p class="map_popup_rtg_price">
           <%=garage.services.first.price%>

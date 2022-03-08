@@ -76,14 +76,16 @@
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  text-align: center;
+  text-align: left;
 }
 
+.garage_address {
+  // font-size: 12px; ne fonctionne pas a cause du link_to de base
+  margin-left: 15px;
+  width: 175px;
+  border-right: 1px solid white;
+  // padding: 10px;
+}
 
 .garage_title {
   color: $primary;
@@ -100,16 +102,24 @@
 }
 
 .garage_name {
-  margin-left: 20px;
+  // margin-left: 20px;
   text-align: left;
 }
 
 .garage_rating {
   // flex-grow: 4;
-  margin-right: 10px;
-  margin-left: auto;
+  // margin-right: 10px;
+  margin-left: 5px;
 }
 
+.service_price {
+  margin-right: 10px;
+}
+
+.garage_address {
+  font-size: 12px;
+  color: white;
+}
 .euros {
   padding-left: 5px;
   margin-left: 5px;
@@ -124,18 +134,7 @@
   margin-left: 10px;
 }
 
-
-.garage_address {
-  width: 175px;
-  border-right: 1px solid white;
-  padding: 10px;
-}
-
-
 .garage_contact{
-  // display: flex;
-  // flex-direction: column;
-  // align-items: flex-end;
   margin: auto;
 }
 
