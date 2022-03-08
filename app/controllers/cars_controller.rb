@@ -83,6 +83,6 @@ class CarsController < ApplicationController
   end
 
   def all_specs
-    @specifications = Specification.all
+    @specifications = Specification.all.order("make")
   end
 end
