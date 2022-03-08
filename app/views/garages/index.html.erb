@@ -27,26 +27,28 @@
         <div class="garage_card rounded-card ">
 
           <!-- j'englobe les differentes sections photo, name/note et prix -->
-          <div class ="garage_title align-items-center rounded-card-top d-flex flex-row justify-content-around ">
-            <div class = "d-flex flex-row garage_logo_name">
-              <div>
-                <% if garage.photo.attached? %>
-                  <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
-                <% end %>
-              </div>
+          <div class ="garage_title align-items-center rounded-card-top d-flex flex-row ">
 
-
-                <div class="garage_name d-flex flex-column ">
-                  <div><strong ><%=garage.name%></strong></div>
-                  <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
-                </div>
+            <div class="p-2">
+              <% if garage.photo.attached? %>
+                <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
+              <% end %>
             </div>
-              <div class="align-self-end garage_rating d-flex flex-row">
-                <% if garage.services.first != nil%>
-                  <%=garage.services.first.price%>
-                  <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
-                <%end%>
-              </div>
+
+
+            <div class="p-2 garage_name">
+              <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
+              <div><strong ><%=garage.name%></strong></div>
+              <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
+            </div>
+
+
+            <div class=" align-self-end d-flex flex-row ml-auto garage_rating p-2">
+              <% if garage.services.first != nil%>
+                <%=garage.services.first.price%>
+                <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
+              <%end%>
+            </div>
 
           </div>
 
@@ -64,6 +66,7 @@
         </div>
 
     <%end%>
+    <div class="fantom" > <br><br><br><br></div>
   </div>
 
 

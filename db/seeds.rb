@@ -419,7 +419,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "Versailles 44 / Garage L. THIBAUD",
+  name: "GARAGE L. THIBAUD",
   address: "33 Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 33 29",
   average_rating: 4,
@@ -576,7 +576,7 @@ garage = Garage.new(
   telephone: "02 40 58 55 15",
   average_rating: 3.8,
   review_count: 85,
-  web_address: "https://www.eurorepar.fr/garage-de-martel-de-la-convention-nantes-8453.html" 
+  web_address: "https://www.eurorepar.fr/garage-de-martel-de-la-convention-nantes-8453.html"
 )
 
 file = URI.open('https://www.allogarage.fr/images/logo_euro_repar_car_service_x2.png')
@@ -589,14 +589,14 @@ puts "garage #{i} save ! "
 puts "service contrôle technique"
 service = Service.new(
   name: "controle technique",
-  price: 250, 
+  price: 250,
   garage: Garage.first
 )
 service.save!
 
 service = Service.new(
   name: "controle technique",
-  price: 250, 
+  price: 250,
   garage: Garage.second
 )
 service.save!
@@ -604,7 +604,7 @@ service.save!
 
 service = Service.new(
   name: "controle technique",
-  price: 250, 
+  price: 250,
   garage: Garage.third
 )
 service.save!
@@ -614,35 +614,35 @@ puts "contrôle technique done !"
 puts "entretien"
 service = Service.new(
   name: "entretien",
-  price: 120, 
+  price: 120,
   garage: Garage.first
 )
 service.save!
 
 service = Service.new(
   name: "entretien",
-  price: 80, 
+  price: 80,
   garage: Garage.second
 )
 service.save!
 
 service = Service.new(
   name: "entretien",
-  price: 110, 
+  price: 110,
   garage: Garage.third
 )
 service.save!
 
 service = Service.new(
   name: "entretien",
-  price: 120, 
+  price: 120,
   garage: Garage.fourth
 )
 service.save!
 
 service = Service.new(
   name: "entretien",
-  price: 115, 
+  price: 115,
   garage: Garage.fifth
 )
 service.save!
@@ -652,21 +652,21 @@ puts "entretien done!"
 puts "entretien vérif pneus"
 service = Service.new(
   name: "vérification des pneus",
-  price: 49.99, 
-  garage: Garage.fifth
+  price: 49.99,
+  garage: Garage.find_by(name: "GARAGE DE L'ABBAYE")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des pneus",
-  price: 49.99, 
+  price: 49.99,
   garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des pneus",
-  price: 49.99, 
+  price: 49.99,
   garage: Garage.last
 )
 service.save!
@@ -675,33 +675,23 @@ puts "verif pneu done"
 puts "verif des niveaux"
 service = Service.new(
   name: "vérification des niveaux",
-  price: 49.99, 
-  garage: Garage.fourth
+  price: 49.99,
+  garage: Garage.find_by(name: "GARAGE LAENNEC")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des niveaux",
-  price: 49.99, 
+  price: 49.99,
   garage: Garage.find_by(name: "SPEEDY Nantes la Durantière")
 )
 service.save!
 
 service = Service.new(
   name: "vérification des niveaux",
-  price: 49.99, 
+  price: 49.99,
   garage: Garage.find_by(name: "GARAGE SAINT FELIX")
 )
 service.save!
 
 puts "done !!!"
-# filepath = "storage/garages.csv"
-# i = 0
-# puts "create garage nantes!"
-# CSV.foreach(filepath, headers: :first_row) do |row|
-#   puts "#{i} garage(s)"
-#   garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
-#   garage.save
-#   i+=1
-# end
-# puts "garage save !"
