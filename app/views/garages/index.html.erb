@@ -36,7 +36,7 @@
             <div class="garage-info-contact w-100 d-flex flex-column">
               <div class="p-2 garage_name">
                 <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
-                <strong ><%= link_to garage.name, garage.web_address%></strong>
+                <strong ><%= link_to garage.name, garage.web_address, target: "_blank"%></strong>
               </div>
               <div class ="d-flex flex-row justify-content-between">
                 <div class="garage_rating align-self-start"><i class=" fas fa-star"></i><%= garage.average_rating%></div>
@@ -62,7 +62,7 @@
             <div class="full_garage_address">
              <i class="fas fa-map-marker-alt"></i>
              <em class ="garage_address">
-             <%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}"%>
+               <%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}", target: "_blank" %>
              </em>
             </div>
             <div class="garage_contact">
