@@ -27,43 +27,46 @@
         <div class="garage_card rounded-card ">
 
           <!-- j'englobe les differentes sections photo, name/note et prix -->
-          <div class ="garage_title align-items-center rounded-card-top d-flex flex-row justify-content-around ">
-            <div class = "d-flex flex-row garage_logo_name">
-              <div>
-                <% if garage.photo.attached? %>
-                  <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
-                <% end %>
-              </div>
+          <div class ="garage_title align-items-center rounded-card-top d-flex flex-row ">
 
-
-                <div class="garage_name d-flex flex-column ">
-                  <div><strong ><%=garage.name%></strong></div>
-                  <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
-                </div>
+            <div class="p-2">
+              <% if garage.photo.attached? %>
+                <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
+              <% end %>
             </div>
-              <div class="align-self-end garage_rating d-flex flex-row">
-                <% if garage.services.first != nil%>
-                  <%=garage.services.first.price%>
-                  <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
-                <%end%>
-              </div>
+
+
+            <div class="p-2 garage_name">
+              <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
+              <div><strong ><%= link_to garage.name, garage.web_address%></strong></div>
+              <p><i class="fas fa-star"></i><%= garage.average_rating%></p>
+            </div>
+
+
+            <div class=" align-self-end d-flex flex-row ml-auto garage_rating p-2">
+              <% if garage.services.first != nil%>
+                <%=garage.services.first.price%>
+                <div class="auros"><i class=" icone fas fa-euro-sign"></i></div>
+              <%end%>
+            </div>
 
           </div>
 
           <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
             <div class="garage_address">
-             <i class="fas fa-map-marker-alt"></i> <i><%=garage.address.gsub(",", "")%></i>
+             <i class="fas fa-map-marker-alt"></i>
+             <i><%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}"%></i>
             </div>
             <div class="garage_contact">
               <div><%=garage.telephone%></div>
-              <div><%= link_to "lien", "https://www.allogarage.fr/#{garage.web_address}",  :class => "garage_web_address"%></div>
             </div>
           </div>
 
         </div>
 
     <%end%>
+    <div class="fantom" > <br><br><br><br></div>
   </div>
 
 

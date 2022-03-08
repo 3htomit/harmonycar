@@ -1,13 +1,15 @@
 require "open-uri"
 require "csv"
   
-Service.destroy_all
-Garage.destroy_all
-Specification.destroy_all
+
+User.destroy_all
 AlertCategory.destroy_all
 Alert.destroy_all
+Specification.destroy_all
 Car.destroy_all
-User.destroy_all
+Service.destroy_all
+Garage.destroy_all
+
 
 puts "Beginning to create users"
 
@@ -419,7 +421,7 @@ i+=1
 puts "garage #{i} create"
 
 garage = Garage.new(
-  name: "Versailles 44 / Garage L. THIBAUD",
+  name: "GARAGE L. THIBAUD",
   address: "33 Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 33 29",
   average_rating: 4,
@@ -653,7 +655,7 @@ puts "entretien vérif pneus"
 service = Service.new(
   name: "vérification des pneus",
   price: 49.99,
-  garage: Garage.fifth
+  garage: Garage.find_by(name: "GARAGE DE L'ABBAYE")
 )
 service.save!
 
@@ -676,7 +678,7 @@ puts "verif des niveaux"
 service = Service.new(
   name: "vérification des niveaux",
   price: 49.99,
-  garage: Garage.fourth
+  garage: Garage.find_by(name: "GARAGE LAENNEC")
 )
 service.save!
 
@@ -695,13 +697,3 @@ service = Service.new(
 service.save!
 
 puts "done !!!"
-# filepath = "storage/garages.csv"
-# i = 0
-# puts "create garage nantes!"
-# CSV.foreach(filepath, headers: :first_row) do |row|
-#   puts "#{i} garage(s)"
-#   garage = Garage.new(name: row['name'], address: row['address'], telephone: row['phone'], web_address: row['mail'])
-#   garage.save
-#   i+=1
-# end
-# puts "garage save !"
