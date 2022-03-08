@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 <div type="button" data-bs-toggle="modal" data-bs-target="#carDelete" class="button-outline">
   <p>Supprimer votre véhicule</p>
-=======
-
-<div type="button" data-bs-toggle="modal" data-bs-target="#carDelete" class="button-outline-red">
-  <p class="txt-red">Supprimer votre véhicule</p>
->>>>>>> 75c8326e60d9365278c05a08335c63dda53c98fc
 </div>
 
 <!-- Modal -->
@@ -24,7 +18,7 @@
           <%= link_to "Supprimer",
             car_path(params[:id]),
             method: :delete,
-            class: "button-outline-red"
+            class: "button-outline"
           %>
           <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close">Annuler</button>
       <%# <% end %>
