@@ -28,8 +28,8 @@
           <div class ="garage_title align-items-center rounded-card-top d-flex flex-row ">
 
             <div class="p-2">
-              <% if garage.photo.attached? %>
-                <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
+              <% if garage.photos.attached? %>
+                <%= cl_image_tag garage.photos.first.key, height: 60, width: 60, crop: :fill, class: "garage-logo" %>
               <% end %>
             </div>
 
@@ -44,15 +44,18 @@
                   <div class="rating-star"><%= garage.average_rating%></div>
                 </div>
                 <div class="service_price align-self-end d-flex flex-row">
-                  <% if garage.services.first != nil%>
+                  <% unless garage.services.first.nil?%>
                     <!-- je récup le nom du service demander pour afficher son prix -->
-                    <%if params[:query] != nil%>
+                    <%unless params[:query].nil?%>
                       <%name = Service.find(params[:query]).name %>
                       <p><%=garage.services.where(name: name).first.price%></p>
                     <%else%>
                       <p><%=garage.services.first.price%></p>
                     <%end%>
+
+                      <i class="icone fas fa-euro-sign"></i>
                       <p>€</p>
+
                   <%end%>
                 </div>
               </div>

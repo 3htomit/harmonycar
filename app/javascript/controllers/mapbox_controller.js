@@ -9,7 +9,6 @@ export default class extends Controller {
   }
 
 
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -21,7 +20,7 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10",
       center: [-1.5486930522518172, 47.21069643932113],
       // center: [this.element.markers[0].lng, this.element.markers[0].lat],
-      zoom: 13
+      zoom: 12
     })
 
     this.#addMarkersToMap()
@@ -35,7 +34,9 @@ export default class extends Controller {
 
       const customMarker = document.createElement("i")
       console.log(customMarker);
-      customMarker.className = "fa-2x fas fa-car"
+      customMarker.className = "fa-2x fas fa-warehouse"
+      customMarker.style.color = "#BB853A"
+
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])

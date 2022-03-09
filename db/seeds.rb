@@ -578,12 +578,14 @@ garage = Garage.new(
   web_address: "https://www.garage-des-hauts-paves.fr/"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
-garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
+file = URI.open('https://www.garage-des-hauts-paves.fr/s/img/emotionheader.jpg?1643209229.920px.240px')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 1 created"
 
 garage = Garage.new(
-  name: "Garrage L. Thibaud",
+  name: "Garage L. Thibaud",
   address: "33 Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 33 29",
   average_rating: 4,
@@ -591,7 +593,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-Versailles-44-Garage-L-THIBAUD-22710.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_precisium_x2.png')
-garage.photo.attach(io: file, filename: "precision", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "precision", content_type: 'image/png')
+file = URI.open('https://www.allogarage.fr/stv/640x480/22710_d7246dd4.jpg')
+garage.photos.attach(io: file, filename: "precision", content_type: 'image/png')
 garage.save!
 puts "> garage 2 created"
 
@@ -604,7 +608,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-DE-LA-BEAUJOIRE-10586.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
-garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
+file = URI.open('https://www.allogarage.fr/stv/640x480/10586_6fc3bff3.jpg')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 3 created"
 
@@ -617,7 +623,9 @@ garage = Garage.new(
   web_address: "https://www.feuvert.fr/?gclid=CjwKCAiA1JGRBhBSEiwAxXblwUjzNSwuT8fjUiYXaVlLpxMt4KA5uQ3SIbMRPD6ETGhUS2tvmF8aKRoCRIsQAvD_BwE"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_feuvert_2021_x2.png')
-garage.photo.attach(io: file, filename: "feu_vert", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "feu_vert", content_type: 'image/png')
+file = URI.open('http://www.eurekcar.fr/docroot/upload/pro/15458-1.jpg')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 4 created"
 
@@ -630,7 +638,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-MAHE-18686.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_ad_x2.png')
-garage.photo.attach(io: file, filename: "ad", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "ad", content_type: 'image/png')
+file = URI.open('https://images.ad.fr/SIA-images/028DIS/625x275/028DIS_737_Facade_2011_05_23_11_33_03_A.jpg')
+garage.photos.attach(io: file, filename: "ad", content_type: 'image/png')
 garage.save!
 puts "> garage 5 created"
 
@@ -643,7 +653,9 @@ garage = Garage.new(
   web_address: "https://pros.lacentrale.fr/C032507/"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_dacia_x2.png')
-garage.photo.attach(io: file, filename: "dacia", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "dacia", content_type: 'image/png')
+file = URI.open('https://www.pagesjaunes.fr/media/resto/garage_de_l_abbaye_OSD00208583-19602.jpeg')
+garage.photos.attach(io: file, filename: "dacia", content_type: 'image/png')
 garage.save!
 puts "> garage 6 created"
 
@@ -656,7 +668,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-LAENNEC-10577.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_renault_2015_x2.png')
-garage.photo.attach(io: file, filename: "renaud", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "renaud", content_type: 'image/png')
+file = URI.open('https://www.pagesjaunes.fr/media/resto/garage_copernic_OSD00208558-19599.jpeg?w=400&h=300')
+garage.photos.attach(io: file, filename: "renaud", content_type: 'image/png')
 garage.save!
 puts "> garage 7 created"
 
@@ -669,7 +683,9 @@ garage = Garage.new(
   web_address: "https://centres-auto.speedy.fr/garage/nantes-44000/136"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_speedy_x2.png')
-garage.photo.attach(io: file, filename: "speedy", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "speedy", content_type: 'image/png')
+file = URI.open('https://centres-auto.speedy.fr/hostedimages/23/1')
+garage.photos.attach(io: file, filename: "speedy", content_type: 'image/png')
 garage.save!
 puts "> garage 8 created"
 
@@ -682,7 +698,9 @@ garage = Garage.new(
   web_address: "https://reseau.citroen.fr/reparateur-nantes-14"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_citroen_2020_x2.png')
-garage.photo.attach(io: file, filename: "citroen", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "citroen", content_type: 'image/png')
+file = URI.open('https://autodir.ca/datas/google-photo/cc443924d93f18c0600529d973f11957-Garage-St-Felix-Saint-Felix-de-Valois-QC-Canada-AutoDir.jpg')
+garage.photos.attach(io: file, filename: "citroen", content_type: 'image/png')
 garage.save!
 puts "> garage 9 created"
 
@@ -695,7 +713,9 @@ garage = Garage.new(
   web_address: "https://www.eurorepar.fr/garage-de-martel-de-la-convention-nantes-8453.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_euro_repar_car_service_x2.png')
-garage.photo.attach(io: file, filename: "euro_repar", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "euro_repar", content_type: 'image/png')
+file = URI.open('https://www.eurorepar.fr/cache/media/garage/garage_image/enseigne-entree-patrick-oudin-717828ff38dae820668184ddeee41d86-640-480-crop-16777215.jpeg')
+garage.photos.attach(io: file, filename: "euro_repar", content_type: 'image/png')
 garage.save!
 puts "> garage 10 created"
 
