@@ -21,7 +21,13 @@
   position: relative;
   .select{
     position: absolute;
-    width: 90%;
+    width: calc(100vw - 40px);
+    background-color: $secondary-li;
+    border: none;
+    color: $primary-dk;
+    font-family: $body-font;
+    font-weight: 400;
+    font-size: 16px;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
