@@ -31,7 +31,11 @@
       <% end %>
       <p class="txt-info alert-info"><%= alert.alert_category.description %></p>
       <div class="d-flex alert-links">
+
+          <!-- je récup le nom du service demander pour envoyer le lien associer  -->
           <% service = Service.where("name ILIKE ?", "%#{alert.alert_category.name.downcase}%").first%>
+
+          <!-- le lien envoi l'id du service pour le récup dans garages -->
           <%= link_to "Prendre RDV", garages_path(:query => service.id), class: "button-alert-rdv"  %>
           <%= render 'components/alert_category/pop_up', alert: alert %>
       </div>

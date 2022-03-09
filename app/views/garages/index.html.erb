@@ -43,6 +43,7 @@
 
                 <div class="service_price align-self-end d-flex flex-row">
                   <% if garage.services.first != nil%>
+
                     <!-- je récup le nom du service demander pour afficher son prix -->
                     <%if params[:query] != nil%>
                       <%name = Service.find(params[:query]).name %>
