@@ -645,7 +645,7 @@ garage.save!
 puts "> garage 5 created"
 
 garage = Garage.new(
-  name: "garage de L'Abbaye",
+  name: "Garage de L'Abbaye",
   address: "4, Rue Chaptal, 44100 Nantes",
   telephone: "02 40 73 75 75",
   average_rating: 3.9,
