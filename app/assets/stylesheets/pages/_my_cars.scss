@@ -86,3 +86,17 @@
     justify-content: space-between;
   }
 }
+
+.new_vehicule_card {
+  width: 200px;
+  height: 50px;
+  background-color: $secondary;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: $white;
+}
+
+.add-a-button {
+  color: white;
+}

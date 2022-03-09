@@ -524,7 +524,7 @@ puts "> alert 14 created"
 alert15 = Alert.create!(
   car: Car.fourth,
   alert_category: AlertCategory.third,
-  due_date: Date.today,
+  due_date: Date.today+2.weeks,
   due_km: 125_000,
   completed: false,
   completed_at: nil
@@ -534,7 +534,7 @@ puts "> alert 15 created"
 alert16 = Alert.create!(
   car: Car.fourth,
   alert_category: AlertCategory.fourth,
-  due_date: Date.today,
+  due_date: Date.today+2.weeks,
   due_km: 125_000,
   completed: false,
   completed_at: nil

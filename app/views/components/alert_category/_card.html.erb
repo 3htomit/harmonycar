@@ -20,11 +20,11 @@
       <h2 class="alert-icon-title"><%= alert.alert_category.name %></h2>
       <% if alert.due_date %>
         <% if alert.due_date <= Date.today %>
-          <p class="red-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="red-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-          <p class="yellow-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="yellow-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% else %>
-          <p class="green-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="green-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% end %>
       <% else %>
         <p class="nil-date"><strong><%= Date.today.strftime("%d/%m/%Y") %></strong></p>

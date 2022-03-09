@@ -22,7 +22,13 @@
 </div>
 
 
-<i class="fas fa-plus button-circle new_doc_button" data-bs-toggle="modal" data-bs-target="#documentModal"></i>
+<div class="d-flex justify-content-center mt-4" data-bs-toggle="modal" data-bs-target="#documentModal">
+  <div class="new_vehicule_card rounded-card card-shadow d-flex">
+    <%= link_to "", new_car_path %>
+    <p class="add-a-button">Ajouter un document</p>
+  </div>
+</div>
+<%# <i class="fas fa-plus button-circle new_doc_button" data-bs-toggle="modal" data-bs-target="#documentModal"></i> %>
 
 <!-- Modal -->
 <div class="modal fade" id="documentModal" tabindex="-1" aria-labelledby="documentModalLabel" aria-hidden="true">
