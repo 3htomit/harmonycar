@@ -4,7 +4,7 @@
     <div class="form-search">
       <%= form_with url: new_car_path, method: :get, html: {
         data: { search_car_target: 'form' } } do |f| %>
-        <div class="input-group">
+        <div class="input-group mb-0">
             <%= f.text_field :query,
                             class: "form-control",
                             placeholder: 'Marque, modèle, année, moteur...',
