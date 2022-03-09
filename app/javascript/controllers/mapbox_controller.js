@@ -12,8 +12,6 @@ export default class extends Controller {
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
-    // console.log(this.element.dataset.mapboxMarkersValue)
-    // console.log(this.element.dataset.mapboxMarkersValue)
 
     this.map = new mapboxgl.Map({
       container: this.element,
@@ -29,11 +27,11 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      // console.log(marker)
+
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
       const customMarker = document.createElement("i")
-      console.log(customMarker);
+
       customMarker.className = "fa-2x fas fa-warehouse"
       customMarker.style.color = "#BB853A"
 
