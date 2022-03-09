@@ -13,6 +13,8 @@ class GaragesController < ApplicationController
     @services_name = []
 
     Service.all.each do |service|
+      @services_name << Service.find(params[:query]).name if params[:query].present?
+
       unless @services_name.include?(service.name)
         @services << service
         @services_name << service.name

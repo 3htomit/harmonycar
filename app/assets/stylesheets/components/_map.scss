@@ -12,10 +12,8 @@
 .mapboxgl-popup-content {
 
   font-family: Montserrat;
-  // font-weight: bold;
   font-size: 12px;
   line-height: 15px;
-  // background-color:rgba(255,255,255,0.8) ;
   border-radius: 15px;
   max-width: 220px;
 
@@ -29,13 +27,12 @@
 }
 
 .logo_map {
-  // box-shadow: 1px 1px 1px grey;
+
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .map_popup_title {
-  // margin: auto;
   text-align: left;
   font-weight: bold;
 }
@@ -43,6 +40,4 @@
 .map_popup_rtg_price {
   font-size: 15px;
   margin-top: 5px;
-  // margin: auto auto 0 auto;
-
 }
