@@ -76,17 +76,28 @@
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  text-align: left;
+  height: 50px;
 }
 
-.garage-info-contact {
+.full_garage_address {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  border-right: 1px solid white;
+}
+
+.fa-map-marker-alt{
   margin-left: 5px;
-  margin-bottom: 5px;
+}
+
+.garage-contact {
+  width: 50%;
 }
 
 .garage_title {
   color: $primary;
-  height: 80px;
+  height: 90px;
   width: 100%;
   background-color: $white;
   text-align: center;
@@ -109,15 +120,18 @@
   margin-left: 5px;
 }
 
+.fa-euro-sign {
+  padding-left: 6px;
+}
+
+.rating-star {
+  margin-left: 5px;
+}
+
 .service_price {
   margin-right: 25px;
 }
 
-.full_garage_address {
-  margin-left: 15px;
-  width: 175px;
-  border-right: 1px solid white;
-}
 
 .garage_address {
   a {
@@ -139,8 +153,7 @@
 }
 
 .garage-logo {
-  margin-top: 10px;
-  margin-left: 10px;
+  border-radius: 10px;
 }
 
 .garage_contact{
