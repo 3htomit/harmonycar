@@ -1,17 +1,19 @@
 <div data-controller="search-car" class="listed_new_cars">
   <div class="new_car_input card-shadow">
     <h2>Recherchez votre véhicule</h2>
-    <%= form_with url: new_car_path, method: :get, html: {
-      data: { search_car_target: 'form' } } do |f| %>
+    <div class="form-search">
+      <%= form_with url: new_car_path, method: :get, html: {
+        data: { search_car_target: 'form' } } do |f| %>
 
-      <%= f.text_field :query,
-                      class: "form-control",
-                      placeholder: 'Marque, modèle, année, moteur...',
-                      value: params[:query],
-                      data: { search_car_target: 'input',
-                              action:'keyup->search-car#update' } %>
-    <i class="fas fa-search"></i>
-    <% end %>
+        <%= f.text_field :query,
+                        class: "form-control",
+                        placeholder: 'Marque, modèle, année, moteur...',
+                        value: params[:query],
+                        data: { search_car_target: 'input',
+                                action:'keyup->search-car#update' } %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
   </div>
   <%= render "components/cars/list", local: { specifications: @specifications, car: @car, alert1: @alert1, alert2: @alert2 } %>
 </div>
