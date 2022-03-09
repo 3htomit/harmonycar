@@ -97,6 +97,9 @@
   color: $white;
 }
 
-.add-a-button {
-  color: white;
+.add-button {
+  margin-bottom: 120px;
+  .button {
+    margin: 0;
+  }
 }

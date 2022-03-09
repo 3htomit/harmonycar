@@ -8,10 +8,6 @@
   <%end%>
 </div>
 
-<%= link_to new_car_path do %>
-  <div class="d-flex justify-content-center">
-    <div class="new_vehicule_card rounded-card card-shadow d-flex">
-    <p class="add-a-button">Ajouter un véhicule</p>
-    </div>
-  </div>
-<% end %>
+<div class="add-button d-flex justify-content-center">
+  <%= link_to "Ajouter un véhicule", new_car_path, class: "button" %>
+</div>

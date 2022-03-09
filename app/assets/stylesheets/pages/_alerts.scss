@@ -33,11 +33,11 @@ padding: 8px;
   overflow: hidden;
 }
 
-h2 {
-  color: $primary;
-  font-family: $headers-font;
-  font-size: 20px;
-}
+// h2 {
+//   color: $primary;
+//   font-family: $headers-font;
+//   font-size: 20px;
+// }
 
 .alert-icon {
   flex-direction: column;
@@ -110,25 +110,25 @@ h2 {
 .red-date {
   font-size: 16px;
   color: $red-li;
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 .nil-date {
   font-size: 16px;
   color: $primary;
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 .yellow-date {
   font-size: 16px;
   color: $yellow-li;
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 .green-date {
   font-size: 16px;
   color: $green-li;
-  margin-top: 22px;
+  margin-top: 12px;
 }
 
 .alert-info {
