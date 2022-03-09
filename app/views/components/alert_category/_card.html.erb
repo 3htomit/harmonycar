@@ -17,14 +17,14 @@
       <% end %>
     </div>
     <div class="d-flex clock-date">
-      <h2 class="alert-icon-title"><%= alert.alert_category.name %></h2>
+      <h3 class="alert-icon-title"><%= alert.alert_category.name %></h3>
       <% if alert.due_date %>
         <% if alert.due_date <= Date.today %>
-          <p class="red-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="red-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
-          <p class="yellow-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="yellow-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% else %>
-          <p class="green-date"><strong><%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          <p class="green-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
         <% end %>
       <% else %>
         <p class="nil-date"><strong><%= Date.today.strftime("%d/%m/%Y") %></strong></p>
@@ -32,10 +32,10 @@
       <p class="txt-info alert-info"><%= alert.alert_category.description %></p>
       <div class="d-flex alert-links">
 
-          <!-- je récup le nom du service demander pour envoyer le lien associer  -->
+          <!-- récupération des objets service qui match avec le nom de l'alert -->
           <% service = Service.where("name ILIKE ?", "%#{alert.alert_category.name.downcase}%").first%>
 
-          <!-- le lien envoi l'id du service pour le récup dans garages -->
+          <!-- envoi de l'id du premier service qui match avec le nom  -->
           <%= link_to "Prendre RDV", garages_path(:query => service.id), class: "button-alert-rdv"  %>
           <%= render 'components/alert_category/pop_up', alert: alert %>
       </div>

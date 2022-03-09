@@ -22,7 +22,11 @@
 </div>
 
 
-<i class="fas fa-plus button-circle new_doc_button" data-bs-toggle="modal" data-bs-target="#documentModal"></i>
+<div class="d-flex justify-content-center">
+  <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#documentModal">
+    Ajouter un document
+  </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="documentModal" tabindex="-1" aria-labelledby="documentModalLabel" aria-hidden="true">
@@ -35,7 +39,7 @@
       <div class="modal-body">
 <%= simple_form_for([@car, @document]) do |f| %>
   <%= f.input :name, as: :string, label: "Nom du document" %>
-  <%= f.input :document, as: :file %>
+  <%= f.input :document, as: :file%>
   <%= f.submit "Ajouter", class: "btn btn-primary"%>
 <% end %>
 

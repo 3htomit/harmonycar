@@ -9,7 +9,7 @@ Specification.destroy_all
 Car.destroy_all
 Service.destroy_all
 Garage.destroy_all
-
+Document.destroy_all
 
 # USERS
 
@@ -39,6 +39,12 @@ user3 = User.create!(
 )
 puts "> user 3 created"
 
+user4 = User.create!(
+  first_name: "Tim",
+  last_name: "Boiteau",
+  email: "tim@mail.com",
+  password: "secret"
+)
 
 # SPECS
 
@@ -329,13 +335,38 @@ puts "> spec 20 created"
 
 puts "Seeding cars:"
 
-car1 = Car.create!(number_plate: "GF-883-DA", mileage: 44_000, user: user1, specification: spec1 )
+car1 = Car.create!(number_plate: "GF-883-DA", mileage: 44_000, user: user1, specification: spec1)
 puts "> car 1 created"
 car2 = Car.create(number_plate: "GD-232-TD", mileage: 30_000, user: user1, specification: spec3)
 puts "> car 2 created"
 car3 = Car.create(number_plate: "GF-220-HR", mileage: 10_000, user: user2, specification: spec6)
 puts "> car 3 created"
+car4 = Car.create(number_plate: "LW-997-NT", mileage: 45_000, user: user4, specification: spec15)
 
+
+document1 = Document.new(
+  name: "facture",
+  car: car4)
+file = File.open("db/fixtures/facture-specimen.png")
+document1.document.attach(io: file, filename: "doc1", content_type: 'image/png')
+document1.save
+puts "doc1 created"
+
+document2 = Document.new(
+  name: "contrôle technique",
+  car: car4)
+file = File.open("db/fixtures/controle-tech-specimen.png")
+document2.document.attach(io: file, filename: "doc2", content_type: 'image/png')
+document2.save
+puts "doc2 created"
+
+document3 = Document.new(
+  name: "carte grise",
+  car: car4)
+file = File.open("db/fixtures/carte-grise-specimen.png")
+document3.document.attach(io: file, filename: "doc3", content_type: 'image/png')
+document3.save
+puts "doc3 created"
 
 # ALERT CATEGORIES
 
@@ -495,6 +526,45 @@ alert12 = Alert.create!(
 puts "> alert 12 created"
 
 
+alert13 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.first,
+  due_date: Date.today-30.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 13 created"
+
+alert14 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.second,
+  due_date: Date.today+15.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 14 created"
+
+alert15 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.third,
+  due_date: Date.today+2.weeks,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 15 created"
+
+alert16 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.fourth,
+  due_date: Date.today+2.weeks,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 16 created"
 # GARAGES
 
 puts "Seeding garages:"
@@ -508,12 +578,14 @@ garage = Garage.new(
   web_address: "https://www.garage-des-hauts-paves.fr/"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
-garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
+file = URI.open('https://www.garage-des-hauts-paves.fr/s/img/emotionheader.jpg?1643209229.920px.240px')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 1 created"
 
 garage = Garage.new(
-  name: "Garrage L. Thibaud",
+  name: "Garage L. Thibaud",
   address: "33 Quai de Versailles, 44000 Nantes",
   telephone: "02 40 20 33 29",
   average_rating: 4,
@@ -521,7 +593,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-Versailles-44-Garage-L-THIBAUD-22710.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_precisium_x2.png')
-garage.photo.attach(io: file, filename: "precision", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "precision", content_type: 'image/png')
+file = URI.open('https://www.allogarage.fr/stv/640x480/22710_d7246dd4.jpg')
+garage.photos.attach(io: file, filename: "precision", content_type: 'image/png')
 garage.save!
 puts "> garage 2 created"
 
@@ -534,7 +608,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-DE-LA-BEAUJOIRE-10586.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_bosch_car_service_x2.png')
-garage.photo.attach(io: file, filename: "bosch", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
+file = URI.open('https://www.allogarage.fr/stv/640x480/10586_6fc3bff3.jpg')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 3 created"
 
@@ -547,7 +623,9 @@ garage = Garage.new(
   web_address: "https://www.feuvert.fr/?gclid=CjwKCAiA1JGRBhBSEiwAxXblwUjzNSwuT8fjUiYXaVlLpxMt4KA5uQ3SIbMRPD6ETGhUS2tvmF8aKRoCRIsQAvD_BwE"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_feuvert_2021_x2.png')
-garage.photo.attach(io: file, filename: "feu_vert", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "feu_vert", content_type: 'image/png')
+file = URI.open('http://www.eurekcar.fr/docroot/upload/pro/15458-1.jpg')
+garage.photos.attach(io: file, filename: "bosch", content_type: 'image/png')
 garage.save!
 puts "> garage 4 created"
 
@@ -560,7 +638,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-MAHE-18686.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_ad_x2.png')
-garage.photo.attach(io: file, filename: "ad", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "ad", content_type: 'image/png')
+file = URI.open('https://images.ad.fr/SIA-images/028DIS/625x275/028DIS_737_Facade_2011_05_23_11_33_03_A.jpg')
+garage.photos.attach(io: file, filename: "ad", content_type: 'image/png')
 garage.save!
 puts "> garage 5 created"
 
@@ -573,7 +653,9 @@ garage = Garage.new(
   web_address: "https://pros.lacentrale.fr/C032507/"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_dacia_x2.png')
-garage.photo.attach(io: file, filename: "dacia", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "dacia", content_type: 'image/png')
+file = URI.open('https://www.pagesjaunes.fr/media/resto/garage_de_l_abbaye_OSD00208583-19602.jpeg')
+garage.photos.attach(io: file, filename: "dacia", content_type: 'image/png')
 garage.save!
 puts "> garage 6 created"
 
@@ -586,7 +668,9 @@ garage = Garage.new(
   web_address: "https://www.allogarage.fr/garages/details-garage-GARAGE-LAENNEC-10577.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_renault_2015_x2.png')
-garage.photo.attach(io: file, filename: "renaud", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "renaud", content_type: 'image/png')
+file = URI.open('https://www.pagesjaunes.fr/media/resto/garage_copernic_OSD00208558-19599.jpeg?w=400&h=300')
+garage.photos.attach(io: file, filename: "renaud", content_type: 'image/png')
 garage.save!
 puts "> garage 7 created"
 
@@ -599,7 +683,9 @@ garage = Garage.new(
   web_address: "https://centres-auto.speedy.fr/garage/nantes-44000/136"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_speedy_x2.png')
-garage.photo.attach(io: file, filename: "speedy", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "speedy", content_type: 'image/png')
+file = URI.open('https://centres-auto.speedy.fr/hostedimages/23/1')
+garage.photos.attach(io: file, filename: "speedy", content_type: 'image/png')
 garage.save!
 puts "> garage 8 created"
 
@@ -612,7 +698,9 @@ garage = Garage.new(
   web_address: "https://reseau.citroen.fr/reparateur-nantes-14"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_citroen_2020_x2.png')
-garage.photo.attach(io: file, filename: "citroen", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "citroen", content_type: 'image/png')
+file = URI.open('https://autodir.ca/datas/google-photo/cc443924d93f18c0600529d973f11957-Garage-St-Felix-Saint-Felix-de-Valois-QC-Canada-AutoDir.jpg')
+garage.photos.attach(io: file, filename: "citroen", content_type: 'image/png')
 garage.save!
 puts "> garage 9 created"
 
@@ -625,7 +713,9 @@ garage = Garage.new(
   web_address: "https://www.eurorepar.fr/garage-de-martel-de-la-convention-nantes-8453.html"
 )
 file = URI.open('https://www.allogarage.fr/images/logo_euro_repar_car_service_x2.png')
-garage.photo.attach(io: file, filename: "euro_repar", content_type: 'image/png')
+garage.photos.attach(io: file, filename: "euro_repar", content_type: 'image/png')
+file = URI.open('https://www.eurorepar.fr/cache/media/garage/garage_image/enseigne-entree-patrick-oudin-717828ff38dae820668184ddeee41d86-640-480-crop-16777215.jpeg')
+garage.photos.attach(io: file, filename: "euro_repar", content_type: 'image/png')
 garage.save!
 puts "> garage 10 created"
 

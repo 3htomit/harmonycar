@@ -4,6 +4,7 @@ class Cars::AlertsController < ApplicationController
 
     @car = Car.find(params[:car_id])
     @alerts = @car.alerts
+    @alerts = @alerts.order(due_date: :asc)
   end
 
   def edit
