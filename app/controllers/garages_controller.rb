@@ -30,7 +30,6 @@ class GaragesController < ApplicationController
         OR services.name ILIKE :query \
       "
       @garages = Garage.joins(:services).where(sql_query, query: "%#{service}%")
-      # @garages = Garage.where("name ILIKE ?", "%#{service}%")
     else
       @garages = Garage.all
     end
@@ -39,8 +38,7 @@ class GaragesController < ApplicationController
       {
         lat: garage.latitude,
         lng: garage.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { garage: garage }),
-        # image_url: helpers.asset_url('<i class="fas fa-car-mechanic"></i>')
+        info_window: render_to_string(partial: "info_window", locals: { garage: garage })
       }
     end
 
