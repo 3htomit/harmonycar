@@ -44,16 +44,15 @@
                   <div class="rating-star"><%= garage.average_rating%></div>
                 </div>
                 <div class="service_price align-self-end d-flex flex-row">
-                  <% unless garage.services.first.nil?%>
+                  <% if garage.services.first != nil%>
                     <!-- je récup le nom du service demander pour afficher son prix -->
-                    <%unless params[:query].nil?%>
+                    <%if params[:query] != nil%>
                       <%name = Service.find(params[:query]).name %>
                       <p><%=garage.services.where(name: name).first.price%></p>
                     <%else%>
                       <p><%=garage.services.first.price%></p>
                     <%end%>
 
-                      <i class="icone fas fa-euro-sign"></i>
                       <p>€</p>
 
                   <%end%>
@@ -68,6 +67,8 @@
               <%= link_to garage.address, "comgooglemaps://https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
             <% elsif request.env['HTTP_USER_AGENT'].downcase.match(/android/) %>
               <%= link_to garage.address, "geo:https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
+            <%else%>
+              <%= link_to garage.address, "https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info"%>
             <% end %>
             <%= link_to garage.telephone, "tel:#{garage.telephone}", class: "garage_contact txt-info text-center" %>
           </div>
