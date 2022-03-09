@@ -61,12 +61,12 @@
 
           <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
-            <p class="full_garage_address">
-              <%= link_to garage.address, "maps://www.google.com/maps/search/#{garage.name},#{garage.address}", target: "_blank", class: "txt-info" %>
-            </p>
-            <p class="garage_contact txt-info text-center">
-              <%=garage.telephone%>
-            </p>
+            <% if request.env['HTTP_USER_AGENT'].downcase.match(/iphone/) %>
+              <%= link_to garage.address, "comgooglemaps://https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
+            <% elsif request.env['HTTP_USER_AGENT'].downcase.match(/android/) %>
+              <%= link_to garage.address, "geo:https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
+            <% end %>
+            <%= link_to garage.telephone, "tel:#{garage.telephone}", class: "garage_contact txt-info text-center" %>
           </div>
 
         </div>
