@@ -10,7 +10,7 @@
   <% @documents.each do |document| %>
     <div class="document_card d-flex rounded-card">
       <div>
-        <strong class="document_name"><%= document.name%></strong>
+        <strong class="doc-name"><%= document.name%></strong>
         <p class="txt-info"><%= document.created_at.strftime("ajouté le %m/%Y") %></p>
       </div>
       <div class="document_actions d-flex">
@@ -37,12 +37,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-<%= simple_form_for([@car, @document]) do |f| %>
-  <%= f.input :name, as: :string, label: "Nom du document" %>
-  <%= f.input :document, as: :file%>
-  <%= f.submit "Ajouter", class: "btn btn-primary"%>
-<% end %>
-
+        <%= simple_form_for([@car, @document]) do |f| %>
+          <%= f.input :name, as: :string, label: "Nom du document", class: "txt-p" %>
+          <%= f.input :document, as: :file, class: "txt-p" %>
+          <%= f.submit "Ajouter", class: "btn btn-primary"%>
+        <% end %>
       </div>
     </div>
   </div>
