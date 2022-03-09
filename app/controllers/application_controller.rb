@@ -5,3 +5,7 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || cars_path
   end
 end
+
+def default_url_options
+  { host: ENV["DOMAIN"] || "localhost:3000" }
+end

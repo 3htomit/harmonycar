@@ -2,13 +2,13 @@
 <div data-controller="display-map">
 
   <div class="garage-header">
-    <%= form_tag garages_path, class: "search",method: :get, data:{ controller:"form-submit"}   do %>
+    <%= form_tag garages_path, class: "search tile-shadow", method: :get, data:{ controller:"form-submit"} do %>
       <div class="p-5 search">
         <%= select_tag "query",
           options_from_collection_for_select(@services, "id", "name"),
-          prompt: params[:query].nil? ? "Veuillez sélectionner un service" : Service.find(params[:query]).name,
+          prompt: params[:query].nil? ? "Sélectionner un service" : Service.find(params[:query]).name,
           data: {"action": "change->form-submit#garageChoice"},
-          class: "form-select select tile-shadow"
+          class: "form-select select"
         %>
       </div>
     <%end%>
@@ -36,10 +36,10 @@
             <div class="garage-info-contact w-100 d-flex flex-column">
               <div class="garage_name">
                 <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
-                <strong ><%= link_to garage.name, garage.web_address, target: "_blank"%></strong>
+                <p><strong ><%= link_to garage.name, garage.web_address, target: "_blank"%></strong></p>
               </div>
-              <div class ="d-flex flex-row justify-content-between pt-2">
-                <div class="d-flex">
+              <div class ="d-flex flex-row justify-content-between align-items-center pt-2">
+                <div class="d-flex txt-info">
                   <div class="rating-number"><i class=" fas fa-star"></i></div>
                   <div class="rating-star"><%= garage.average_rating%></div>
                 </div>
@@ -48,11 +48,14 @@
                     <!-- je récup le nom du service demander pour afficher son prix -->
                     <%unless params[:query].nil?%>
                       <%name = Service.find(params[:query]).name %>
-                      <%=garage.services.where(name: name).first.price%>
+                      <p><%=garage.services.where(name: name).first.price%></p>
                     <%else%>
-                      <strong> <%=garage.services.first.price%></p></strong>
+                      <p><%=garage.services.first.price%></p>
                     <%end%>
+
                       <i class="icone fas fa-euro-sign"></i>
+                      <p>€</p>
+
                   <%end%>
                 </div>
               </div>
@@ -61,27 +64,23 @@
 
           <!-- section de l'adress et des contacts -->
           <div class="garage_info rounded-card-bottom">
-            <div class="full_garage_address">
-             <i class="fas fa-map-marker-alt"></i>
-             <em class ="garage_address">
-               <%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}", target: "_blank" %>
-             </em>
-            </div>
-            <div class="garage_contact">
-              <div><%=garage.telephone%></div>
-            </div>
+            <% if request.env['HTTP_USER_AGENT'].downcase.match(/iphone/) %>
+              <%= link_to garage.address, "comgooglemaps://https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
+            <% elsif request.env['HTTP_USER_AGENT'].downcase.match(/android/) %>
+              <%= link_to garage.address, "geo:https://maps.google.com?q=#{garage.name},#{garage.address}", target: "_blank", class: "full_garage_address txt-info" %>
+            <% end %>
+            <%= link_to garage.telephone, "tel:#{garage.telephone}", class: "garage_contact txt-info text-center" %>
           </div>
 
         </div>
 
     <%end%>
-    <div class="fantom" ><br><br><br><br></div>
   </div>
 
 
   <div
         class="mapboxgl-map hidden"
-        style="height: 100vh; width: 100%;"
+        <%# style="height: 100vh; width: 100%;" %>
         data-display-map-target="map"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"

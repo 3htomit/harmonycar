@@ -8,7 +8,10 @@
   <%end%>
 </div>
 
-<div class="new_car_button">
-<%= link_to "", new_car_path, class: "fas fa-plus button-circle" %>
-</div>
-<div class="footer-provisoire"></div>
+<%= link_to new_car_path do %>
+  <div class="d-flex justify-content-center">
+    <div class="new_vehicule_card rounded-card card-shadow d-flex">
+    <p class="add-a-button">Ajouter un véhicule</p>
+    </div>
+  </div>
+<% end %>

@@ -9,7 +9,7 @@ Specification.destroy_all
 Car.destroy_all
 Service.destroy_all
 Garage.destroy_all
-
+Document.destroy_all
 
 # USERS
 
@@ -39,6 +39,12 @@ user3 = User.create!(
 )
 puts "> user 3 created"
 
+user4 = User.create!(
+  first_name: "Tim",
+  last_name: "Boiteau",
+  email: "tim@mail.com",
+  password: "secret"
+)
 
 # SPECS
 
@@ -329,13 +335,38 @@ puts "> spec 20 created"
 
 puts "Seeding cars:"
 
-car1 = Car.create!(number_plate: "GF-883-DA", mileage: 44_000, user: user1, specification: spec1 )
+car1 = Car.create!(number_plate: "GF-883-DA", mileage: 44_000, user: user1, specification: spec1)
 puts "> car 1 created"
 car2 = Car.create(number_plate: "GD-232-TD", mileage: 30_000, user: user1, specification: spec3)
 puts "> car 2 created"
 car3 = Car.create(number_plate: "GF-220-HR", mileage: 10_000, user: user2, specification: spec6)
 puts "> car 3 created"
+car4 = Car.create(number_plate: "LW-997-NT", mileage: 45_000, user: user4, specification: spec15)
 
+
+document1 = Document.new(
+  name: "facture",
+  car: car4)
+file = File.open("db/fixtures/facture-specimen.png")
+document1.document.attach(io: file, filename: "doc1", content_type: 'image/png')
+document1.save
+puts "doc1 created"
+
+document2 = Document.new(
+  name: "contrôle technique",
+  car: car4)
+file = File.open("db/fixtures/controle-tech-specimen.png")
+document2.document.attach(io: file, filename: "doc2", content_type: 'image/png')
+document2.save
+puts "doc2 created"
+
+document3 = Document.new(
+  name: "carte grise",
+  car: car4)
+file = File.open("db/fixtures/carte-grise-specimen.png")
+document3.document.attach(io: file, filename: "doc3", content_type: 'image/png')
+document3.save
+puts "doc3 created"
 
 # ALERT CATEGORIES
 
@@ -495,6 +526,45 @@ alert12 = Alert.create!(
 puts "> alert 12 created"
 
 
+alert13 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.first,
+  due_date: Date.today-30.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 13 created"
+
+alert14 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.second,
+  due_date: Date.today+15.days,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 14 created"
+
+alert15 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.third,
+  due_date: Date.today+2.weeks,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 15 created"
+
+alert16 = Alert.create!(
+  car: Car.fourth,
+  alert_category: AlertCategory.fourth,
+  due_date: Date.today+2.weeks,
+  due_km: 125_000,
+  completed: false,
+  completed_at: nil
+)
+puts "> alert 16 created"
 # GARAGES
 
 puts "Seeding garages:"
