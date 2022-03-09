@@ -24,12 +24,21 @@
   border-bottom-left-radius: 0px;
   // width: 100%;
   height: 40px;
+  border: none;
+  background-color: $secondary-li;
 }
 
 .input-group {
   margin-bottom: 28px;
   margin-top: 12px;
   // display: inline;
+}
+
+.input-group .form-control {
+  background-color: $secondary-li;
+  border: none;
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 
 .btn-primary {
@@ -66,3 +75,7 @@
   padding: 0;
   height: 40px;
 }
+
+// .document-name .form-control {
+//   background-color: $secondary-li;
+// }
