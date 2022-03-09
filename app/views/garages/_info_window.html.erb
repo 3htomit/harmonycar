@@ -1,31 +1,33 @@
 <div class="d-flex flex-column map_popup">
-  <div class="d-flex flex-column">
-    <% if garage.photos.attached? %>
-      <%= cl_image_tag garage.photos.second.key, height: 100, width: 200, crop: :fill, class: " logo_map" %>
-    <% end %>
-
+  <%= link_to garage.web_address do%>
     <div class="d-flex flex-column">
-      <h2 class="map_popup_title"><%=garage.name%></h2>
+      <% if garage.photos.attached? %>
+        <%= cl_image_tag garage.photos.second.key, height: 100, width: 200, crop: :fill, class: " logo_map" %>
+      <% end %>
 
-      <div class="d-flex flex-row justify-content-between">
-        <% unless garage.services.first.nil?%>
-          <div class="map_popup_rtg_price d-flex flex-row">
-            <%unless params[:query].nil?%>
-              <%name = Service.find(params[:query]).name %>
-              <div><%=garage.services.where(name: name).first.price%></div>
-            <%else%>
-              <%=garage.services.first.price%>
-            <%end%>
-            <i class="fas fa-euro-sign"></i>
+      <div class="d-flex flex-column">
+        <h3 class="map_popup_title"><%=garage.name%></h3>
+
+        <div class="d-flex flex-row justify-content-between">
+          <% unless garage.services.first.nil?%>
+            <div class="map_popup_rtg_price d-flex flex-row">
+              <%unless params[:query].nil?%>
+                <%name = Service.find(params[:query]).name %>
+                <div><%=garage.services.where(name: name).first.price%></div>
+              <%else%>
+                <%=garage.services.first.price%>
+              <%end%>
+              <i class="fas fa-euro-sign"></i>
+            </div>
+          <%end%>
+
+          <div>
+            <div class="map_popup_rtg_price"><%= garage.average_rating%><i class="fas fa-star"></i></div>
           </div>
-        <%end%>
-
-        <div>
-          <div class="map_popup_rtg_price"><%= garage.average_rating%><i class="fas fa-star"></i></div>
         </div>
       </div>
     </div>
-  </div>
+  <%end%>
 
 
 </div>
