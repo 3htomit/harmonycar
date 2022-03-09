@@ -22,7 +22,7 @@
   <div data-display-map-target="content" class="garage_cards">
     <% @garages.each do |garage| %>
         <!-- card d'un garage -->
-        <div class="garage_card rounded-card ">
+        <div class="garage_card rounded-card card-shadow ">
 
           <!-- j'englobe les differentes sections photo, name/note et prix -->
           <div class ="garage_title align-items-center rounded-card-top d-flex flex-row ">
@@ -34,13 +34,15 @@
             </div>
 
             <div class="garage-info-contact w-100 d-flex flex-column">
-              <div class="p-2 garage_name">
+              <div class="garage_name">
                 <!-- a esayer https://www.google.com/maps/search/latitude,longitude-->
                 <strong ><%= link_to garage.name, garage.web_address, target: "_blank"%></strong>
               </div>
-              <div class ="d-flex flex-row justify-content-between">
-                <div class="garage_rating align-self-start"><i class=" fas fa-star"></i><%= garage.average_rating%></div>
-
+              <div class ="d-flex flex-row justify-content-between pt-2">
+                <div class="d-flex">
+                  <div class="rating-number"><i class=" fas fa-star"></i></div>
+                  <div class="rating-star"><%= garage.average_rating%></div>
+                </div>
                 <div class="service_price align-self-end d-flex flex-row">
                   <% if garage.services.first != nil%>
 
@@ -49,9 +51,9 @@
                       <%name = Service.find(params[:query]).name %>
                       <%=garage.services.where(name: name).first.price%>
                     <%else%>
-                      <%=garage.services.first.price%>
+                      <strong> <%=garage.services.first.price%></p></strong>
                     <%end%>
-                      <div><i class=" icone fas fa-euro-sign"></i></div>
+                      <div><i class="icone fas fa-euro-sign"></i></div>
                   <%end%>
                 </div>
               </div>
