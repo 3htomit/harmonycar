@@ -9,7 +9,7 @@ Specification.destroy_all
 Car.destroy_all
 Service.destroy_all
 Garage.destroy_all
-
+Document.destroy_all
 
 # USERS
 
@@ -342,6 +342,31 @@ puts "> car 2 created"
 car3 = Car.create(number_plate: "GF-220-HR", mileage: 10_000, user: user2, specification: spec6)
 puts "> car 3 created"
 car4 = Car.create(number_plate: "LW-997-NT", mileage: 45_000, user: user4, specification: spec15)
+
+
+document1 = Document.new(
+  name: "facture",
+  car: car4)
+file = File.open("db/fixtures/facture-specimen.png")
+document1.document.attach(io: file, filename: "doc1", content_type: 'image/png')
+document1.save
+puts "doc1 created"
+
+document2 = Document.new(
+  name: "contrôle technique",
+  car: car4)
+file = File.open("db/fixtures/controle-tech-specimen.png")
+document2.document.attach(io: file, filename: "doc2", content_type: 'image/png')
+document2.save
+puts "doc2 created"
+
+document3 = Document.new(
+  name: "carte grise",
+  car: car4)
+file = File.open("db/fixtures/carte-grise-specimen.png")
+document3.document.attach(io: file, filename: "doc3", content_type: 'image/png')
+document3.save
+puts "doc3 created"
 
 # ALERT CATEGORIES
 
