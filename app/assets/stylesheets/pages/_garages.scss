@@ -57,10 +57,10 @@
   flex-direction: column;
   align-items: flex-start;
   width: 350px;
-  height: 680px;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 120px;
 }
 
 .garage_card {
@@ -75,7 +75,7 @@
 }
 
 .garage_info {
-  color: $white;
+  // color: $white;
   background-color: $secondary;
   display: flex;
   flex-direction: row;
@@ -88,15 +88,20 @@
   align-items: center;
   text-align: center;
   width: 50%;
+  padding: 0 5px;
   border-right: 1px solid white;
+  a {
+    color: $white;
+  }
 }
 
 .fa-map-marker-alt{
   margin-left: 8px;
 }
 
-.garage-contact {
+.garage_contact {
   width: 50%;
+  color: $white;
 }
 
 .garage_title {
@@ -142,10 +147,6 @@
     border: inherit;
     font-size: inherit;
   }
-  font-size: 12px !important;
-  color: white;
-  // width: 150px;
-  // border-right: 1px solid white;
 }
 .euros {
   padding-left: 5px;
@@ -182,6 +183,8 @@
   position: absolute;
   top: 160px;
   z-index: -10;
+  width: 100vw;
+  height: calc(100vh - 230px);
 }
 
 .fantom{
