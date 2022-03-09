@@ -4,14 +4,15 @@
     <div class="form-search">
       <%= form_with url: new_car_path, method: :get, html: {
         data: { search_car_target: 'form' } } do |f| %>
-
-        <%= f.text_field :query,
-                        class: "form-control",
-                        placeholder: 'Marque, modèle, année, moteur...',
-                        value: params[:query],
-                        data: { search_car_target: 'input',
-                                action:'keyup->search-car#update' } %>
-        <i class="fas fa-search"></i>
+        <div class="input-group">
+            <%= f.text_field :query,
+                            class: "form-control",
+                            placeholder: 'Marque, modèle, année, moteur...',
+                            value: params[:query],
+                            data: { search_car_target: 'input',
+                                    action:'keyup->search-car#update' } %>
+          <span class="input-group-text pop-up-icon-search"><i class="fas fa-search pop-up-icon"></i></span>
+        </div>
       <% end %>
     </div>
   </div>
