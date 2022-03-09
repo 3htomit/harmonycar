@@ -1,26 +1,31 @@
 <div class="d-flex flex-column map_popup">
-  <div class="d-flex flex-row justify-content-between">
-    <% if garage.photo.attached? %>
-      <%= cl_image_tag garage.photo.key, height: 60, width: 60, crop: :fill, class: " logo_map" %>
+  <div class="d-flex flex-column">
+    <% if garage.photos.attached? %>
+      <%= cl_image_tag garage.photos.second.key, height: 100, width: 200, crop: :fill, class: " logo_map" %>
     <% end %>
 
-    <div class="align-self-start map_price d-flex flex-column justify-content-end">
-      <% if garage.services.first != nil%>
-        <p class="map_popup_rtg_price">
-          <%if params[:query] != nil%>
-            <%name = Service.find(params[:query]).name %>
-            <%=garage.services.where(name: name).first.price%>
-          <%else%>
-            <%=garage.services.first.price%>
-          <%end%>
-          <i class="fas fa-euro-sign"></i>
-        </p>
-      <%end%>
-      <div>
-        <p class="map_popup_rtg_price"><%= garage.average_rating%><i class="fas fa-star"></i></p>
+    <div class="d-flex flex-column">
+      <h2 class="map_popup_title"><%=garage.name%></h2>
+
+      <div class="d-flex flex-row justify-content-between">
+        <% unless garage.services.first.nil?%>
+          <div class="map_popup_rtg_price d-flex flex-row">
+            <%unless params[:query].nil?%>
+              <%name = Service.find(params[:query]).name %>
+              <div><%=garage.services.where(name: name).first.price%></div>
+            <%else%>
+              <%=garage.services.first.price%>
+            <%end%>
+            <i class="fas fa-euro-sign"></i>
+          </div>
+        <%end%>
+
+        <div>
+          <div class="map_popup_rtg_price"><%= garage.average_rating%><i class="fas fa-star"></i></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <h2 class="map_popup_title"><%=garage.name%></h2>
+
 </div>

@@ -5,6 +5,10 @@
   border-radius: 10px;
 }
 
+.mapboxgl-popup-close-button {
+  display: none;
+}
+
 .mapboxgl-popup-content {
 
   font-family: Montserrat;
@@ -25,18 +29,19 @@
 
 .logo_map {
   // box-shadow: 1px 1px 1px grey;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .map_popup_title {
-  margin: auto;
+  // margin: auto;
   text-align: left;
   font-weight: bold;
 }
 
 .map_popup_rtg_price {
-  text-align: right;
-  font-weight: bold;
-  padding-bottom: 8px;
-  margin: auto auto 0 auto;
+  font-size: 15px;
+  margin-top: 5px;
+  // margin: auto auto 0 auto;
 
 }
