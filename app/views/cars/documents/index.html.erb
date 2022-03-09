@@ -35,7 +35,7 @@
       <div class="modal-body">
 <%= simple_form_for([@car, @document]) do |f| %>
   <%= f.input :name, as: :string, label: "Nom du document" %>
-  <%= f.input :document, as: :file %>
+  <%= f.input :document, as: :file, placeholder: "fichier"%>
   <%= f.submit "Ajouter", class: "btn btn-primary"%>
 <% end %>
 

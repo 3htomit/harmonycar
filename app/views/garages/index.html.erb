@@ -63,9 +63,9 @@
           <div class="garage_info rounded-card-bottom">
             <div class="full_garage_address">
              <i class="fas fa-map-marker-alt"></i>
-             <em class ="garage_address">
+             <p class ="garage_address">
                <%= link_to garage.address.gsub(",", ""), "https://www.google.com/maps/search/#{garage.latitude},#{garage.longitude}", target: "_blank" %>
-             </em>
+             </p>
             </div>
             <div class="garage_contact">
               <div><%=garage.telephone%></div>
