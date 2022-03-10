@@ -39,10 +39,19 @@
                 <p><strong ><%= link_to garage.name, garage.web_address, target: "_blank"%></strong></p>
               </div>
               <div class ="d-flex flex-row justify-content-between align-items-center pt-2">
-                <div class="d-flex txt-info">
-                  <div class="rating-number"><i class=" fas fa-star"></i></div>
-                  <div class="rating-star"><%= garage.average_rating%></div>
+
+              <!-- metre le controller js ici -->
+                <div class="d-flex txt-info"data-controller="rating-stars-number" >
+                  <div class="rating-number">
+                    <span class = "display-none" data-rating-stars-number-target="ratingOne"><i class=" fas fa-star"></i></span>
+                    <span class = "display-none" data-rating-stars-number-target="ratingTwo"><i class=" fas fa-star"></i></span>
+                    <span class = "display-none" data-rating-stars-number-target="ratingThree"><i class=" fas fa-star"></i></span>
+                    <span class = "display-none" data-rating-stars-number-target="ratingFour"><i class=" fas fa-star"></i></span>
+                    <span class = "display-none" data-rating-stars-number-target="ratingFive"><i class=" fas fa-star"></i></span>
+                  </div> <!--data action dans la div créé les span ici-->
+                  <div class="rating-star" data-rating-stars-number-target="rating"><%= garage.average_rating%></div> <!-- target dans la div -->
                 </div>
+
                 <div class="service_price align-self-end d-flex flex-row">
                   <% if garage.services.first != nil%>
 
