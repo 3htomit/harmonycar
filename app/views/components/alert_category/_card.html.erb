@@ -1,44 +1,57 @@
 <div class="alert-card rounded-card card-shadow">
-  <div class="d-flex">
-    <div class="d-flex alert-icon">
+  <div class="d-flex title-alert">
+    <div class="alert-icon">
       <% if alert.due_date %>
         <% if alert.due_date <= Date.today %>
           <i class="fas fa-exclamation-triangle red-icon alert-icon-border-radius"></i>
-          <i class="fas fa-clock red-clock"></i>
+
         <% elsif alert.due_date <= Date.today + alert.alert_category.max_weeks.week %>
           <i class="fas fa-info-circle yellow-icon alert-icon-border-radius"></i>
-          <i class="fas fa-clock yellow-clock"></i>
+
         <% else %>
-          <i class="fas fa-info-circle green-icon alert-icon-border-radius"></i>
-          <i class="fas fa-clock green-clock"></i>
+          <i class="fas fa-check-circle green-icon alert-icon-border-radius"></i>
+
         <% end %>
       <% else %>
           <div class="empty-alert"></div>
       <% end %>
     </div>
+      <div class="clock-title">
+        <h3 class="alert-icon-title"><%= alert.alert_category.name %></h3>
     <div class="d-flex clock-date">
-      <h3 class="alert-icon-title"><%= alert.alert_category.name %></h3>
       <% if alert.due_date %>
         <% if alert.due_date <= Date.today %>
+          <div  class="d-flex due_date">
+          <i class="fas fa-clock red-clock mr-2"></i>
           <p class="red-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          </div>
         <% elsif alert.due_date <= Date.today+alert.alert_category.max_weeks.week %>
+          <div  class="d-flex due_date">
+          <i class="fas fa-clock yellow-clock mr-2"></i>
           <p class="yellow-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          </div>
         <% else %>
+          <div  class="d-flex due_date">
+          <i class="fas fa-clock green-clock mr-2"></i>
           <p class="green-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+          </div>
         <% end %>
       <% else %>
         <p class="nil-date"><strong><%= Date.today.strftime("%d/%m/%Y") %></strong></p>
       <% end %>
-      <p class="txt-info alert-info"><%= alert.alert_category.description %></p>
-      <div class="d-flex alert-links">
-
-          <!-- récupération des objets service qui match avec le nom de l'alert -->
-          <% service = Service.where("name ILIKE ?", "%#{alert.alert_category.name.downcase}%").first%>
-
-          <!-- envoi de l'id du premier service qui match avec le nom  -->
-          <%= link_to "Prendre RDV", garages_path(:query => service.id), class: "button-alert-rdv"  %>
-          <%= render 'components/alert_category/pop_up', alert: alert %>
-      </div>
     </div>
+      </div>
   </div>
+      <div class="centered-info">
+        <p class="txt-info alert-info"><%= alert.alert_category.description %></p>
+        <div class="d-flex alert-links">
+
+            <!-- récupération des objets service qui match avec le nom de l'alert -->
+            <% service = Service.where("name ILIKE ?", "%#{alert.alert_category.name.downcase}%").first%>
+
+            <!-- envoi de l'id du premier service qui match avec le nom  -->
+            <%= link_to "Prendre RDV", garages_path(:query => service.id), class: "button-alert-rdv"  %>
+            <%= render 'components/alert_category/pop_up', alert: alert %>
+        </div>
+      </div>
 </div>
