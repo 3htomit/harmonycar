@@ -7,8 +7,31 @@
   </div>
   <div>
     <% @alerts.each do |alert| %>
-    <!-- show all alerts -->
-      <%= render 'components/alert_category/card', alert: alert %>
+      <% if alert.due_date %>
+        <% if alert.due_date <= Date.today %>
+          <% @red_alerts.push(alert) %>
+        <% end %>
+
+        <% if alert.due_date <= Date.today + alert.alert_category.max_weeks.week && alert.due_date > Date.today %>
+          <% @yellow_alerts.push(alert) %>
+        <% end %>
+
+        <% if alert.due_date >= Date.today + alert.alert_category.max_weeks.week  %>
+          <% @green_alerts.push(alert) %>
+        <% end %>
+
+      <% else %>
+        <%= render 'components/alert_category/nil_due_date_alert', alert: alert %>
+      <% end %>
     <% end %>
+      <% @red_alerts.each do |alert| %>
+        <%= render 'components/alert_category/red_alert', alert: alert %>
+      <% end %>
+      <% @yellow_alerts.each do |alert| %>
+        <%= render 'components/alert_category/yellow_alert', alert: alert %>
+      <% end %>
+      <% @green_alerts.each do |alert| %>
+        <%= render 'components/alert_category/green_alert', alert: alert %>
+      <% end %>
+
   </div>
-</div>
