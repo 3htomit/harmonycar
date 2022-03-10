@@ -4,32 +4,15 @@
   padding: 58px 28px;
   text-align: center;
   margin: 50px 24px 0px 24px;
-  height: 600px;
+  height: 570px;
 }
 
-.images-intro {
-  width: 260px;
-  height: 210px;
+.image-intro {
+  width: 300px;
+  height: 220px;
+  padding-bottom: 20px;
 }
 
-.carousel-caption {
-  position: sticky;
-}
-
-.carousel-inner {
-  height: 350px;
-}
-
-.font-awesome-icon-left {
-  font-size: 40px;
-  color: $secondary;
-  margin-bottom: 100px;
-  margin-right: 40px;
-}
-
-.font-awesome-icon-right {
-  font-size: 40px;
-  color: $secondary;
-  margin-bottom: 100px;
-  margin-left: 40px;
+.intro {
+  padding-bottom: 20px;
 }
