@@ -74,13 +74,23 @@ padding: 8px;
   background-color: $white;
 }
 
+.grey-icon {
+  background-color: grey;
+  color: $white;
+  margin-left: 0px;
+  padding: 10px;
+  font-size: 24px;
+  height: 70px;
+  width: 50px;
+}
+
 .red-icon {
   background-color: $red;
   color: $white;
   margin-left: 0px;
   padding: 10px;
   font-size: 24px;
-  height: 60px;
+  height: 70px;
   width: 50px;
 }
 
@@ -90,7 +100,7 @@ padding: 8px;
   margin-left: 0px;
   padding: 12px;
   font-size: 24px;
-  height: 60px;
+  height: 70px;
   width: 50px;
 }
 
@@ -100,7 +110,7 @@ padding: 8px;
   margin-left: 0px;
   padding: 12px;
   font-size: 24px;
-  height: 60px;
+  height: 70px;
   width: 50px;
 }
 
@@ -122,15 +132,21 @@ padding: 8px;
   padding-top: 10px;
 }
 
+.grey-clock {
+  color: grey;
+  font-size: 18px;
+  padding-top: 10px;
+}
+
 .red-date {
   font-size: 16px;
   color: $red-li;
   margin-top: 12px;
 }
 
-.nil-date {
+.grey-date {
   font-size: 16px;
-  color: $primary;
+  color: grey;
   margin-top: 12px;
 }
 
@@ -183,4 +199,12 @@ padding: 8px;
   width: 200px;
   height: 20px;
 margin-top: 2px;
+}
+
+.due_date-grey {
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 20px;
+  margin-top: 2px;
 }

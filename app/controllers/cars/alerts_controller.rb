@@ -5,6 +5,9 @@ class Cars::AlertsController < ApplicationController
     @car = Car.find(params[:car_id])
     @alerts = @car.alerts
     @alerts = @alerts.order(due_date: :asc)
+    @red_alerts = Array.new
+    @yellow_alerts = Array.new
+    @green_alerts = Array.new
   end
 
   def edit
