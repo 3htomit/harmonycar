@@ -4,10 +4,6 @@ import Rails from "@rails/ujs"
 export default class extends Controller {
   static targets = [ "content", "map", "btnlist", "btnmap"]
 
-  connect(){
-
-    console.log(this.btnmapTarget);
-  }
 
   disable() {
     console.log(this.btnlistTarget);
@@ -20,7 +16,6 @@ export default class extends Controller {
   garageChoice(event) {
     event.preventDefault();
 
-    console.log(this.element)
     this.element.submit();
   }
 
