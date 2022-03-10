@@ -4,7 +4,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.hosts << "ordinary-lizard-80.loca.lt"
+  config.hosts << "horrible-dragonfly-36.loca.lt"
   # Used for localtunnel, to be changed each time I run a new lt CLI
 
   # In the development environment your application's code is reloaded any time
