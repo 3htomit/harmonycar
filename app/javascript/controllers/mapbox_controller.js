@@ -33,7 +33,7 @@ export default class extends Controller {
       const customMarker = document.createElement("i")
 
       customMarker.className = "fa-2x fas fa-map-pin"
-      customMarker.style.color = "#BB853A"
+      customMarker.style.color = "#294C65"
 
 
       new mapboxgl.Marker(customMarker)
