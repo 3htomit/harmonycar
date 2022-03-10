@@ -5,11 +5,13 @@ export default class extends Controller {
   static targets = [ "content", "map", "btnlist", "btnmap"]
 
   connect(){
-    // console.log(this.choiceTarget.children);
-    // console.log(this.serviceSearchTarget.children.query.value);
+    console.log("salut")
+
+    console.log(this.btnmapTarget);
   }
 
   disable() {
+    console.log(this.btnlistTarget);
     this.contentTarget.classList.toggle("display-none")
     this.mapTarget.classList.toggle("hidden")
     this.btnlistTarget.classList.toggle("display-none")
