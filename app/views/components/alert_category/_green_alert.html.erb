@@ -1,0 +1,27 @@
+
+    <div class="alert-card rounded-card card-shadow">
+      <div class="d-flex title-alert">
+        <div class="alert-icon">
+          <i class="fas fa-check-circle green-icon alert-icon-border-radius"></i>
+        </div>
+        <div class="clock-title">
+          <h3 class="alert-icon-title"><%= alert.alert_category.name %></h3>
+          <div class="d-flex clock-date">
+            <div  class="d-flex due_date">
+              <i class="fas fa-clock green-clock mr-2"></i>
+              <p class="green-date"><strong>Avant le : <%= alert.due_date = alert.due_date.strftime("%d/%m/%Y") %></strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="centered-info">
+        <p class="txt-info alert-info"><%= alert.alert_category.description %></p>
+        <div class="d-flex alert-links">
+            <!-- récupération des objets service qui match avec le nom de l'alert -->
+            <% service = Service.where("name ILIKE ?", "%#{alert.alert_category.name.downcase}%").first%>
+            <!-- envoi de l'id du premier service qui match avec le nom  -->
+            <%= link_to "Prendre RDV", garages_path(:query => service.id), class: "button-alert-rdv"  %>
+            <%= render 'components/alert_category/pop_up', alert: alert %>
+        </div>
+      </div>
+    </div>

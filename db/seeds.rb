@@ -726,7 +726,7 @@ puts "Seeding 'contrôle technique':"
 
 service = Service.new(
   name: "Contrôle technique",
-  price: 250,
+  price: 81,
   garage: Garage.first
 )
 service.save!
@@ -734,7 +734,7 @@ puts "> service 1 created"
 
 service = Service.new(
   name: "Contrôle technique",
-  price: 250,
+  price: 83,
   garage: Garage.second
 )
 service.save!
@@ -742,7 +742,7 @@ puts "> service 2 created"
 
 service = Service.new(
   name: "Contrôle technique",
-  price: 250,
+  price: 79,
   garage: Garage.third
 )
 service.save!
@@ -752,7 +752,7 @@ puts "Seeding 'Entretien':"
 
 service = Service.new(
   name: "Entretien",
-  price: 120,
+  price: 39.29,
   garage: Garage.first
 )
 service.save!
@@ -760,7 +760,7 @@ puts "> service 1 created"
 
 service = Service.new(
   name: "Entretien",
-  price: 80,
+  price: 47.55,
   garage: Garage.second
 )
 service.save!
@@ -768,7 +768,7 @@ puts "> service 2 created"
 
 service = Service.new(
   name: "Entretien",
-  price: 110,
+  price: 49.29,
   garage: Garage.third
 )
 service.save!
@@ -776,7 +776,7 @@ puts "> service 3 created"
 
 service = Service.new(
   name: "Entretien",
-  price: 120,
+  price: 50.08,
   garage: Garage.fourth
 )
 service.save!
@@ -784,7 +784,7 @@ puts "> service 4 created"
 
 service = Service.new(
   name: "Entretien",
-  price: 115,
+  price: 29.95,
   garage: Garage.fifth
 )
 service.save!
@@ -794,7 +794,7 @@ puts "Seeding 'Vérification des pneus':"
 
 service = Service.new(
   name: "Vérification des pneus",
-  price: 49.99,
+  price: 19.99,
   garage: Garage.find_by(name: "Garage de L'Abbaye")
 )
 service.save!
@@ -802,7 +802,7 @@ puts "> service 1 created"
 
 service = Service.new(
   name: "Vérification des pneus",
-  price: 49.99,
+  price: 12.38,
   garage: Garage.find_by(name: "Speedy Nantes la Durantière")
 )
 service.save!
@@ -810,7 +810,7 @@ puts "> service 2 created"
 
 service = Service.new(
   name: "Vérification des pneus",
-  price: 49.99,
+  price: 18.49,
   garage: Garage.last
 )
 service.save!
@@ -820,7 +820,7 @@ puts "Seeding 'Vérification des niveaux':"
 
 service = Service.new(
   name: "Vérification des niveaux",
-  price: 49.99,
+  price: 13.98,
   garage: Garage.find_by(name: "Garage Laennec")
 )
 service.save!
@@ -828,7 +828,7 @@ puts "> service 1 created"
 
 service = Service.new(
   name: "Vérification des niveaux",
-  price: 49.99,
+  price: 14.69,
   garage: Garage.find_by(name: "Speedy Nantes la Durantière")
 )
 service.save!
@@ -836,7 +836,7 @@ puts "> service 2 created"
 
 service = Service.new(
   name: "Vérification des niveaux",
-  price: 49.99,
+  price: 17.25,
   garage: Garage.find_by(name: "Garage Saint Felix")
 )
 service.save!

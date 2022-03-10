@@ -1,5 +1,5 @@
 <div type="button" data-bs-toggle="modal" data-bs-target="#carDelete" class="button-outline">
-  <p>Supprimer votre véhicule</p>
+  <p>Retirer votre véhicule</p>
 </div>
 
 <!-- Modal -->
@@ -7,15 +7,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="carDeleteLabel">Supprimer votre véhicule</h2>
+        <h2 class="modal-title" id="carDeleteLabel">Retirer votre véhicule</h2>
       </div>
       <div class="modal-body">
         <p>
-          Voulez-vous vraiment supprimer votre <strong><%= car.specification.make %> <%= car.specification.model %></strong> ?
+          Voulez-vous vraiment retirer votre <strong><%= car.specification.make %> <%= car.specification.model %></strong> ?
         </p>
       </div>
       <div class="modal-footer">
-          <%= link_to "Supprimer",
+          <%= link_to "Retirer",
             car_path(params[:id]),
             method: :delete,
             class: "button-outline"
