@@ -43,11 +43,16 @@
               <!-- affichage des étoile en fonction de la note -->
                 <div class="d-flex txt-info" >
                   <div class=" d-flex align-items-center">
-                    <% stars_plein = garage.average_rating.round(0) %>
+                    <% stars_plein = garage.average_rating.to_i %>
                     <% stars_vide = 5 - stars_plein%>
 
                       <% stars_plein.to_i.times do %>
                         <i class=" fas fa-star"></i>
+                      <%end%>
+
+                      <% if garage.average_rating >= (stars_plein + 0.5)%>
+                        <i class="fas fa-star-half-alt"></i>
+                        <%stars_vide-=1%>
                       <%end%>
 
                       <% stars_vide.to_i.times do %>
