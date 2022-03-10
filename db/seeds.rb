@@ -795,7 +795,7 @@ puts "Seeding 'Vérification des pneus':"
 service = Service.new(
   name: "Vérification des pneus",
   price: 49.99,
-  garage: Garage.find_by(name: "garage de L'Abbaye")
+  garage: Garage.find_by(name: "Garage de L'Abbaye")
 )
 service.save!
 puts "> service 1 created"
